@@ -1,17 +1,11 @@
 /* opcion de colocar clases en hermanos de form para hacerlo mas legible horizontalmente aunque sacrificando la legibilidad del html */
 
-.title {
-	color: var(--colorPrimaryTwo);
-	text-align: center;
-	margin-top: 50px;
-	margin-bottom: 50px;
-}
-
 .form {
 	width: 90%;
 	max-width: 300px;
 	margin-left: auto;
 	margin-right: auto;
+	margin-bottom: 50px;
 	border-radius: 5px;
 	height: 250px;
 	display: flex;

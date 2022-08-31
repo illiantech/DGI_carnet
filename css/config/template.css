@@ -12,6 +12,23 @@
 	--colorSecondary: hsl(357, 71%, 44%);
 }
 
+/* titles */
+
+h1,
+h2 {
+	margin-top: 50px;
+	margin-bottom: 50px;
+	color: var(--colorPrimaryTwo);
+	text-align: center;
+}
+
+h1,
+h2,
+h3,
+h4 {
+	color: var(--colorPrimaryTwo);
+}
+
 /* form */
 
 label {
