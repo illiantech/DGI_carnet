@@ -5,30 +5,34 @@
 .user {
 	margin-left: auto;
 	margin-right: auto;
+	margin-bottom: 30px;
+	background-image: linear-gradient(to bottom, hsl(0, 0%, 97%) 60%, var(--colorPrimary) 800%);
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	width: 80%;
-	max-width: 600px;
-	border: 3px solid var(--colorPrimary);
-	border-radius: 5px;
-	overflow: hidden;
+	max-width: 300px;
+	box-shadow: var(--shadowGeneral);
+	border-radius: 20px;
+	position: relative;
+	cursor: pointer;
 }
 
 .user > h3 {
-	width: 95%;
+	width: 80%;
 	margin-top: 30px;
 	margin-bottom: 5px;
 }
 
-.user > p {
+.user > p,
+.user > div:first-of-type {
 	margin-top: 0;
 	margin-bottom: 0;
-	width: 95%;
+	width: 80%;
 	position: relative;
 }
 
-.user > p:last-child {
+.user > div:first-of-type {
 	margin-bottom: 30px;
 }
 
@@ -39,12 +43,11 @@
 		margin-right: auto;
 		margin-bottom: 20px;
 		display: flex;
-		justify-content: space-evenly;
 	}
 
 	.user-propertys > h3 {
-		width: 10%;
 		text-align: center;
+		width: 100%;
 	}
 
 	.user {
@@ -52,21 +55,26 @@
 		height: 100px;
 		max-width: 1300px;
 		flex-direction: row;
-		justify-content: space-evenly;
+		top: 0;
+		transition: top 0.2s;
 	}
 
-	.user p {
-		display: flex;
-		justify-content: center;
-		width: 10%;
-		/* word-break: break-all; */
-	}
-
-	.user > p:last-child {
-		margin-bottom: 0px;
+	.user:hover {
+		top: -10px;
 	}
 
 	.user > h3 {
 		display: none;
+	}
+
+	.user > p,
+	.user > div:first-of-type {
+		display: flex;
+		justify-content: center;
+		width: 100%;
+	}
+
+	.user > div:first-of-type {
+		margin-bottom: 0px;
 	}
 }
