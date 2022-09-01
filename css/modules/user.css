@@ -6,7 +6,7 @@
 	margin-left: auto;
 	margin-right: auto;
 	margin-bottom: 30px;
-	background-image: linear-gradient(to bottom, hsl(0, 0%, 97%) 60%, var(--colorPrimary) 800%);
+	background-image: var(--GrdGeneral);
 	display: flex;
 	flex-direction: column;
 	align-items: center;

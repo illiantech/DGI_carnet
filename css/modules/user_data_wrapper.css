@@ -1,0 +1,52 @@
+.user--data-wrapper {
+	display: none;
+}
+
+@media (min-width: 1000px) {
+	.user--data-wrapper {
+		--widthWrapper: 750px;
+		--heightWrapper: 175px;
+		--secondRow: calc(var(--heightWrapper) / 1.3333);
+		width: var(--widthWrapper);
+		height: var(--heightWrapper);
+		background-image: var(--GrdGeneral);
+		box-shadow: var(--shadowGeneral);
+		border-radius: 20px;
+		position: absolute;
+		left: 50px;
+		top: -150px;
+		display: grid;
+		grid-template-columns: repeat(3, calc(var(--widthWrapper) / 3));
+		grid-template-rows: calc(var(--heightWrapper) / 4) var(--secondRow);
+		cursor: initial;
+		opacity: 0;
+		transition: opacity 0.2s 1s;
+	}
+
+	.user:hover .user--data-wrapper {
+		opacity: 1;
+	}
+
+	.user--data-wrapper::before {
+		content: '';
+		position: absolute;
+		top: calc(25% + var(--secondRow) / 2 - ((var(--heightWrapper) / 2) / 2));
+		left: calc(var(--widthWrapper) / 3);
+		width: 2px;
+		height: calc(var(--heightWrapper) / 2);
+		background-color: var(--colorSecondary);
+		box-shadow: calc((var(--widthWrapper) / 1.5) / 2) 0 var(--colorSecondary);
+	}
+
+	.user--data-wrapper > h3 {
+		text-align: center;
+	}
+
+	.user--data-wrapper > p {
+		width: calc(var(--widthWrapper) / 3.5);
+		display: grid;
+		place-content: center;
+		position: relative;
+		left: calc(50% - ((var(--widthWrapper) / 3.5) / 2));
+	}
+}

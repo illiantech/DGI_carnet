@@ -1,4 +1,4 @@
-/* opcion de colocar clases en hermanos de form para hacerlo mas legible horizontalmente aunque sacrificando la legibilidad del html */
+/* opcion de colocar clases en hijos de form para hacerlo mas legible horizontalmente aunque sacrificando la legibilidad del html */
 
 .form {
 	width: 90%;
