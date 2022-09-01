@@ -98,6 +98,9 @@ const dataTable = (users) => {
 		const fecha = $crE('p');
 		fecha.textContent = user.fecha;
 
+		const titleCheck = $crE('h3');
+		titleCheck.textContent = 'Entregado';
+
 		const containerCheck = $crE('div');
 
 		const check = $crE('div');
@@ -130,7 +133,7 @@ const dataTable = (users) => {
 
 		dataWrapper.append(titleCargo, titleDependencia, titleDescripcion, cargo, dependencia, descripcion);
 
-		containerUser.append(titleCedula, cedula, titleNombre, nombre, titleId, id, titleFecha, fecha, containerCheck, dataWrapper);
+		containerUser.append(titleCedula, cedula, titleNombre, nombre, titleId, id, titleFecha, fecha, titleCheck, containerCheck, dataWrapper);
 
 		Users.append(containerUser);
 	});
