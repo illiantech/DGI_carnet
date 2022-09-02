@@ -1,4 +1,4 @@
-const users = [
+export const data = [
 	{
 		cedula: 28262997,
 		Nombre: 'daniel',
@@ -7,7 +7,7 @@ const users = [
 		entregado: true,
 		Cargo: 'develoment web',
 		Dependencia: 'familiar',
-		descripcion: 'texto de ejemplo'
+		descripcion: 'texto de ejemplotexto de ejemplotexto de ejemplotexto de ejemplotexto de ejemplotexto texto de ejemplotexto de ejemplo'
 	},
 	{
 		cedula: 28234437,
@@ -15,6 +15,26 @@ const users = [
 		id: 1,
 		fecha: '30-10-2022',
 		entregado: false,
+		Cargo: 'administrador',
+		Dependencia: 'independiente',
+		descripcion: 'segundo texto de ejemplo'
+	},
+	{
+		cedula: 28234437,
+		Nombre: 'karol',
+		id: 1,
+		fecha: '30-10-2022',
+		entregado: true,
+		Cargo: 'administrador',
+		Dependencia: 'independiente',
+		descripcion: 'segundo texto de ejemplo'
+	},
+	{
+		cedula: 28234437,
+		Nombre: 'karol',
+		id: 1,
+		fecha: '30-10-2022',
+		entregado: true,
 		Cargo: 'administrador',
 		Dependencia: 'independiente',
 		descripcion: 'segundo texto de ejemplo'
@@ -34,43 +54,27 @@ const users = [
 		Nombre: 'karol',
 		id: 1,
 		fecha: '30-10-2022',
-		entregado: false,
-		Cargo: 'administrador',
-		Dependencia: 'independiente',
-		descripcion: 'segundo texto de ejemplo'
-	},
-	{
-		cedula: 28234437,
-		Nombre: 'karol',
-		id: 1,
-		fecha: '30-10-2022',
-		entregado: false,
-		Cargo: 'administrador',
-		Dependencia: 'independiente',
-		descripcion: 'segundo texto de ejemplo'
-	},
-	{
-		cedula: 28234437,
-		Nombre: 'karol',
-		id: 1,
-		fecha: '30-10-2022',
-		entregado: false,
+		entregado: true,
 		Cargo: 'administrador',
 		Dependencia: 'independiente',
 		descripcion: 'segundo texto de ejemplo'
 	}
 ];
 
-// Funcion que genera de manera mas legible elementos
+// container user
 
-const $crE = (element) => document.createElement(element);
+export const users = document.getElementById('users');
 
 // funcion que generea dinamicamente los elementos de la lista de usuarios
 
-const dataTable = (users) => {
-	const Users = document.getElementById('Users');
+export default function dataTable(data) {
+	// Funcion que genera de manera mas legible elementos
 
-	users.forEach((user) => {
+	const $crE = (element) => document.createElement(element);
+
+	users.innerHTML = '';
+
+	data.forEach((user) => {
 		const containerUser = $crE('div');
 		containerUser.classList.add('user');
 
@@ -106,7 +110,7 @@ const dataTable = (users) => {
 		const check = $crE('div');
 		check.classList.add('user--check');
 		check.setAttribute('title', 'boton');
-		check.setAttribute('data-check', user.entregado);
+		check.classList.toggle('user--check__active', user.entregado);
 
 		containerCheck.append(check);
 
@@ -131,12 +135,10 @@ const dataTable = (users) => {
 		const descripcion = $crE('p');
 		descripcion.textContent = user.descripcion;
 
-		dataWrapper.append(titleCargo, titleDependencia, titleDescripcion, cargo, dependencia, descripcion);
+		dataWrapper.append(titleCargo, cargo, titleDependencia, dependencia, titleDescripcion, descripcion);
 
 		containerUser.append(titleCedula, cedula, titleNombre, nombre, titleId, id, titleFecha, fecha, titleCheck, containerCheck, dataWrapper);
 
-		Users.append(containerUser);
+		users.append(containerUser);
 	});
-};
-
-dataTable(users);
+}

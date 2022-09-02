@@ -16,15 +16,15 @@
 		<!-- las personas de la base de datos a la que llama la aplicacion  son personas que se haran el carnet y las que yo imprimire son las que ya se hicieron-->
 
 		<h1>Registro de carnetización</h1>
-		<form class="form">
+		<form class="form" id="form">
 			<div class="form-container">
-				<label for="dateTime">Fecha:</label>
-				<input type="date" name="" id="dateTime" />
-
 				<label for="ci">Cedula:</label>
 				<input type="number" name="" id="ci" />
 
-				<button>Buscar</button>
+				<label for="dateTime">Fecha:</label>
+				<input type="date" name="" id="dateTime" />
+
+				<button title="Boton">Buscar</button>
 			</div>
 		</form>
 
@@ -36,9 +36,8 @@
 			<h3>Entregado</h3>
 		</div>
 
-		<div id="Users"></div>
+		<div id="users"></div>
 
-		<script src="js/scripts.js"></script>
-		<script src="js/data_table.js"></script>
+		<script src="js/call_API.js" type="module"></script>
 	</body>
 </html>

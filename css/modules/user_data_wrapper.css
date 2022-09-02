@@ -1,5 +1,49 @@
 .user--data-wrapper {
-	display: none;
+	--widthWrapper: 200px;
+	--heightWrapper: 495px;
+
+	width: var(--widthWrapper);
+	height: var(--heightWrapper);
+	background-image: var(--GrdGeneral);
+	box-shadow: var(--shadowGeneral);
+	border-radius: 20px;
+	position: absolute;
+	left: 100px;
+	top: -150px;
+	display: grid;
+	grid-template-rows:
+		calc(var(--heightWrapper) / 16.5) calc(var(--heightWrapper) / 3.6666) calc(var(--heightWrapper) / 16.5) calc(var(--heightWrapper) / 3.6666)
+		calc(var(--heightWrapper) / 16.5) calc(var(--heightWrapper) / 3.6666);
+	cursor: initial;
+	opacity: 0;
+	transition: opacity 0.2s 1s;
+}
+
+.user--data-wrapper::before {
+	content: '';
+	position: absolute;
+	top: calc(var(--heightWrapper) / 3);
+	left: calc(50% - (var(--widthWrapper) / 2) / 2);
+	width: calc(var(--widthWrapper) / 2);
+	height: 2px;
+	background-color: var(--colorSecondary);
+	box-shadow: 0 calc((var(--heightWrapper) / 1.5) / 2) var(--colorSecondary);
+}
+
+.user:hover .user--data-wrapper {
+	opacity: 1;
+}
+
+.user--data-wrapper > h3 {
+	text-align: center;
+}
+
+.user--data-wrapper > p {
+	width: calc(var(--widthWrapper) / 1.1);
+	display: grid;
+	place-content: center;
+	position: relative;
+	left: calc(50% - ((var(--widthWrapper) / 1.1) / 2));
 }
 
 @media (min-width: 1000px) {
@@ -9,44 +53,32 @@
 		--secondRow: calc(var(--heightWrapper) / 1.3333);
 		width: var(--widthWrapper);
 		height: var(--heightWrapper);
-		background-image: var(--GrdGeneral);
-		box-shadow: var(--shadowGeneral);
-		border-radius: 20px;
-		position: absolute;
 		left: 50px;
 		top: -150px;
-		display: grid;
 		grid-template-columns: repeat(3, calc(var(--widthWrapper) / 3));
 		grid-template-rows: calc(var(--heightWrapper) / 4) var(--secondRow);
-		cursor: initial;
-		opacity: 0;
-		transition: opacity 0.2s 1s;
-	}
-
-	.user:hover .user--data-wrapper {
-		opacity: 1;
 	}
 
 	.user--data-wrapper::before {
-		content: '';
-		position: absolute;
 		top: calc(25% + var(--secondRow) / 2 - ((var(--heightWrapper) / 2) / 2));
 		left: calc(var(--widthWrapper) / 3);
 		width: 2px;
 		height: calc(var(--heightWrapper) / 2);
-		background-color: var(--colorSecondary);
 		box-shadow: calc((var(--widthWrapper) / 1.5) / 2) 0 var(--colorSecondary);
 	}
 
-	.user--data-wrapper > h3 {
-		text-align: center;
+	.user--data-wrapper > h3:nth-of-type(2) {
+		grid-row-start: 1;
+		grid-column-start: 2;
+	}
+
+	.user--data-wrapper > h3:nth-of-type(3) {
+		grid-row-start: 1;
+		grid-column-start: 3;
 	}
 
 	.user--data-wrapper > p {
 		width: calc(var(--widthWrapper) / 3.5);
-		display: grid;
-		place-content: center;
-		position: relative;
 		left: calc(50% - ((var(--widthWrapper) / 3.5) / 2));
 	}
 }
