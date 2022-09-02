@@ -1,73 +1,18 @@
-export const data = [
-	{
-		cedula: 28262997,
-		Nombre: 'daniel',
-		id: 1,
-		fecha: '31-08-2022',
-		entregado: true,
-		Cargo: 'develoment web',
-		Dependencia: 'familiar',
-		descripcion: 'texto de ejemplotexto de ejemplotexto de ejemplotexto de ejemplotexto de ejemplotexto texto de ejemplotexto de ejemplo'
-	},
-	{
-		cedula: 28234437,
-		Nombre: 'karol',
-		id: 1,
-		fecha: '30-10-2022',
-		entregado: false,
-		Cargo: 'administrador',
-		Dependencia: 'independiente',
-		descripcion: 'segundo texto de ejemplo'
-	},
-	{
-		cedula: 28234437,
-		Nombre: 'karol',
-		id: 1,
-		fecha: '30-10-2022',
-		entregado: true,
-		Cargo: 'administrador',
-		Dependencia: 'independiente',
-		descripcion: 'segundo texto de ejemplo'
-	},
-	{
-		cedula: 28234437,
-		Nombre: 'karol',
-		id: 1,
-		fecha: '30-10-2022',
-		entregado: true,
-		Cargo: 'administrador',
-		Dependencia: 'independiente',
-		descripcion: 'segundo texto de ejemplo'
-	},
-	{
-		cedula: 28234437,
-		Nombre: 'karol',
-		id: 1,
-		fecha: '30-10-2022',
-		entregado: false,
-		Cargo: 'administrador',
-		Dependencia: 'independiente',
-		descripcion: 'segundo texto de ejemplo'
-	},
-	{
-		cedula: 28234437,
-		Nombre: 'karol',
-		id: 1,
-		fecha: '30-10-2022',
-		entregado: true,
-		Cargo: 'administrador',
-		Dependencia: 'independiente',
-		descripcion: 'segundo texto de ejemplo'
+// ruta de base de datos
+
+export const rootPost = 'https://jsonplaceholder.typicode.com/posts';
+
+export const objPost = (check) => ({
+	method: 'POST',
+	body: JSON.stringify({ check }),
+	headers: {
+		'Content-type': 'application/json'
 	}
-];
-
-// container user
-
-export const users = document.getElementById('users');
+});
 
 // funcion que generea dinamicamente los elementos de la lista de usuarios
 
-export default function dataTable(data) {
+export default function dataTable(data, users) {
 	// Funcion que genera de manera mas legible elementos
 
 	const $crE = (element) => document.createElement(element);
