@@ -1,4 +1,4 @@
-import dataTable, { rootPost, objPost } from './data_table.js';
+import dataTable, { rootServer, objPost } from './data_table.js';
 
 // value check box
 
@@ -8,14 +8,17 @@ users.addEventListener('click', async (e) => {
 	if (e.target.title) {
 		e.target.classList.toggle('user--check__active');
 
+		const id = e.target.pattern;
+		console.log(id);
+
 		try {
 			// fetch que mande datos a la BD
 			if (e.target.classList.contains('user--check__active'))
-				await fetch(rootPost, objPost(true))
+				await fetch('https://jsonplaceholder.typicode.com/posts', objPost(true))
 					.then((data) => data.json())
 					.then((res) => console.log(res));
 			else
-				await fetch(rootPost, objPost(false))
+				await fetch('https://jsonplaceholder.typicode.com/posts', objPost(false))
 					.then((data) => data.json())
 					.then((res) => console.log(res));
 		} catch (err) {
@@ -31,16 +34,12 @@ const form = document.getElementById('form');
 form.addEventListener('submit', async (e) => {
 	e.preventDefault();
 
-	let dateTime = e.target[0].value;
+	let ci = e.target[0].value;
 
-	if (dateTime.length === 0) dateTime = undefined;
-
-	let ci = e.target[1].value;
-
-	if (ci.length === 0) ci = undefined;
+	let dateTime = e.target[1].value;
 
 	try {
-		const data = await fetch(`https://jsonplaceholder.typicode.com/posts`).then((res) => res.json());
+		const data = await fetch(`${rootServer}/historial?cedula=${ci}&fecha=${dateTime}`).then((res) => res.json());
 
 		dataTable(data, users);
 	} catch (err) {

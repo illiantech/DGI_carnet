@@ -39,11 +39,11 @@
 }
 
 .user--data-wrapper > p {
-	width: calc(var(--widthWrapper) / 1.1);
+	width: calc(var(--widthWrapper) / 1.3);
 	display: grid;
 	place-content: center;
 	position: relative;
-	left: calc(50% - ((var(--widthWrapper) / 1.1) / 2));
+	left: calc(50% - ((var(--widthWrapper) / 1.3) / 2));
 }
 
 @media (min-width: 1000px) {

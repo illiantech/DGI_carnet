@@ -1,10 +1,10 @@
 // ruta de base de datos
 
-export const rootPost = 'https://jsonplaceholder.typicode.com/posts';
+export const rootServer = 'http://localhost:8000';
 
-export const objPost = (check) => ({
+export const objPost = (entregado, id) => ({
 	method: 'POST',
-	body: JSON.stringify({ check }),
+	body: JSON.stringify({ entregado, id }),
 	headers: {
 		'Content-type': 'application/json'
 	}
