@@ -1,7 +1,7 @@
 import dataTable, { rootServer, objPost } from './data_table.js';
 
 // value check box
-
+console.log(1);
 const users = document.getElementById('users');
 
 users.addEventListener('click', async (e) => {
