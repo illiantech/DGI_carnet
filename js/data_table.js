@@ -79,7 +79,8 @@ export default function dataTable(data, users, $crE) {
 
 		const descripcion = $crE('p');
 
-		descripcion.textContent = user.descripcion.toLowerCase();
+		// pending toLowerCase
+		descripcion.textContent = user.descripcion;
 
 		dataWrapper.append(titleCargo, cargo, titleDependencia, dependencia, titleDescripcion, descripcion);
 
