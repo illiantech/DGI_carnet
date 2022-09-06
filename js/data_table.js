@@ -10,13 +10,13 @@ export const objPost = (entregado) => ({
 	}
 });
 
+// Funcion que genera de manera mas legible elementos
+
+export const $crE = (element) => document.createElement(element);
+
 // funcion que generea dinamicamente los elementos de la lista de usuarios
 
-export default function dataTable(data, users) {
-	// Funcion que genera de manera mas legible elementos
-
-	const $crE = (element) => document.createElement(element);
-
+export default function dataTable(data, users, $crE) {
 	users.innerHTML = '';
 
 	data.forEach((user) => {

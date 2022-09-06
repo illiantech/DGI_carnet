@@ -1,4 +1,4 @@
-import dataTable, { rootServer, objPost } from './data_table.js';
+import dataTable, { rootServer, objPost, $crE } from './data_table.js';
 
 // value check box
 
@@ -40,7 +40,16 @@ form.addEventListener('submit', async (e) => {
 	try {
 		const data = await fetch(`${rootServer}/historial?cedula=${ci}&fecha=${dateTime}`).then((res) => res.json());
 
-		dataTable(data, users);
+		if (data.length === 0) {
+			const notFound = $crE('h2');
+			notFound.textContent = 'Usuario no encontrado';
+
+			users.innerHTML = '';
+
+			users.append(notFound);
+		} else {
+			dataTable(data, users, $crE);
+		}
 	} catch (err) {
 		alert(`Error de conexión o campos vacios\n${err}`);
 	}
