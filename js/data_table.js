@@ -2,9 +2,9 @@
 
 export const rootServer = 'http://localhost:8000';
 
-export const objPost = (entregado) => ({
+export const objPost = (entregado, fecha_entregado) => ({
 	method: 'PUT',
-	body: JSON.stringify({ entregado }),
+	body: JSON.stringify({ entregado, fecha_entregado }),
 	headers: {
 		'Content-type': 'application/json'
 	}
@@ -33,7 +33,7 @@ export default function dataTable(data, users, $crE) {
 		titleNombre.textContent = 'Nombre';
 
 		const nombre = $crE('p');
-		nombre.textContent = user.Nombre;
+		nombre.textContent = user.Nombre.toLowerCase();
 
 		const titleId = $crE('h3');
 		titleId.textContent = 'ID';
@@ -72,13 +72,14 @@ export default function dataTable(data, users, $crE) {
 		titleDescripcion.textContent = 'Descripcion';
 
 		const cargo = $crE('p');
-		cargo.textContent = user.Cargo;
+		cargo.textContent = user.Cargo.toLowerCase();
 
 		const dependencia = $crE('p');
-		dependencia.textContent = user.Dependencia;
+		dependencia.textContent = user.Dependencia.toLowerCase();
 
 		const descripcion = $crE('p');
-		descripcion.textContent = user.descripcion;
+
+		descripcion.textContent = user.descripcion.toLowerCase();
 
 		dataWrapper.append(titleCargo, cargo, titleDependencia, dependencia, titleDescripcion, descripcion);
 
@@ -87,3 +88,14 @@ export default function dataTable(data, users, $crE) {
 		users.append(containerUser);
 	});
 }
+
+// Date local structure - 2022-09-06 10:04:02
+
+export let currentDate = new Date();
+currentDate = `${currentDate.getFullYear()}-${
+	(currentDate.getMonth() + 1).toString().length === 1 ? '0' + (currentDate.getMonth() + 1) : currentDate.getMonth() + 1
+}-${currentDate.getDate().toString().length === 1 ? '0' + currentDate.getDate() : currentDate.getDate()} ${
+	currentDate.getHours().toString().length === 1 ? '0' + currentDate.getHours() : currentDate.getHours()
+}:${currentDate.getMinutes().toString().length === 1 ? '0' + currentDate.getMinutes() : currentDate.getMinutes()}:${
+	currentDate.getSeconds().toString().length === 1 ? '0' + currentDate.getSeconds() : currentDate.getSeconds()
+}`;

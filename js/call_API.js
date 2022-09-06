@@ -1,4 +1,4 @@
-import dataTable, { rootServer, objPost, $crE } from './data_table.js';
+import dataTable, { rootServer, objPost, $crE, currentDate } from './data_table.js';
 
 // value check box
 
@@ -6,19 +6,15 @@ const users = document.getElementById('users');
 
 users.addEventListener('click', async (e) => {
 	if (e.target.title) {
-		e.target.classList.toggle('user--check__active');
+		e.target.classList.add('user--check__active');
 
 		const id = e.target.parentElement.parentElement.children[5].textContent;
 
 		try {
 			// fetch que mande datos a la BD
 			if (e.target.classList.contains('user--check__active'))
-				await fetch(`${rootServer}/entregados/${id}`, objPost(true))
-					.then((data) => data.json())
-					.then((res) => console.log(res));
-			else
-				await fetch(`${rootServer}/entregados/${id}`, objPost(false))
-					.then((data) => data.json())
+				await fetch(`${rootServer}/entregados/${id}`, objPost(true, currentDate))
+					.then((res) => res.json())
 					.then((res) => console.log(res));
 		} catch (err) {
 			alert(`Error de conexión\n${err}`);
@@ -26,7 +22,7 @@ users.addEventListener('click', async (e) => {
 	}
 });
 
-// CALL API 2022-01-17 ci 11238460 carga por cedula && fecha y solo por cedula pero no solo por fecha
+// CALL API
 
 const form = document.getElementById('form');
 
