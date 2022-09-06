@@ -1,4 +1,4 @@
-import dataTable, { rootServer, objPost, $crE, currentDate } from './data_table.js';
+import dataTable, { rootServer, objPost, $crE } from './data_table.js';
 
 // value check box
 
@@ -6,16 +6,15 @@ const users = document.getElementById('users');
 
 users.addEventListener('click', async (e) => {
 	if (e.target.title) {
-		e.target.classList.add('user--check__active');
-
 		const id = e.target.parentElement.parentElement.children[5].textContent;
 
 		try {
 			// fetch que mande datos a la BD
-			if (e.target.classList.contains('user--check__active'))
-				await fetch(`${rootServer}/entregados/${id}`, objPost(true, currentDate))
+			if (!e.target.classList.contains('user--check__active'))
+				await fetch(`${rootServer}/entregados/${id}`, objPost(true))
 					.then((res) => res.json())
 					.then((res) => console.log(res));
+			e.target.classList.add('user--check__active');
 		} catch (err) {
 			alert(`Error de conexión\n${err}`);
 		}
