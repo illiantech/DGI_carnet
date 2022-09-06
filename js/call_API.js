@@ -42,6 +42,6 @@ form.addEventListener('submit', async (e) => {
 
 		dataTable(data, users);
 	} catch (err) {
-		alert(`Error de conexión o campos invalidos\n${err}`);
+		alert(`Error de conexión o campos vacios\n${err}`);
 	}
 });
