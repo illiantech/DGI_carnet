@@ -5,7 +5,7 @@
 	max-width: 300px;
 	margin-left: auto;
 	margin-right: auto;
-	margin-bottom: 50px;
+	margin-bottom: 150px;
 	border-radius: 20px;
 	height: 250px;
 	display: flex;
@@ -51,10 +51,6 @@
 	transition: border-color 0.2s;
 }
 
-.form button:hover {
-	border-color: var(--colorSecondary);
-}
-
 @media (min-width: 1000px) {
 	.form {
 		max-width: 1000px;
@@ -83,5 +79,8 @@
 	.form-container button {
 		margin-left: 0;
 		margin-right: 0;
+	}
+	.form button:hover {
+		border-color: var(--colorSecondary);
 	}
 }

@@ -2,9 +2,9 @@
 
 export const rootServer = 'http://localhost:8000';
 
-export const objPost = (entregado, id) => ({
-	method: 'POST',
-	body: JSON.stringify({ entregado, id }),
+export const objPost = (entregado) => ({
+	method: 'PUT',
+	body: JSON.stringify({ entregado }),
 	headers: {
 		'Content-type': 'application/json'
 	}

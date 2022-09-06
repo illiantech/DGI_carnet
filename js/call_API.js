@@ -1,24 +1,23 @@
 import dataTable, { rootServer, objPost } from './data_table.js';
 
 // value check box
-console.log(1);
+
 const users = document.getElementById('users');
 
 users.addEventListener('click', async (e) => {
 	if (e.target.title) {
 		e.target.classList.toggle('user--check__active');
 
-		const id = e.target.pattern;
-		console.log(id);
+		const id = e.target.parentElement.parentElement.children[5].textContent;
 
 		try {
 			// fetch que mande datos a la BD
 			if (e.target.classList.contains('user--check__active'))
-				await fetch('https://jsonplaceholder.typicode.com/posts', objPost(true))
+				await fetch(`${rootServer}/entregados/${id}`, objPost(true))
 					.then((data) => data.json())
 					.then((res) => console.log(res));
 			else
-				await fetch('https://jsonplaceholder.typicode.com/posts', objPost(false))
+				await fetch(`${rootServer}/entregados/${id}`, objPost(false))
 					.then((data) => data.json())
 					.then((res) => console.log(res));
 		} catch (err) {
@@ -27,7 +26,7 @@ users.addEventListener('click', async (e) => {
 	}
 });
 
-// CALL API
+// CALL API 2022-01-17 ci 11238460 carga por cedula && fecha y solo por cedula pero no solo por fecha
 
 const form = document.getElementById('form');
 
@@ -43,6 +42,6 @@ form.addEventListener('submit', async (e) => {
 
 		dataTable(data, users);
 	} catch (err) {
-		alert(`Error de conexión\n${err}`);
+		alert(`Error de conexión o campos invalidos\n${err}`);
 	}
 });
