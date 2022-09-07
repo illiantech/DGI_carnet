@@ -45,7 +45,7 @@ export default function dataTable(data, users, $crE) {
 		titleFecha.textContent = 'Fecha';
 
 		const fecha = $crE('p');
-		fecha.textContent = user.fecha;
+		fecha.textContent = user.fecha.slice(0, 10);
 
 		const titleCheck = $crE('h3');
 		titleCheck.textContent = 'Entregado';
@@ -78,7 +78,6 @@ export default function dataTable(data, users, $crE) {
 		dependencia.textContent = user.Dependencia.toLowerCase();
 
 		const descripcion = $crE('p');
-
 		// pending toLowerCase
 		descripcion.textContent = user.descripcion;
 

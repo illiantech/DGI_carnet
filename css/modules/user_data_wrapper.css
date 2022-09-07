@@ -1,70 +1,73 @@
 .user--data-wrapper {
-	--widthWrapper: 200px;
-	--heightWrapper: 495px;
-
-	width: var(--widthWrapper);
-	height: var(--heightWrapper);
-	background-image: var(--GrdGeneral);
-	box-shadow: var(--shadowGeneral);
-	border-radius: 20px;
+	width: 100%;
+	height: 100%;
+	background-color: var(--colorPrimary);
+	color: var(--white);
 	position: absolute;
-	left: 100px;
-	top: -150px;
+	left: 0;
+	top: 0;
 	display: grid;
 	grid-template-rows:
-		calc(var(--heightWrapper) / 16.5) calc(var(--heightWrapper) / 3.6666) calc(var(--heightWrapper) / 16.5) calc(var(--heightWrapper) / 3.6666)
-		calc(var(--heightWrapper) / 16.5) calc(var(--heightWrapper) / 3.6666);
-	cursor: initial;
-	opacity: 0;
-	transition: opacity 0.2s 1s;
+		calc(100% / 16.5) calc(100% / 3.6666) calc(100% / 16.5) calc(100% / 3.6666)
+		calc(100% / 16.5) calc(100% / 3.6666);
+
+	clip-path: circle(15% at 100% 100%);
+	transition: clip-path 1s cubic-bezier(0.82, -0.2, 0.18, 1.2);
 }
 
-.user--data-wrapper::before {
+.user--data-wrapper:hover {
+	clip-path: circle(150% at 100% 100%);
+}
+
+.user--data-wrapper::before,
+.user--data-wrapper::after {
 	content: '';
 	position: absolute;
-	top: calc(var(--heightWrapper) / 3);
-	left: calc(50% - (var(--widthWrapper) / 2) / 2);
-	width: calc(var(--widthWrapper) / 2);
-	height: 2px;
+	top: calc(100% / 3);
+	left: calc(50% - (100% / 2) / 2);
+	width: calc(100% / 2);
+	height: 3px;
 	background-color: var(--colorSecondary);
-	box-shadow: 0 calc((var(--heightWrapper) / 1.5) / 2) var(--colorSecondary);
 }
 
-.user:hover .user--data-wrapper {
-	opacity: 1;
+.user--data-wrapper::after {
+	top: calc(100% / 1.5);
 }
 
 .user--data-wrapper > h3 {
 	text-align: center;
+	color: currentColor;
 }
 
 .user--data-wrapper > p {
-	width: calc(var(--widthWrapper) / 1.1);
+	width: calc(100% / 1.3);
 	display: grid;
 	place-content: center;
 	position: relative;
-	left: calc(50% - ((var(--widthWrapper) / 1.1) / 2));
+	left: calc(50% - ((100% / 1.3) / 2));
 }
 
 @media (min-width: 1000px) {
 	.user--data-wrapper {
-		--widthWrapper: 750px;
-		--heightWrapper: 175px;
-		--secondRow: calc(var(--heightWrapper) / 1.3333);
-		width: var(--widthWrapper);
-		height: var(--heightWrapper);
-		left: 50px;
-		top: -150px;
-		grid-template-columns: repeat(3, calc(var(--widthWrapper) / 3));
-		grid-template-rows: calc(var(--heightWrapper) / 4) var(--secondRow);
+		grid-template-columns: repeat(3, calc(100% / 3));
+		grid-template-rows: calc(100% / 4) calc(100% / 1.3333);
+		clip-path: circle(10% at 0% 100%);
 	}
 
-	.user--data-wrapper::before {
-		top: calc(25% + var(--secondRow) / 2 - ((var(--heightWrapper) / 2) / 2));
-		left: calc(var(--widthWrapper) / 3);
-		width: 2px;
-		height: calc(var(--heightWrapper) / 2);
-		box-shadow: calc((var(--widthWrapper) / 1.5) / 2) 0 var(--colorSecondary);
+	.user--data-wrapper:hover {
+		clip-path: circle(150% at 0% 100%);
+	}
+
+	.user--data-wrapper::before,
+	.user--data-wrapper::after {
+		top: calc(25% + 100% / 1.3333 / 2 - ((100% / 2) / 2));
+		left: calc(100% / 3);
+		width: 3px;
+		height: calc(100% / 2);
+	}
+
+	.user--data-wrapper::after {
+		left: calc(100% / 1.5);
 	}
 
 	.user--data-wrapper > h3:nth-of-type(2) {
@@ -75,10 +78,5 @@
 	.user--data-wrapper > h3:nth-of-type(3) {
 		grid-row-start: 1;
 		grid-column-start: 3;
-	}
-
-	.user--data-wrapper > p {
-		width: calc(var(--widthWrapper) / 3.5);
-		left: calc(50% - ((var(--widthWrapper) / 3.5) / 2));
 	}
 }

@@ -5,7 +5,7 @@ import dataTable, { rootServer, objPost, $crE } from './data_table.js';
 const users = document.getElementById('users');
 
 users.addEventListener('click', async (e) => {
-	if (e.target.title) {
+	if (e.target.classList.contains('user--check')) {
 		const id = e.target.parentElement.parentElement.children[5].textContent;
 
 		try {
@@ -33,7 +33,12 @@ form.addEventListener('submit', async (e) => {
 	let dateTime = e.target[1].value;
 
 	try {
-		const data = await fetch(`${rootServer}/historial?cedula=${ci}&fecha=${dateTime}`).then((res) => res.json());
+		const data = await fetch(`${rootServer}/historial?cedula=${ci}&fecha=${dateTime}`)
+			.then((res) => res.json())
+			.then((res) => {
+				console.log(res);
+				return res;
+			});
 
 		if (data.length === 0) {
 			const notFound = $crE('h2');

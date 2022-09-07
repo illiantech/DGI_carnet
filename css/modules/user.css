@@ -5,22 +5,23 @@
 .user {
 	margin-left: auto;
 	margin-right: auto;
-	margin-bottom: 50px;
+	margin-bottom: 100px;
 	background-image: var(--GrdGeneral);
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	width: 80%;
-	max-width: 300px;
+	width: 90%;
+	max-width: 400px;
 	box-shadow: var(--shadowGeneral);
 	border-radius: 20px;
 	position: relative;
 	cursor: pointer;
+	overflow: hidden;
 }
 
 .user > h3 {
 	width: 80%;
-	margin-top: 30px;
+	margin-top: 50px;
 	margin-bottom: 5px;
 }
 
@@ -33,7 +34,7 @@
 }
 
 .user > div:first-of-type {
-	margin-bottom: 30px;
+	margin-bottom: 50px;
 }
 
 @media (min-width: 1000px) {
@@ -41,7 +42,7 @@
 		max-width: 1300px;
 		margin-left: auto;
 		margin-right: auto;
-		margin-bottom: 30px;
+		margin-bottom: 50px;
 		display: flex;
 	}
 
@@ -52,7 +53,7 @@
 
 	.user {
 		width: 95%;
-		height: 100px;
+		height: 150px;
 		max-width: 1300px;
 		flex-direction: row;
 		top: 0;
