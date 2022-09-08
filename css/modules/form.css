@@ -46,7 +46,7 @@
 	font-weight: bold;
 	cursor: pointer;
 	color: var(--colorSecondary);
-	background-color: var(--white);
+	background-color: var(--bgDoc);
 	border: 3px solid transparent;
 	transition: border-color 0.2s;
 }

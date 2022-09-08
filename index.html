@@ -7,13 +7,14 @@
 		<title>Document</title>
 		<link rel="stylesheet" href="css/config/Normalize.css" />
 		<link rel="stylesheet" href="css/config/template.css" />
+		<link rel="stylesheet" href="css/modules/black_mode.css" />
 		<link rel="stylesheet" href="css/modules/form.css" />
 		<link rel="stylesheet" href="css/modules/user.css" />
 		<link rel="stylesheet" href="css/modules/user_check.css" />
 		<link rel="stylesheet" href="css/modules/user_data_wrapper.css" />
 	</head>
 	<body>
-		<!-- las personas de la base de datos a la que llama la aplicacion  son personas que se haran el carnet y las que yo imprimire son las que ya se hicieron-->
+		<div class="black-mode" id="blackMode"></div>
 
 		<h1>Registro de carnetización</h1>
 		<form class="form" id="form">
@@ -24,7 +25,7 @@
 				<label for="dateTime">Fecha:</label>
 				<input type="date" name="" id="dateTime" />
 
-				<button title="Boton">Buscar</button>
+				<button title="Buscar">Buscar</button>
 			</div>
 		</form>
 
@@ -36,9 +37,8 @@
 			<h3>Entregado</h3>
 		</div>
 
-		<div id="users"></div>
-
-		<!-- <div class="user">
+		<div id="users">
+			<div class="user">
 				<h3>Cédula</h3>
 				<p>28262997</p>
 				<h3>Nombre</h3>
@@ -57,8 +57,9 @@
 					<h3>Descripción</h3>
 					<p>, corporis rerum quod hic unde vel, beatae dignissimos fuga rem obcaecati saepe blanditiis? Voluptatibus animi</p>
 				</div>
-			</div> -->
-
+			</div>
+		</div>
+		<script src="/js/front/black_mode.js"></script>
 		<script src="js/services/call_API.js" type="module"></script>
 	</body>
 </html>

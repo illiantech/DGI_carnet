@@ -1,32 +1,36 @@
 /* variables */
 :root {
 	/* color document appropriate */
-	--white: hsl(0, 0%, 95%);
-	--black: hsl(0, 0%, 5%);
-	background-color: var(--white);
-	color: var(--black);
+	--bgDoc: hsl(0, 0%, 95%);
+	--bgLetter: hsl(0, 0%, 5%);
+	background-color: var(--LetBgDoc);
+	color: var(--LetBgLetter);
 	font-family: sans-serif;
+	transition: background-color 0.4s;
 	/* color elements and text (optional) */
 	--colorPrimary: hsl(224, 70%, 40%);
 	--colorPrimaryTwo: hsl(223, 49%, 23%);
 	--colorSecondary: hsl(357, 71%, 44%);
-	--shadowGeneral: 0 0 15px -10px var(--black);
-	--GrdGeneral: linear-gradient(to bottom, hsl(0, 0%, 97%) 70%, var(--colorPrimary) 800%);
+	--shadowGeneral: -5px 5px 15px -10px var(--bgLetter);
+	--GrdGeneral: linear-gradient(to bottom, hsl(0, 0%, 97%) 70%, var(--colorPrimary) 600%);
+	/* variable change */
+	--LetBgDoc: hsl(0, 0%, 95%);
+	--LeColorPrimaryTwo: hsl(223, 49%, 23%);
 }
 
 /* titles */
 
 h1,
 h2 {
-	margin-top: 50px;
+	margin-top: 100px;
 	margin-bottom: 50px;
-	color: var(--colorPrimaryTwo);
+	color: var(--LetColorPrimaryTwo);
 	text-align: center;
 }
 
 h3,
 h4 {
-	color: var(--colorPrimaryTwo);
+	color: var(--LetColorPrimaryTwo);
 }
 
 p {
@@ -46,7 +50,7 @@ input {
 	height: 30px;
 	outline: none;
 	border: 3px solid transparent;
-	background-color: var(--white);
+	background-color: var(--bgDoc);
 	border-radius: 5px;
 	position: relative;
 	transition: border-color 0.2s;

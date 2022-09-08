@@ -1,0 +1,21 @@
+.black-mode {
+	height: 20px;
+	width: 55px;
+	position: absolute;
+	right: 40px;
+	top: 40px;
+	border-radius: 3px;
+	background-image: var(--GrdGeneral);
+	cursor: pointer;
+}
+
+.black-mode::before {
+	content: '';
+	width: calc(55px / 2);
+	height: 20px;
+	transform: scale(1.05);
+	border-radius: 3px;
+	position: absolute;
+	left: 0;
+	background-color: blueviolet;
+}
