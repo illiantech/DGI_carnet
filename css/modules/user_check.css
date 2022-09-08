@@ -4,7 +4,7 @@
 	border-radius: 20px;
 	background-color: var(--colorSecondary);
 	position: relative;
-	box-shadow: 0 0 15px -8px var(--black);
+	box-shadow: 0 0 15px -8px var(--bgLetter);
 	transition: background-color 0.2s;
 }
 
@@ -15,7 +15,7 @@
 	width: 20px;
 	transform: scale(1.05);
 	border-radius: 50%;
-	box-shadow: 0 0 15px -8px var(--black);
+	box-shadow: 0 0 15px -8px var(--bgLetter);
 	background-image: linear-gradient(to bottom left, hsl(0, 0%, 98%) 30%, var(--colorPrimary) 400%);
 	left: 0%;
 	transition: left 0.2s;

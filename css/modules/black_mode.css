@@ -1,0 +1,38 @@
+.black-mode {
+	height: 20px;
+	width: 55px;
+	position: absolute;
+	right: 40px;
+	top: 40px;
+	border-radius: 3px;
+	background-image: linear-gradient(to bottom, hsl(0, 0%, 10%) 40%, hsl(0, 0%, 90%) 500%);
+	box-shadow: 0 0 10px -5px var(--bgLetter);
+	cursor: pointer;
+}
+
+.black-mode::before {
+	content: '☀';
+	display: grid;
+	place-content: center;
+	width: calc(55px / 2);
+	height: 20px;
+	transform: scale(1.05);
+	border-radius: 3px;
+	position: absolute;
+	left: 0;
+	background-image: linear-gradient(to bottom, hsl(0, 0%, 97%) 30%, var(--colorPrimary) 600%);
+	color: hsl(0, 0%, 10%);
+	transition: all 0.4s;
+}
+
+/* active black mode */
+
+.black-mode__active {
+	background-image: linear-gradient(to bottom, hsl(0, 0%, 95%) 30%, var(--colorPrimary) 600%);
+}
+
+.black-mode__active::before {
+	background-image: linear-gradient(to bottom, hsl(0, 0%, 10%) 40%, hsl(0, 0%, 90%) 500%);
+	color: hsl(0, 0%, 95%);
+	left: calc(100% - (55px / 2));
+}

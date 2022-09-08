@@ -2,7 +2,7 @@
 	width: 100%;
 	height: 100%;
 	background-color: var(--colorPrimary);
-	color: var(--white);
+	color: var(--bgDoc);
 	position: absolute;
 	left: 0;
 	top: 0;
