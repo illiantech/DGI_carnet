@@ -1,3 +1,4 @@
+/* check buttom */
 .user--check {
 	height: 20px;
 	width: 40px;
@@ -5,6 +6,7 @@
 	background-color: var(--colorSecondary);
 	position: relative;
 	box-shadow: 0 0 15px -8px var(--bgLetter);
+	cursor: pointer;
 	transition: background-color 0.2s;
 }
 
@@ -27,4 +29,15 @@
 
 .user--check__active::before {
 	left: 50%;
+}
+
+/* user buttom DATE TIME */
+
+.user--check-dateTime {
+	position: absolute;
+	top: 130%;
+	width: 100px;
+	font-size: 0.8rem;
+	cursor: initial;
+
 }

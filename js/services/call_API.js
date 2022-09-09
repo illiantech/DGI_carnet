@@ -1,4 +1,4 @@
-import dataTable, { rootServer, objPost, $crE } from './data_table.js';
+import dataTable, { rootServer, objPost, $crE, updateCheckDateTime as upDate } from './data_table.js';
 
 // value check box
 
@@ -10,11 +10,17 @@ users.addEventListener('click', async (e) => {
 
 		try {
 			// fetch que mande datos a la BD
-			if (!e.target.classList.contains('user--check__active'))
-				await fetch(`${rootServer}/entregados/${id}`, objPost(true))
-					.then((res) => res.json())
-					.then((res) => console.log(res));
+			if (!e.target.classList.contains('user--check__active')) {
+			let currentDate = new Date()
+
+			await fetch(`${rootServer}/entregados/${id}`, objPost(true,currentDate)).then((res) => res.json()).then((res) => console.log(res));
+		
 			e.target.classList.add('user--check__active');
+
+
+			e.target.append(upDate(currentDate,$crE))
+		}
+			
 		} catch (err) {
 			alert(`Error de conexión\n${err}`);
 		}
@@ -54,3 +60,7 @@ form.addEventListener('submit', async (e) => {
 		alert(`Error de conexión\n${err}`);
 	}
 });
+
+const date = new Date()
+
+console.log(new Intl.DateTimeFormat('en-US',{ dateStyle: 'short', timeStyle: 'short' }).format(date))

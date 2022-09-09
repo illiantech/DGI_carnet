@@ -2,9 +2,9 @@
 
 export const rootServer = 'http://localhost:8000';
 
-export const objPost = (entregado) => ({
+export const objPost = (entregado, fecha_entregado) => ({
 	method: 'PUT',
-	body: JSON.stringify({ entregado }),
+	body: JSON.stringify({ entregado, fecha_entregado }),
 	headers: {
 		'Content-type': 'application/json'
 	}
@@ -13,6 +13,17 @@ export const objPost = (entregado) => ({
 // Funcion que genera de manera mas legible elementos
 
 export const $crE = (element) => document.createElement(element);
+
+// Fecha de entrega que se genera solo si check es true
+
+export const updateCheckDateTime = (dataText,$crE) => {
+	const checkDateTime =$crE('div')
+	checkDateTime.classList.add('user--check-dateTime')
+	checkDateTime.setAttribute('title','Fecha de entrega')
+	checkDateTime.textContent = dataText
+
+	return checkDateTime
+}
 
 // funcion que generea dinamicamente los elementos de la lista de usuarios
 
@@ -45,7 +56,7 @@ export default function dataTable(data, users, $crE) {
 		titleFecha.textContent = 'Fecha';
 
 		const fecha = $crE('p');
-		fecha.textContent = user.fecha.slice(0, 10);
+		fecha.textContent = user.fecha.slice(0, 10).split('-').join('/');
 
 		const titleCheck = $crE('h3');
 		titleCheck.textContent = 'Entregado';
@@ -56,6 +67,8 @@ export default function dataTable(data, users, $crE) {
 		check.classList.add('user--check');
 		check.setAttribute('title', 'boton');
 		check.classList.toggle('user--check__active', user.entregado);
+
+		if (user.fecha_entregado) check.append(updateCheckDateTime(user.fecha_entregado,$crE))
 
 		containerCheck.append(check);
 
