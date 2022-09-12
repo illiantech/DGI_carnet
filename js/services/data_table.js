@@ -16,18 +16,18 @@ export const $crE = (element) => document.createElement(element);
 
 // Fecha de entrega que se genera solo si check es true
 
-export const updateCheckDateTime = (dataText,$crE) => {
-	const checkDateTime =$crE('div')
-	checkDateTime.classList.add('user--check-dateTime')
-	checkDateTime.setAttribute('title','Fecha de entrega')
-	checkDateTime.textContent = dataText
+export const updateCheckDateTime = (dataText, $crE) => {
+	const checkDateTime = $crE('div');
+	checkDateTime.classList.add('user--check-dateTime');
+	checkDateTime.setAttribute('title', 'Fecha de entrega');
+	checkDateTime.textContent = new Date(dataText).toLocaleString();
 
-	return checkDateTime
-}
+	return checkDateTime;
+};
 
 // funcion que generea dinamicamente los elementos de la lista de usuarios
 
-export default function dataTable(data, users, $crE) {
+export default function dataTable(data, users, $crE, upDate) {
 	users.innerHTML = '';
 
 	data.forEach((user) => {
@@ -68,7 +68,7 @@ export default function dataTable(data, users, $crE) {
 		check.setAttribute('title', 'boton');
 		check.classList.toggle('user--check__active', user.entregado);
 
-		if (user.fecha_entregado) check.append(updateCheckDateTime(user.fecha_entregado,$crE))
+		if (user.fecha_entregado) check.append(upDate(user.fecha_entregado, $crE));
 
 		containerCheck.append(check);
 

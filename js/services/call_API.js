@@ -11,16 +11,19 @@ users.addEventListener('click', async (e) => {
 		try {
 			// fetch que mande datos a la BD
 			if (!e.target.classList.contains('user--check__active')) {
-			let currentDate = new Date()
+				let currentDate = new Date();
 
-			await fetch(`${rootServer}/entregados/${id}`, objPost(true,currentDate)).then((res) => res.json()).then((res) => console.log(res));
-		
-			e.target.classList.add('user--check__active');
+				const dataDateTime = await fetch(`${rootServer}/entregados/${id}`, objPost(true, currentDate))
+					.then((res) => res.json())
+					.then((res) => {
+						console.log(res);
+						return res.fecha_entregado;
+					});
 
+				e.target.classList.add('user--check__active');
 
-			e.target.append(upDate(currentDate,$crE))
-		}
-			
+				e.target.append(upDate(dataDateTime, $crE));
+			}
 		} catch (err) {
 			alert(`Error de conexión\n${err}`);
 		}
@@ -54,13 +57,17 @@ form.addEventListener('submit', async (e) => {
 
 			users.append(notFound);
 		} else {
-			dataTable(data, users, $crE);
+			dataTable(data, users, $crE, upDate);
 		}
 	} catch (err) {
 		alert(`Error de conexión\n${err}`);
 	}
 });
 
-const date = new Date()
+const date = new Date();
 
-console.log(new Intl.DateTimeFormat('en-US',{ dateStyle: 'short', timeStyle: 'short' }).format(date))
+console.log(date);
+
+console.log(new Intl.DateTimeFormat('en-US', { dateStyle: 'short', timeStyle: 'short' }).format(date)); // posible
+
+console.log(date.toLocaleString()); // posible
