@@ -5,15 +5,15 @@ import dataTable, { rootServer, objPost, $crE, updateCheckDateTime as upDate } f
 const users = document.getElementById('users');
 
 users.addEventListener('click', async (e) => {
+	// localizando el check box y el id del registro correspondiente
 	if (e.target.classList.contains('user--check')) {
 		const id = e.target.parentElement.parentElement.children[5].textContent;
 
 		try {
-			// fetch que mande datos a la BD
+			// fetch que manda datos a la BD
+			// compracion de si el check esta desactivado para entrar
 			if (!e.target.classList.contains('user--check__active')) {
-				let currentDate = new Date();
-
-				const dataDateTime = await fetch(`${rootServer}/entregados/${id}`, objPost(true, currentDate))
+				const currentDate = await fetch(`${rootServer}/entregados/${id}`, objPost(true, currentDate))
 					.then((res) => res.json())
 					.then((res) => {
 						console.log(res);
@@ -22,7 +22,7 @@ users.addEventListener('click', async (e) => {
 
 				e.target.classList.add('user--check__active');
 
-				e.target.append(upDate(dataDateTime, $crE));
+				e.target.append(upDate(currentDate, $crE));
 			}
 		} catch (err) {
 			alert(`Error de conexión\n${err}`);
@@ -64,10 +64,31 @@ form.addEventListener('submit', async (e) => {
 	}
 });
 
-const date = new Date();
+let date = new Date().toUTCString();
+
+// console.log(date.toLocaleString()); // posible
 
 console.log(date);
 
-console.log(new Intl.DateTimeFormat('en-US', { dateStyle: 'short', timeStyle: 'short' }).format(date)); // posible
+date = new Date(date);
 
-console.log(date.toLocaleString()); // posible
+console.log(
+	Intl.DateTimeFormat('en-US', {
+		timeStyle: 'long'
+	}).format(date)
+); // posible yes
+
+// probar con node js
+console.log(
+	Intl.DateTimeFormat('es-419', {
+		timeZone: 'America/Caracas',
+		hour12: true,
+		hourCycle: 'h12',
+		year: 'numeric',
+		month: '2-digit',
+		day: '2-digit',
+		hour: '2-digit',
+		minute: '2-digit',
+		second: '2-digit'
+	}).format(date)
+); // posible yes

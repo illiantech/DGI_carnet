@@ -56,7 +56,7 @@ export default function dataTable(data, users, $crE, upDate) {
 		titleFecha.textContent = 'Fecha';
 
 		const fecha = $crE('p');
-		fecha.textContent = user.fecha.slice(0, 10).split('-').join('/');
+		fecha.textContent = user.fecha.slice(0, 10).split('-').reverse().join('/');
 
 		const titleCheck = $crE('h3');
 		titleCheck.textContent = 'Entregado';
@@ -85,14 +85,14 @@ export default function dataTable(data, users, $crE, upDate) {
 		titleDescripcion.textContent = 'Descripcion';
 
 		const cargo = $crE('p');
-		cargo.textContent = user.Cargo.toLowerCase();
+		cargo.textContent = `${user.Cargo.slice(0, 1).toUpperCase()}${user.Cargo.slice(1).toLowerCase()}`;
 
 		const dependencia = $crE('p');
-		dependencia.textContent = user.Dependencia.toLowerCase();
+		dependencia.textContent = `${user.Dependencia.slice(0, 1).toUpperCase()}${user.Dependencia.slice(1).toLowerCase()}`;
 
 		const descripcion = $crE('p');
-		// pending toLowerCase
-		descripcion.textContent = user.descripcion;
+		if (user.descripcion) descripcion.textContent = `${user.descripcion.slice(0, 1).toUpperCase()}${user.descripcion.slice(1).toLowerCase()}`;
+		else descripcion.textContent = 'Vacio';
 
 		dataWrapper.append(titleCargo, cargo, titleDependencia, dependencia, titleDescripcion, descripcion);
 

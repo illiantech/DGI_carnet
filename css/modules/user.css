@@ -33,6 +33,10 @@
 	position: relative;
 }
 
+.user > p:nth-of-type(2) {
+	text-transform: capitalize;
+}
+
 .user > div:first-of-type {
 	margin-bottom: 50px;
 }

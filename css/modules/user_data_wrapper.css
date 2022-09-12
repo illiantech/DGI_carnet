@@ -10,7 +10,7 @@
 	grid-template-rows:
 		calc(100% / 16.5) calc(100% / 3.6666) calc(100% / 16.5) calc(100% / 3.6666)
 		calc(100% / 16.5) calc(100% / 3.6666);
-cursor: pointer;
+	cursor: pointer;
 	clip-path: circle(15% at 100% 100%);
 	transition: clip-path 1s cubic-bezier(0.82, -0.2, 0.18, 1.2);
 }
