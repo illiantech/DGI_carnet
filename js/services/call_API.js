@@ -52,8 +52,6 @@ form.addEventListener('submit', async (e) => {
 
 	const date = e.target[2].value;
 
-	console.dir(form);
-
 	try {
 		submit.textContent = 'Cargando...';
 
