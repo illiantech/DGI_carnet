@@ -52,6 +52,15 @@ input {
 	transition: border-color 0.2s;
 }
 
+button {
+	border-radius: 5px;
+	border: none;
+	font-weight: bold;
+	cursor: pointer;
+	color: var(--colorSecondary);
+	background-color: var(--bgDoc);
+}
+
 /* delete icon input dateTime */
 [type='month']::-webkit-calendar-picker-indicator {
 	width: 100%;
@@ -62,13 +71,4 @@ input {
 
 input:focus {
 	border-color: var(--colorPrimary);
-}
-
-/* extra */
-
-.insta-author {
-	color: rgb(160, 160, 160);
-	position: absolute;
-	left: 40px;
-	top: 40px;
 }

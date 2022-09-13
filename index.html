@@ -7,14 +7,14 @@
 		<title>Carnetización</title>
 		<link rel="stylesheet" href="css/config/Normalize.css" />
 		<link rel="stylesheet" href="css/config/template.css" />
-		<link rel="stylesheet" href="css/modules/black_mode.css" />
+		<link rel="stylesheet" href="css/modules/btn-dinamics.css" />
 		<link rel="stylesheet" href="css/modules/form.css" />
 		<link rel="stylesheet" href="css/modules/user.css" />
 		<link rel="stylesheet" href="css/modules/user_check.css" />
 		<link rel="stylesheet" href="css/modules/user_data_wrapper.css" />
 	</head>
 	<body>
-		<div class="insta-author">@illianTech</div>
+		<button title="Volver atrás" class="btn-back" id="btnBack">Volver</button>
 		<div class="black-mode" id="blackMode" title="Mode Oscuro"></div>
 
 		<h1>Registro de carnetización</h1>
@@ -31,6 +31,7 @@
 
 				<button title="Buscar">Buscar</button>
 			</div>
+			<div class="form--data-length"></div>
 		</form>
 
 		<div class="user-propertys">
@@ -43,7 +44,7 @@
 
 		<div id="users"></div>
 
-		<script src="/js/front/black_mode.js"></script>
+		<script src="/js/front/btn-dinamics.js"></script>
 		<script src="js/services/call_API.js" type="module"></script>
 	</body>
 </html>

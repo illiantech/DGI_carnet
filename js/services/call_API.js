@@ -72,9 +72,13 @@ form.addEventListener('submit', async (e) => {
 
 			users.append(notFound);
 
+			form.lastElementChild.textContent = '';
+
 			submit.textContent = 'Buscar';
 		} else {
 			dataTable(data, users, $crE, upDate);
+
+			form.lastElementChild.textContent = `${data.length} Usuarios`;
 
 			submit.textContent = 'Buscar';
 		}

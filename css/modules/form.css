@@ -12,6 +12,7 @@
 	flex-direction: column;
 	align-items: center;
 	background-color: hsl(228, 4%, 76%);
+	position: relative;
 }
 
 .form-container {
@@ -20,35 +21,37 @@
 	width: 160px;
 }
 
-.form-container label:first-child {
+.form-container > label:first-child {
 	margin-top: 25px;
 }
 
-.form-container label {
+.form-container > label {
 	margin-bottom: 10px;
 }
 
-.form-container input {
+.form-container > input {
 	margin-bottom: 25px;
 }
 
-.form-container input:nth-of-type(3) {
+.form-container > input:nth-of-type(3) {
 	text-align: center;
 }
 
-.form button {
-	border-radius: 5px;
-	border: none;
+.form-container > button {
 	height: 30px;
 	width: 110px;
 	margin-left: auto;
 	margin-right: auto;
-	font-weight: bold;
-	cursor: pointer;
-	color: var(--colorSecondary);
-	background-color: var(--bgDoc);
 	border: 3px solid transparent;
 	transition: border-color 0.2s;
+}
+
+.form--data-length {
+	position: absolute;
+	font-size: 0.8rem;
+	width: 100px;
+	top: 105%;
+	left: 70%;
 }
 
 @media (min-width: 1000px) {
@@ -65,22 +68,27 @@
 		align-items: center;
 	}
 
-	.form-container label:first-child,
-	.form-container label,
-	.form-container input {
+	.form-container > label:first-child,
+	.form-container > label,
+	.form-container > input {
 		margin-top: 0;
 		margin-bottom: 0;
 	}
 
-	.form-container input {
+	.form-container > input {
 		margin-right: 30px;
 	}
 
-	.form-container button {
+	.form-container > button {
 		margin-left: 0;
 		margin-right: 0;
 	}
-	.form button:hover {
+	.form-container > button:hover {
 		border-color: var(--colorSecondary);
+	}
+
+	.form--data-length {
+		top: 110%;
+		left: 90%;
 	}
 }

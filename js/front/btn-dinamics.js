@@ -1,3 +1,4 @@
+// Black Mode
 // elementos
 const blackMode = document.getElementById('blackMode');
 const root = document.firstElementChild;
@@ -30,4 +31,12 @@ dinamicMode();
 
 blackMode.addEventListener('click', () => {
 	dinamicMode();
+});
+
+// btn Back
+
+const btnBack = document.getElementById('btnBack');
+
+btnBack.addEventListener('click', () => {
+	history.back();
 });
