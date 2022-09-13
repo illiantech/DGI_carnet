@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 	<head>
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
 		<title>Carnetización</title>
 		<link rel="stylesheet" href="css/config/Normalize.css" />
 		<link rel="stylesheet" href="css/config/template.css" />
@@ -14,16 +14,20 @@
 		<link rel="stylesheet" href="css/modules/user_data_wrapper.css" />
 	</head>
 	<body>
+		<div class="insta-author">@illianTech</div>
 		<div class="black-mode" id="blackMode" title="Mode Oscuro"></div>
 
 		<h1>Registro de carnetización</h1>
 		<form class="form" id="form">
 			<div class="form-container">
-				<label for="ci">Cedula:</label>
+				<label for="ci">Cédula:</label>
 				<input type="number" name="" id="ci" />
 
-				<label for="dateTime">Fecha:</label>
-				<input type="date" name="" id="dateTime" />
+				<label for="name">Nombre:</label>
+				<input type="text" name="" id="name" />
+
+				<label for="date">Fecha:</label>
+				<input type="month" name="" id="date" min="2022-01" />
 
 				<button title="Buscar">Buscar</button>
 			</div>
@@ -37,32 +41,7 @@
 			<h3>Entregado</h3>
 		</div>
 
-		<div id="users">
-			<div class="user">
-				<h3>Cédula</h3>
-				<p>28262997</p>
-				<h3>Nombre</h3>
-				<p>daniel pimentel</p>
-				<h3>ID</h3>
-				<p>1</p>
-				<h3>Fecha</h3>
-				<p>2022/09/12</p>
-				<h3>Entregado</h3>
-				<div>
-					<div title="Boton" class="user--check">
-						<div title="Fecha de entrega" class="user--check-dateTime">12/08/2022, 09:08:10 a.m.</div>
-					</div>
-				</div>
-				<div class="user--data-wrapper">
-					<h3>Cargo</h3>
-					<p>desarrolador de software</p>
-					<h3>Dependencia</h3>
-					<p>porem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, dolore doloremque</p>
-					<h3>Descripción</h3>
-					<p>corporis rerum quod hic unde vel, beatae dignissimos fuga rem obcaecati saepe blanditiis? Voluptatibus animi</p>
-				</div>
-			</div>
-		</div>
+		<div id="users"></div>
 
 		<script src="/js/front/black_mode.js"></script>
 		<script src="js/services/call_API.js" type="module"></script>

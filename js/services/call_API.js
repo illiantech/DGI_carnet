@@ -13,12 +13,18 @@ users.addEventListener('click', async (e) => {
 			// fetch que manda datos a la BD
 			// compracion de si el check esta desactivado para entrar
 			if (!e.target.classList.contains('user--check__active')) {
-				const currentDate = await fetch(`${rootServer}/entregados/${id}`, objPost(true, currentDate))
+				// opacidad para UX, indicar al usuario que esta cargando el check
+
+				e.target.classList.add('user--check__load');
+
+				const currentDate = await fetch(`${rootServer}/entregados/${id}`, objPost(true))
 					.then((res) => res.json())
 					.then((res) => {
 						console.log(res);
 						return res.fecha_entregado;
 					});
+
+				e.target.classList.remove('user--check__load');
 
 				e.target.classList.add('user--check__active');
 
@@ -26,6 +32,7 @@ users.addEventListener('click', async (e) => {
 			}
 		} catch (err) {
 			alert(`Error de conexión\n${err}`);
+			e.target.classList.remove('user--check__load');
 		}
 	}
 });
@@ -34,15 +41,23 @@ users.addEventListener('click', async (e) => {
 
 const form = document.getElementById('form');
 
+const submit = form[3];
+
 form.addEventListener('submit', async (e) => {
 	e.preventDefault();
 
-	let ci = e.target[0].value;
+	const ci = e.target[0].value;
 
-	let dateTime = e.target[1].value;
+	const name = e.target[1].value;
+
+	const date = e.target[2].value;
+
+	console.dir(form);
 
 	try {
-		const data = await fetch(`${rootServer}/historial?cedula=${ci}&fecha=${dateTime}`)
+		submit.textContent = 'Cargando...';
+
+		const data = await fetch(`${rootServer}/historial?cedula=${ci}&Nombre=${name}&fecha=${date}`)
 			.then((res) => res.json())
 			.then((res) => {
 				console.log(res);
@@ -56,39 +71,16 @@ form.addEventListener('submit', async (e) => {
 			users.innerHTML = '';
 
 			users.append(notFound);
+
+			submit.textContent = 'Buscar';
 		} else {
 			dataTable(data, users, $crE, upDate);
+
+			submit.textContent = 'Buscar';
 		}
 	} catch (err) {
 		alert(`Error de conexión\n${err}`);
+
+		submit.textContent = 'Buscar';
 	}
 });
-
-let date = new Date().toUTCString();
-
-// console.log(date.toLocaleString()); // posible
-
-console.log(date);
-
-date = new Date(date);
-
-console.log(
-	Intl.DateTimeFormat('en-US', {
-		timeStyle: 'long'
-	}).format(date)
-); // posible yes
-
-// probar con node js
-console.log(
-	Intl.DateTimeFormat('es-419', {
-		timeZone: 'America/Caracas',
-		hour12: true,
-		hourCycle: 'h12',
-		year: 'numeric',
-		month: '2-digit',
-		day: '2-digit',
-		hour: '2-digit',
-		minute: '2-digit',
-		second: '2-digit'
-	}).format(date)
-); // posible yes

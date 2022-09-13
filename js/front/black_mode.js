@@ -12,7 +12,7 @@ const dinamicMode = () => {
 	blackMode.classList.toggle('black-mode__active', validMode);
 
 	if (validMode) {
-		root.style.setProperty('--LetBgDoc', 'hsl(0, 0%, 10%)');
+		root.style.setProperty('--LetBgDoc', 'hsl(0, 0%, 15%)');
 		root.style.setProperty('--LetColorPrimaryTwo', 'hsl(0, 0%, 95%)');
 
 		localStorage.setItem('validMode', validMode);

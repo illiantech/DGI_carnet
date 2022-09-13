@@ -2,9 +2,9 @@
 
 export const rootServer = 'http://localhost:8000';
 
-export const objPost = (entregado, fecha_entregado) => ({
+export const objPost = (entregado) => ({
 	method: 'PUT',
-	body: JSON.stringify({ entregado, fecha_entregado }),
+	body: JSON.stringify({ entregado }),
 	headers: {
 		'Content-type': 'application/json'
 	}
@@ -20,7 +20,17 @@ export const updateCheckDateTime = (dataText, $crE) => {
 	const checkDateTime = $crE('div');
 	checkDateTime.classList.add('user--check-dateTime');
 	checkDateTime.setAttribute('title', 'Fecha de entrega');
-	checkDateTime.textContent = new Date(dataText).toLocaleString();
+	checkDateTime.textContent = Intl.DateTimeFormat('es-419', {
+		timeZone: 'America/Caracas',
+		hour12: true,
+		hourCycle: 'h12',
+		year: 'numeric',
+		month: '2-digit',
+		day: '2-digit',
+		hour: '2-digit',
+		minute: '2-digit',
+		second: '2-digit'
+	}).format(new Date(dataText));
 
 	return checkDateTime;
 };
@@ -29,6 +39,8 @@ export const updateCheckDateTime = (dataText, $crE) => {
 
 export default function dataTable(data, users, $crE, upDate) {
 	users.innerHTML = '';
+
+	const fragment = document.createDocumentFragment();
 
 	data.forEach((user) => {
 		const containerUser = $crE('div');
@@ -98,6 +110,8 @@ export default function dataTable(data, users, $crE, upDate) {
 
 		containerUser.append(titleCedula, cedula, titleNombre, nombre, titleId, id, titleFecha, fecha, titleCheck, containerCheck, dataWrapper);
 
-		users.append(containerUser);
+		fragment.append(containerUser);
 	});
+
+	users.append(fragment);
 }

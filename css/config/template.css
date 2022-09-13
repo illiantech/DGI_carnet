@@ -8,7 +8,7 @@
 	font-family: sans-serif;
 	transition: background-color 0.4s;
 	/* color elements and text (optional) */
-	--colorPrimary: hsl(224, 70%, 40%);
+	--colorPrimary: hsl(224, 60%, 35%);
 	--colorPrimaryTwo: hsl(223, 49%, 23%);
 	--colorSecondary: hsl(357, 71%, 44%);
 	--shadowGeneral: -5px 5px 15px -10px var(--bgLetter);
@@ -42,7 +42,7 @@ label {
 }
 
 input {
-	width: 130px;
+	width: 160px;
 	height: 30px;
 	outline: none;
 	border: 3px solid transparent;
@@ -53,7 +53,7 @@ input {
 }
 
 /* delete icon input dateTime */
-[type='date']::-webkit-calendar-picker-indicator {
+[type='month']::-webkit-calendar-picker-indicator {
 	width: 100%;
 	height: 100%;
 	position: absolute;
@@ -62,4 +62,13 @@ input {
 
 input:focus {
 	border-color: var(--colorPrimary);
+}
+
+/* extra */
+
+.insta-author {
+	color: rgb(160, 160, 160);
+	position: absolute;
+	left: 40px;
+	top: 40px;
 }
