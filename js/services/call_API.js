@@ -48,7 +48,7 @@ form.addEventListener('submit', async (e) => {
 
 	const ci = e.target[0].value;
 
-	const name = e.target[1].value;
+	const name = e.target[1].value.trim();
 
 	const date = e.target[2].value;
 
