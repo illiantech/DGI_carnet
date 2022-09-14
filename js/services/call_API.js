@@ -1,47 +1,14 @@
-import dataTable, { rootServer, objPost, $crE, updateCheckDateTime as upDate } from './data_table.js';
+import dataTable, { rootServer, objPutCheck, $crE, updateCheckDateTime as upDate, updateDescription as upDescrip } from './data_table.js';
 
-// value check box
-
-const users = document.getElementById('users');
-
-users.addEventListener('click', async (e) => {
-	// localizando el check box y el id del registro correspondiente
-	if (e.target.classList.contains('user--check')) {
-		const id = e.target.parentElement.parentElement.children[5].textContent;
-
-		try {
-			// fetch que manda datos a la BD
-			// compracion de si el check esta desactivado para entrar
-			if (!e.target.classList.contains('user--check__active')) {
-				// opacidad para UX, indicar al usuario que esta cargando el check
-
-				e.target.classList.add('user--check__load');
-
-				const currentDate = await fetch(`${rootServer}/entregados/${id}`, objPost(true))
-					.then((res) => res.json())
-					.then((res) => {
-						console.log(res);
-						return res.fecha_entregado;
-					});
-
-				e.target.classList.remove('user--check__load');
-
-				e.target.classList.add('user--check__active');
-
-				e.target.append(upDate(currentDate, $crE));
-			}
-		} catch (err) {
-			alert(`Error de conexión\n${err}`);
-			e.target.classList.remove('user--check__load');
-		}
-	}
-});
-
-// CALL API
+// Variables y constantes
 
 const form = document.getElementById('form');
 
 const submit = form[3];
+
+const users = document.getElementById('users');
+
+// CALL API Form
 
 form.addEventListener('submit', async (e) => {
 	e.preventDefault();
@@ -51,8 +18,6 @@ form.addEventListener('submit', async (e) => {
 	const name = e.target[1].value.trim();
 
 	const date = e.target[2].value;
-
-	console.dir(form);
 
 	try {
 		submit.textContent = 'Cargando...';
@@ -86,5 +51,44 @@ form.addEventListener('submit', async (e) => {
 		alert(`Error de conexión\n${err}`);
 
 		submit.textContent = 'Buscar';
+	}
+});
+
+users.addEventListener('click', async (e) => {
+	// CALL API value check box
+
+	// localizando el check box y el id del registro correspondiente
+	if (e.target.classList.contains('user--check')) {
+		const id = e.target.parentElement.parentElement.children[5].textContent;
+
+		try {
+			// fetch que manda datos a la BD
+			// compracion de si el check esta desactivado para entrar
+			if (!e.target.classList.contains('user--check__active')) {
+				// opacidad para UX, indicar al usuario que esta cargando el check
+
+				e.target.classList.add('user--check__load');
+
+				const currentDate = await fetch(`${rootServer}/entregados/${id}`, objPutCheck(true))
+					.then((res) => res.json())
+					.then((res) => {
+						console.log(res);
+						return res.fecha_entregado;
+					});
+
+				e.target.classList.remove('user--check__load');
+
+				e.target.classList.add('user--check__active');
+
+				e.target.append(upDate(currentDate, $crE));
+			}
+		} catch (err) {
+			alert(`Error de conexión\n${err}`);
+			e.target.classList.remove('user--check__load');
+		}
+	}
+
+	// CALL API Update description
+	if (e.target.classList.contains('description-edit--btn')) {
 	}
 });

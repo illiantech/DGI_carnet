@@ -7,11 +7,12 @@
 		<title>Carnetización</title>
 		<link rel="stylesheet" href="css/config/Normalize.css" />
 		<link rel="stylesheet" href="css/config/template.css" />
-		<link rel="stylesheet" href="css/modules/btn-dinamics.css" />
 		<link rel="stylesheet" href="css/modules/form.css" />
 		<link rel="stylesheet" href="css/modules/user.css" />
 		<link rel="stylesheet" href="css/modules/user_check.css" />
 		<link rel="stylesheet" href="css/modules/user_data_wrapper.css" />
+		<link rel="stylesheet" href="css/modules/description_edit.css" />
+		<link rel="stylesheet" href="css/modules/btn-dinamics.css" />
 	</head>
 	<body>
 		<button title="Volver atrás" class="btn-back" id="btnBack">Volver</button>
@@ -42,7 +43,47 @@
 			<h3>Entregado</h3>
 		</div>
 
-		<div id="users"></div>
+		<div id="users">
+			<div class="user">
+				<h3>Cédula</h3>
+				<p>28262997</p>
+				<h3>Nombre</h3>
+				<p>daniel pimentel</p>
+				<h3>ID</h3>
+				<p>1</p>
+				<h3>Fecha</h3>
+				<p>31-08-2022</p>
+				<h3>Entregado</h3>
+				<div>
+					<div title="Boton" class="user--check">
+						<div title="Fecha de entrega" class="user--check-dateTime">2022-12-01 09:08:10 am</div>
+					</div>
+				</div>
+				<div class="user--data-wrapper">
+					<h3>Cargo</h3>
+					<p>desarrolador de software</p>
+					<h3>Dependencia</h3>
+					<p>lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, dolore doloremqueorem ipsum dolor sit</p>
+					<h3>Descripción</h3>
+					<div class="description-edit">
+						<button class="description-edit--btn" title="Enviar">
+							<!-- <div>✏</div> -->
+							<div>📤</div>
+						</button>
+						<!-- <textarea
+							placeholder="Escribe una descripción del usuario en relación a su registro o entrega del carnet..."
+							name=""
+							class="description-edit--edit"></textarea> -->
+						<p class="description-edit--text">
+							Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo nulla iste dolorum expedita animi pariatur beatae exercitationem facere at
+							nobis! Possimus aspernatur placeat sequi voluptates esse repellat, iusto quia sit?exercitationem facere at nobis! Possimus aspernatur
+							placeat sequi voluptates esse repellat, iusto quia sit?exercitationem facere at nobis! Possimus aspernatur placeat sequi voluptates esse
+							repellat, iusto quia sit?
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
 
 		<script src="/js/front/btn-dinamics.js"></script>
 		<script src="js/services/call_API.js" type="module"></script>

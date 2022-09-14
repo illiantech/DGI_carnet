@@ -2,14 +2,6 @@
 
 export const rootServer = 'http://historial-carnets.guarico.gob.ve';
 
-export const objPost = (entregado) => ({
-	method: 'PUT',
-	body: JSON.stringify({ entregado }),
-	headers: {
-		'Content-type': 'application/json'
-	}
-});
-
 // Funcion que genera de manera mas legible elementos
 
 export const $crE = (element) => document.createElement(element);
@@ -17,7 +9,7 @@ export const $crE = (element) => document.createElement(element);
 // Fecha de entrega que se genera solo si check es true
 
 export const updateCheckDateTime = (dataText, $crE) => {
-	const checkDateTime = $crE('div');
+	const checkDateTime = $crE('p');
 	checkDateTime.classList.add('user--check-dateTime');
 	checkDateTime.setAttribute('title', 'Fecha de entrega');
 	checkDateTime.textContent = Intl.DateTimeFormat('es-419', {
@@ -35,9 +27,53 @@ export const updateCheckDateTime = (dataText, $crE) => {
 	return checkDateTime;
 };
 
+// Body cuando se entrega check de fecha_entregado
+
+export const objPutCheck = (entregado) => ({
+	method: 'PUT',
+	body: JSON.stringify({ entregado }),
+	headers: {
+		'Content-type': 'application/json'
+	}
+});
+
+// Description ...
+
+export const updateDescription = (dataText, $crE) => {
+	const fragment = document.createDocumentFragment();
+
+	const descripBtn = $crE('button');
+	descripBtn.classList.add('description-edit--btn');
+
+	const descripBtnElemt = $crE('div');
+
+	if (!dataText) {
+		descripBtn.setAttribute('title', 'Enviar');
+
+		descripBtnElemt.textContent = '📤';
+
+		const descripEditOrText = $crE('textarea');
+		descripEditOrText.classList.add('description-edit--edit');
+		descripEditOrText.setAttribute('placeholder', 'Escribe una descripción del usuario en relación a su registro o entrega del carnet...');
+	} else {
+		descripBtn.classList.add('description-edit--btn__text');
+		descripBtn.setAttribute('title', 'Editar');
+
+		descripBtnElemt.textContent = '✏';
+
+		const descripEditOrText = $crE('p');
+		descripEditOrText.classList.add('description-edit--text');
+		descripEditOrText.textContent = dataText;
+	}
+
+	descripBtn.append(descripBtnElemt);
+
+	return fragment.append(descripBtn, descripEditOrText);
+};
+
 // funcion que generea dinamicamente los elementos de la lista de usuarios
 
-export default function dataTable(data, users, $crE, upDate) {
+export default function dataTable(data, users, $crE, upDate, upDescrip) {
 	users.innerHTML = '';
 
 	const fragment = document.createDocumentFragment();
@@ -77,7 +113,7 @@ export default function dataTable(data, users, $crE, upDate) {
 
 		const check = $crE('div');
 		check.classList.add('user--check');
-		check.setAttribute('title', 'boton');
+		check.setAttribute('title', 'Confirmar entrega');
 		check.classList.toggle('user--check__active', user.entregado);
 
 		if (user.fecha_entregado) check.append(upDate(user.fecha_entregado, $crE));
@@ -102,9 +138,10 @@ export default function dataTable(data, users, $crE, upDate) {
 		const dependencia = $crE('p');
 		dependencia.textContent = `${user.Dependencia.slice(0, 1).toUpperCase()}${user.Dependencia.slice(1).toLowerCase()}`;
 
-		const descripcion = $crE('p');
-		if (user.descripcion) descripcion.textContent = `${user.descripcion.slice(0, 1).toUpperCase()}${user.descripcion.slice(1).toLowerCase()}`;
-		else descripcion.textContent = 'Vacio';
+		const descripcion = $crE('div');
+		descripcion.classList.add('description-edit');
+
+		descripcion.append(upDescrip(user.descripcion, $crE));
 
 		dataWrapper.append(titleCargo, cargo, titleDependencia, dependencia, titleDescripcion, descripcion);
 

@@ -61,12 +61,7 @@
 		max-width: 1300px;
 		flex-direction: row;
 		top: 0;
-		/* transition: top 0.2s; */
 	}
-
-	/* .user:hover {
-		top: -10px;
-	} */
 
 	.user > h3 {
 		display: none;
