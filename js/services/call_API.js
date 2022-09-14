@@ -41,7 +41,7 @@ form.addEventListener('submit', async (e) => {
 
 			submit.textContent = 'Buscar';
 		} else {
-			dataTable(data, users, $crE, upDate);
+			dataTable(data, users, $crE, upDate, upDescrip);
 
 			form.lastElementChild.textContent = `${data.length} Usuarios`;
 
@@ -90,5 +90,6 @@ users.addEventListener('click', async (e) => {
 
 	// CALL API Update description
 	if (e.target.classList.contains('description-edit--btn')) {
+		const id = e.target.parentElement.parentElement.parentElement.children[5].textContent;
 	}
 });

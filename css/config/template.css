@@ -4,7 +4,7 @@
 	/* in firefox */
 
 	scrollbar-width: thin;
-	scrollbar-color: var(--colorSecondary) var(--bgDoc);
+	scrollbar-color: var(--colorSecondary) var(--LetBgDoc);
 }
 
 /* scroll */

@@ -45,30 +45,28 @@ export const updateDescription = (dataText, $crE) => {
 	const descripBtn = $crE('button');
 	descripBtn.classList.add('description-edit--btn');
 
-	const descripBtnElemt = $crE('div');
+	let descripEditOrText;
 
 	if (!dataText) {
 		descripBtn.setAttribute('title', 'Enviar');
 
-		descripBtnElemt.textContent = '📤';
+		descripBtn.textContent = '📤';
 
-		const descripEditOrText = $crE('textarea');
+		descripEditOrText = $crE('textarea');
 		descripEditOrText.classList.add('description-edit--edit');
 		descripEditOrText.setAttribute('placeholder', 'Escribe una descripción del usuario en relación a su registro o entrega del carnet...');
 	} else {
-		descripBtn.classList.add('description-edit--btn__text');
 		descripBtn.setAttribute('title', 'Editar');
 
-		descripBtnElemt.textContent = '✏';
+		descripBtn.textContent = '✏';
 
-		const descripEditOrText = $crE('p');
+		descripEditOrText = $crE('p');
 		descripEditOrText.classList.add('description-edit--text');
 		descripEditOrText.textContent = dataText;
 	}
 
-	descripBtn.append(descripBtnElemt);
-
-	return fragment.append(descripBtn, descripEditOrText);
+	fragment.append(descripBtn, descripEditOrText);
+	return fragment;
 };
 
 // funcion que generea dinamicamente los elementos de la lista de usuarios

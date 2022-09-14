@@ -1,11 +1,4 @@
-.description-edit {
-	width: calc(100% / 1.4);
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	position: relative;
-	left: calc(50% - ((100% / 1.4) / 2));
-}
+/*bloque de description-edit en user_data_wrapper.css estilos semejantes con elementos ‘‘P’’ en GRID */
 
 .description-edit--btn {
 	position: absolute;
@@ -13,10 +6,8 @@
 	top: -20%;
 	font-size: 1.3rem;
 	width: 33px;
-}
-
-.description-edit--btn__text > div {
-	transform: rotate(45deg);
+	display: grid;
+	place-content: center;
 }
 
 .description-edit--edit {
@@ -26,9 +17,12 @@
 	height: 80%;
 	border-radius: 5px;
 	border: 1px solid hsl(0, 0%, 60%);
-
 	background-color: var(--colorPrimary);
 	color: var(--bgDoc);
+}
+
+.description-edit--edit::placeholder {
+	color: hsl(0, 0%, 60%);
 }
 
 .description-edit--text {
@@ -37,8 +31,11 @@
 	overflow-y: scroll;
 }
 
-.description-edit--edit::placeholder {
-	color: hsl(0, 0%, 60%);
+.description-edit--edit,
+.description-edit--text {
+	/* in firefox */
+
+	scrollbar-color: var(--colorSecondary) var(--bgDoc);
 }
 
 .description-edit--edit::-webkit-scrollbar:vertical,
