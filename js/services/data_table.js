@@ -8,6 +8,16 @@ export const rootServer = 'http://historial-carnets.guarico.gob.ve';
 
 export const $crE = (element) => document.createElement(element);
 
+// Obejeto body PUT
+
+export const objPUT = (data) => ({
+	method: 'PUT',
+	body: JSON.stringify({ data }),
+	headers: {
+		'Content-type': 'application/json'
+	}
+});
+
 // Fecha de entrega que se genera solo si check es true
 
 export const updateCheckDateTime = (dataText, $crE) => {
@@ -29,17 +39,7 @@ export const updateCheckDateTime = (dataText, $crE) => {
 	return checkDateTime;
 };
 
-// Body cuando se entrega check de fecha_entregado
-
-export const objPUT = (data) => ({
-	method: 'PUT',
-	body: JSON.stringify({ data }),
-	headers: {
-		'Content-type': 'application/json'
-	}
-});
-
-// Description ...
+// Description Edit or Text
 
 export const updateDescription = (dataText, $crE) => {
 	const fragment = document.createDocumentFragment();
