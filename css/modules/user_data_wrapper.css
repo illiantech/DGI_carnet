@@ -1,4 +1,4 @@
-.user--data-wrapper {
+.user--wrapper-data {
 	width: 100%;
 	height: 100%;
 	background-color: var(--colorPrimary);
@@ -15,12 +15,12 @@
 	transition: clip-path 1s cubic-bezier(0.82, -0.2, 0.18, 1.2);
 }
 
-.user--data-wrapper:hover {
+.user--wrapper-data:hover {
 	clip-path: circle(150% at 100% 100%);
 }
 
-.user--data-wrapper::before,
-.user--data-wrapper::after {
+.user--wrapper-data::before,
+.user--wrapper-data::after {
 	content: '';
 	position: absolute;
 	top: calc(100% / 3);
@@ -30,17 +30,18 @@
 	background-color: var(--colorSecondary);
 }
 
-.user--data-wrapper::after {
+.user--wrapper-data::after {
 	top: calc(100% / 1.5);
 }
 
-.user--data-wrapper > h3 {
+.user--wrapper-data > h3 {
 	text-align: center;
 	color: currentColor;
 }
 
-.user--data-wrapper > p,
-.description-edit {
+/* flex deja cambiar el tamaño de sus hijos a diferecia de grid */
+.user--wrapper-data > p,
+.user--wrapper-description {
 	width: calc(100% / 1.4);
 	display: flex;
 	justify-content: center;
@@ -49,37 +50,87 @@
 	left: calc(50% - ((100% / 1.4) / 2));
 }
 
-/* elementos del bloque description-edit en description_edit.css */
+.user--wrapper-description button {
+	position: absolute;
+	left: 0;
+	top: -20%;
+	font-size: 1.3rem;
+	width: 33px;
+	display: grid;
+	place-content: center;
+}
+
+.user--wrapper-description textarea {
+	resize: none;
+	outline: none;
+	width: 100%;
+	height: 80%;
+	border-radius: 5px;
+	border: 1px solid hsl(0, 0%, 60%);
+	background-color: var(--colorPrimary);
+	color: var(--bgDoc);
+}
+
+.user--wrapper-description textarea::placeholder {
+	color: hsl(0, 0%, 60%);
+}
+
+.user--wrapper-description p {
+	height: 80%;
+	padding: 3px;
+	display: grid;
+	place-content: center;
+	overflow-y: scroll;
+}
+
+.user--wrapper-description textarea,
+.user--wrapper-description p {
+	/* in firefox */
+
+	scrollbar-color: var(--colorSecondary) var(--bgDoc);
+}
+
+.user--wrapper-description textarea::-webkit-scrollbar:vertical,
+.user--wrapper-description p::-webkit-scrollbar:vertical {
+	width: 0.5rem;
+}
+
+.user--wrapper-description textarea::-webkit-scrollbar-thumb,
+.user--wrapper-description p::-webkit-scrollbar-thumb {
+	background-color: var(--bgDoc);
+	border-radius: 20px;
+	border: 2px solid var(--colorPrimary);
+}
 
 @media (min-width: 1000px) {
-	.user--data-wrapper {
+	.user--wrapper-data {
 		grid-template-columns: repeat(3, calc(100% / 3));
 		grid-template-rows: calc(100% / 4) calc(100% / 1.3333);
-		clip-path: circle(700% at 0% 100%);
+		clip-path: circle(7% at 0% 100%);
 	}
 
-	.user--data-wrapper:hover {
+	.user--wrapper-data:hover {
 		clip-path: circle(150% at 0% 100%);
 	}
 
-	.user--data-wrapper::before,
-	.user--data-wrapper::after {
+	.user--wrapper-data::before,
+	.user--wrapper-data::after {
 		top: calc(25% + 100% / 1.3333 / 2 - ((100% / 2) / 2));
 		left: calc(100% / 3);
 		width: 3px;
 		height: calc(100% / 2);
 	}
 
-	.user--data-wrapper::after {
+	.user--wrapper-data::after {
 		left: calc(100% / 1.5);
 	}
 
-	.user--data-wrapper > h3:nth-of-type(2) {
+	.user--wrapper-data > h3:nth-of-type(2) {
 		grid-row-start: 1;
 		grid-column-start: 2;
 	}
 
-	.user--data-wrapper > h3:nth-of-type(3) {
+	.user--wrapper-data > h3:nth-of-type(3) {
 		grid-row-start: 1;
 		grid-column-start: 3;
 	}

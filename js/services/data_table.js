@@ -2,6 +2,8 @@
 
 export const rootServer = 'http://historial-carnets.guarico.gob.ve';
 
+// export const rootServer = 'http://localhost:8000';
+
 // Funcion que genera de manera mas legible elementos
 
 export const $crE = (element) => document.createElement(element);
@@ -29,9 +31,9 @@ export const updateCheckDateTime = (dataText, $crE) => {
 
 // Body cuando se entrega check de fecha_entregado
 
-export const objPutCheck = (entregado) => ({
+export const objPUT = (data) => ({
 	method: 'PUT',
-	body: JSON.stringify({ entregado }),
+	body: JSON.stringify({ data }),
 	headers: {
 		'Content-type': 'application/json'
 	}
@@ -43,7 +45,7 @@ export const updateDescription = (dataText, $crE) => {
 	const fragment = document.createDocumentFragment();
 
 	const descripBtn = $crE('button');
-	descripBtn.classList.add('description-edit--btn');
+	descripBtn.setAttribute('data-btnDescrip', true);
 
 	let descripEditOrText;
 
@@ -53,7 +55,6 @@ export const updateDescription = (dataText, $crE) => {
 		descripBtn.textContent = '📤';
 
 		descripEditOrText = $crE('textarea');
-		descripEditOrText.classList.add('description-edit--edit');
 		descripEditOrText.setAttribute('placeholder', 'Escribe una descripción del usuario en relación a su registro o entrega del carnet...');
 	} else {
 		descripBtn.setAttribute('title', 'Editar');
@@ -61,7 +62,6 @@ export const updateDescription = (dataText, $crE) => {
 		descripBtn.textContent = '✏';
 
 		descripEditOrText = $crE('p');
-		descripEditOrText.classList.add('description-edit--text');
 		descripEditOrText.textContent = dataText;
 	}
 
@@ -119,7 +119,7 @@ export default function dataTable(data, users, $crE, upDate, upDescrip) {
 		containerCheck.append(check);
 
 		const dataWrapper = $crE('div');
-		dataWrapper.classList.add('user--data-wrapper');
+		dataWrapper.classList.add('user--wrapper-data');
 
 		const titleCargo = $crE('h3');
 		titleCargo.textContent = 'Cargo';
@@ -137,7 +137,7 @@ export default function dataTable(data, users, $crE, upDate, upDescrip) {
 		dependencia.textContent = `${user.Dependencia.slice(0, 1).toUpperCase()}${user.Dependencia.slice(1).toLowerCase()}`;
 
 		const descripcion = $crE('div');
-		descripcion.classList.add('description-edit');
+		descripcion.classList.add('user--wrapper-description');
 
 		descripcion.append(upDescrip(user.descripcion, $crE));
 

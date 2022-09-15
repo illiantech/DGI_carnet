@@ -1,4 +1,4 @@
-import dataTable, { rootServer, objPutCheck, $crE, updateCheckDateTime as upDate, updateDescription as upDescrip } from './data_table.js';
+import dataTable, { rootServer, objPUT, $crE, updateCheckDateTime as upDate, updateDescription as upDescrip } from './data_table.js';
 
 // Variables y constantes
 
@@ -69,7 +69,7 @@ users.addEventListener('click', async (e) => {
 
 				e.target.classList.add('user--check__load');
 
-				const currentDate = await fetch(`${rootServer}/entregados/${id}`, objPutCheck(true))
+				const currentDate = await fetch(`${rootServer}/entregados/${id}`, objPUT(true))
 					.then((res) => res.json())
 					.then((res) => {
 						console.log(res);
@@ -89,7 +89,40 @@ users.addEventListener('click', async (e) => {
 	}
 
 	// CALL API Update description
-	if (e.target.classList.contains('description-edit--btn')) {
-		const id = e.target.parentElement.parentElement.parentElement.children[5].textContent;
+	if (e.target.getAttribute('data-btnDescrip')) {
+		const description = e.target.parentElement;
+		const id = description.parentElement.parentElement.children[5].textContent;
+
+		if (e.target.textContent === '📤') {
+			try {
+				let dataDescripEdit = e.target.nextElementSibling.value.trim();
+
+				if (dataDescripEdit) {
+					// parseo de la primera letra en Mayuscula porque flex no deja hacer efecto del pseudoElemento
+					dataDescripEdit = `${dataDescripEdit.slice(0, 1).toUpperCase()}${dataDescripEdit.slice(1)}`;
+
+					e.target.textContent = '...';
+
+					await fetch(`${rootServer}/descripciones/${id}`, objPUT(dataDescripEdit))
+						.then((res) => res.json())
+						.then((res) => console.log(res));
+
+					description.innerHTML = '';
+
+					description.append(upDescrip(dataDescripEdit, $crE));
+				}
+			} catch (err) {
+				alert(`Error de conexión\n${err}`);
+				e.target.textContent = '📤';
+			}
+		} else if (e.target.textContent === '✏') {
+			const dataDescripText = e.target.nextElementSibling.textContent;
+
+			description.innerHTML = '';
+
+			description.append(upDescrip(undefined, $crE));
+
+			description.children[1].value = dataDescripText;
+		}
 	}
 });
