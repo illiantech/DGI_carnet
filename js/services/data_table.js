@@ -1,8 +1,8 @@
 // ruta de base de datos
 
-export const rootServer = 'http://historial-carnets.guarico.gob.ve';
+// export const rootServer = 'http://historial-carnets.guarico.gob.ve';
 
-// export const rootServer = 'http://localhost:8000';
+export const rootServer = 'http://localhost:8000';
 
 // Funcion que genera de manera mas legible elementos
 
@@ -111,7 +111,8 @@ export default function dataTable(data, users, $crE, upDate, upDescrip) {
 
 		const check = $crE('div');
 		check.classList.add('user--check');
-		check.setAttribute('title', 'Confirmar entrega');
+if (user.entregado) check.setAttribute('title', 'Entrega confirmada')
+else check.setAttribute('title', 'Confirmar entrega');
 		check.classList.toggle('user--check__active', user.entregado);
 
 		if (user.fecha_entregado) check.append(upDate(user.fecha_entregado, $crE));

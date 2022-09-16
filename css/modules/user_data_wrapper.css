@@ -11,7 +11,7 @@
 		calc(100% / 13) calc(100% * 0.2564) calc(100% / 13) calc(100% * 0.2564)
 		calc(100% / 13) calc(100% * 0.2564);
 	cursor: pointer;
-	clip-path: circle(130% at 100% 100%);
+	clip-path: circle(13% at 100% 100%);
 	transition: clip-path 1s cubic-bezier(0.82, -0.2, 0.18, 1.2);
 }
 
@@ -43,6 +43,7 @@
 .user--wrapper-data > p,
 .user--wrapper-description {
 	width: calc(100% / 1.4);
+	max-width: 286px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -58,6 +59,7 @@
 	width: 33px;
 	display: grid;
 	place-content: center;
+	
 }
 
 .user--wrapper-description textarea {
@@ -69,6 +71,7 @@
 	border: 1px solid hsl(0, 0%, 60%);
 	background-color: var(--colorPrimary);
 	color: var(--bgDoc);
+	padding: 5px;
 }
 
 .user--wrapper-description textarea::placeholder {
@@ -76,11 +79,13 @@
 }
 
 .user--wrapper-description p {
+	width: 100%;
 	height: 80%;
 	padding: 3px;
 	display: grid;
 	place-content: center;
-	overflow-y: scroll;
+	overflow-y: auto;
+	
 }
 
 .user--wrapper-description textarea,
@@ -125,6 +130,8 @@
 		left: calc(100% / 1.5);
 	}
 
+	
+
 	.user--wrapper-data > h3:nth-of-type(2) {
 		grid-row-start: 1;
 		grid-column-start: 2;
@@ -134,4 +141,12 @@
 		grid-row-start: 1;
 		grid-column-start: 3;
 	}
+
+	.user--wrapper-data > p,
+.user--wrapper-description {
+
+	max-width: 310px;
+
+}
+
 }

@@ -53,7 +53,7 @@
 	--GrdGeneral: linear-gradient(to bottom, hsl(0, 0%, 97%) 70%, var(--colorPrimary) 600%);
 	/* variable change */
 	--LetBgDoc: hsl(0, 0%, 95%);
-	--LeColorPrimaryTwo: hsl(223, 49%, 23%);
+	--LetColorPrimaryTwo: hsl(223, 49%, 23%);
 }
 
 /* titles */
@@ -87,7 +87,6 @@ label {
 }
 
 input {
-	width: 160px;
 	height: 30px;
 	outline: none;
 	border: 3px solid transparent;

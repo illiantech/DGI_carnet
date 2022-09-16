@@ -4,7 +4,7 @@ import dataTable, { rootServer, objPUT, $crE, updateCheckDateTime as upDate, upd
 
 const form = document.getElementById('form');
 
-const submit = form[3];
+const submit = form[4];
 
 const users = document.getElementById('users');
 
@@ -19,10 +19,12 @@ form.addEventListener('submit', async (e) => {
 
 	const date = e.target[2].value;
 
+	const check = e.target[3].checked
+
 	try {
 		submit.textContent = 'Cargando...';
 
-		const data = await fetch(`${rootServer}/historial?cedula=${ci}&Nombre=${name}&fecha=${date}`)
+		const data = await fetch(`${rootServer}/historial?cedula=${ci}&Nombre=${name}&fecha=${date}&entregado=${check}`)
 			.then((res) => res.json())
 			.then((res) => {
 				console.log(res);
@@ -47,10 +49,14 @@ form.addEventListener('submit', async (e) => {
 
 			submit.textContent = 'Buscar';
 		}
+
+		form.reset()
 	} catch (err) {
 		alert(`Error de conexión\n${err}`);
 
 		submit.textContent = 'Buscar';
+
+		form.reset()
 	}
 });
 
@@ -79,6 +85,8 @@ users.addEventListener('click', async (e) => {
 				e.target.classList.remove('user--check__load');
 
 				e.target.classList.add('user--check__active');
+
+				e.target.setAttribute('title', 'Entrega confirmada')
 
 				e.target.append(upDate(currentDate, $crE));
 			}
