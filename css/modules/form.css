@@ -34,7 +34,6 @@
 	margin-bottom: 10px;
 }
 
-
 .form-container > input {
 	margin-bottom: 25px;
 	width: 100%;
@@ -45,13 +44,12 @@
 }
 
 .form-container > input:last-of-type {
-position: relative;
-top: 5px;
-left: 15px;
+	position: relative;
+	top: 5px;
+	left: 15px;
 	width: 20px;
 	height: 20px;
 	cursor: pointer;
-
 }
 
 .form-container > button {
@@ -63,7 +61,6 @@ left: 15px;
 	border: 3px solid transparent;
 	transition: border-color 0.2s;
 }
-
 
 @media (min-width: 1000px) {
 	.form {
@@ -92,10 +89,10 @@ left: 15px;
 	}
 
 	.form-container > label:last-of-type {
+		font-size: 0.9rem;
 		position: absolute;
-		top: 75%;
-		left: 75%;
-	
+		top: 75.5%;
+		left: 75.5%;
 	}
 
 	.form-container > input {
@@ -106,9 +103,10 @@ left: 15px;
 	.form-container > input:last-of-type {
 		margin-right: 0px;
 		position: absolute;
-		top: 74%;
-		left: 86%;
-	
+		width: 18px;
+		height: 18px;
+		top: 75%;
+		left: 85%;
 	}
 
 	.form-container > button {
@@ -118,6 +116,4 @@ left: 15px;
 	.form-container > button:hover {
 		border-color: var(--colorSecondary);
 	}
-
-
 }
