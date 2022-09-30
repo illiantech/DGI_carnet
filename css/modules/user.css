@@ -1,3 +1,4 @@
+/* User */
 .user-propertys {
 	display: none;
 }
@@ -18,6 +19,38 @@
 	overflow: hidden;
 }
 
+.user--delete {
+	position: absolute;
+	width: 25px;
+	height: 25px;
+	border-radius: 5px;
+	background-color: inherit;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	top: 10px;
+	left: 15px;
+	cursor: pointer;
+}
+
+.user--delete::before,
+.user--delete::after {
+	content: '';
+	background-color: var(--colorSecondary);
+	position: absolute;
+	height: 3px;
+	width: 20px;
+	border-radius: 5px;
+}
+
+.user--delete::before {
+	transform: rotate(45deg);
+}
+
+.user--delete::after {
+	transform: rotate(-45deg);
+}
+
 .user > h3 {
 	width: 80%;
 	margin-top: 50px;
@@ -26,7 +59,7 @@
 }
 
 .user > p,
-.user > div:first-of-type {
+.user--check-container {
 	margin-top: 0;
 	margin-bottom: 0;
 	width: 80%;
@@ -37,7 +70,7 @@
 	text-transform: capitalize;
 }
 
-.user > div:first-of-type {
+.user--check-container {
 	margin-bottom: 50px;
 }
 
@@ -68,13 +101,13 @@
 	}
 
 	.user > p,
-	.user > div:first-of-type {
+	.user--check-container {
 		display: flex;
 		justify-content: center;
 		width: 100%;
 	}
 
-	.user > div:first-of-type {
+	.user--check-container {
 		margin-bottom: 0px;
 	}
 }

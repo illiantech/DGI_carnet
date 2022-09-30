@@ -1,8 +1,8 @@
 // ruta de base de datos
 
-export const rootServer = 'http://historial-carnets.guarico.gob.ve';
+// export const rootServer = 'http://historial-carnets.guarico.gob.ve';
 
-// export const rootServer = 'http://localhost:8000';
+export const rootServer = 'http://localhost:8000';
 
 // Funcion que genera de manera mas legible elementos
 
@@ -80,6 +80,10 @@ export default function dataTable(data, users, $crE, upDate, upDescrip) {
 		const containerUser = $crE('div');
 		containerUser.classList.add('user');
 
+		const deleteUser = $crE('div');
+		deleteUser.classList.add('user--delete');
+		deleteUser.setAttribute('title', 'Borrar');
+
 		const titleCedula = $crE('h3');
 		titleCedula.textContent = 'Cédula';
 
@@ -108,6 +112,7 @@ export default function dataTable(data, users, $crE, upDate, upDescrip) {
 		titleCheck.textContent = 'Entregado';
 
 		const containerCheck = $crE('div');
+		containerCheck.classList.add('user--check-container');
 
 		const check = $crE('div');
 		check.classList.add('user--check');
@@ -144,7 +149,20 @@ export default function dataTable(data, users, $crE, upDate, upDescrip) {
 
 		dataWrapper.append(titleCargo, cargo, titleDependencia, dependencia, titleDescripcion, descripcion);
 
-		containerUser.append(titleCedula, cedula, titleNombre, nombre, titleId, id, titleFecha, fecha, titleCheck, containerCheck, dataWrapper);
+		containerUser.append(
+			deleteUser,
+			titleCedula,
+			cedula,
+			titleNombre,
+			nombre,
+			titleId,
+			id,
+			titleFecha,
+			fecha,
+			titleCheck,
+			containerCheck,
+			dataWrapper
+		);
 
 		fragment.append(containerUser);
 	});

@@ -1,0 +1,27 @@
+.remove-alert {
+	width: 150px;
+	font-weight: bold;
+	border-radius: 10px;
+	padding: 15px 30px 15px 15px;
+	background: linear-gradient(to bottom, hsl(0, 0%, 97%) 60%, var(--colorPrimary) 400%);
+	box-shadow: var(--shadowGeneral);
+	overflow: hidden;
+	position: fixed;
+	top: 50px;
+	left: -100%;
+	transition: left 0.8s;
+}
+
+.remove-alert::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	right: 0;
+	height: 100%;
+	width: 15%;
+	background-color: var(--colorSecondary);
+}
+
+.remove-alert__active {
+	left: 5%;
+}

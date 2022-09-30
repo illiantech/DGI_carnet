@@ -11,15 +11,13 @@ const users = document.getElementById('users');
 // CALL API Form
 
 form.addEventListener('submit', async (e) => {
-	e.preventDefault();
-
 	const ci = e.target[0].value;
 
 	const name = e.target[1].value.trim();
 
 	const date = e.target[2].value;
 
-	const check = e.target[3].checked
+	const check = e.target[3].checked;
 
 	try {
 		submit.textContent = 'Cargando...';
@@ -50,22 +48,43 @@ form.addEventListener('submit', async (e) => {
 			submit.textContent = 'Buscar';
 		}
 
-		form.reset()
+		form.reset();
 	} catch (err) {
 		alert(`Error de conexión\n${err}`);
 
 		submit.textContent = 'Buscar';
 
-		form.reset()
+		form.reset();
 	}
 });
 
 users.addEventListener('click', async (e) => {
 	// CALL API value check box
 
+	// CALL API Delete User
+
+	if (e.target.classList.contains('user--delete')) {
+		const id = e.target.parentElement.children[6].textContent;
+
+		try {
+			await fetch(`${rootServer}/eliminados/${id}`, { method: 'DELETE' })
+				.then((res) => res.json())
+				.then((res) => console.log(res));
+
+			const removeAlert = document.getElementById('removeAlert');
+
+			removeAlert.classList.add('remove-alert__active');
+			e.preventDefault();
+
+			const user = id.parentElement;
+		} catch (err) {
+			alert(`Error de conexión\n${err}`);
+		}
+	}
+
 	// localizando el check box y el id del registro correspondiente
 	if (e.target.classList.contains('user--check')) {
-		const id = e.target.parentElement.parentElement.children[5].textContent;
+		const id = e.target.parentElement.parentElement.children[6].textContent;
 
 		try {
 			// fetch que manda datos a la BD
@@ -86,7 +105,7 @@ users.addEventListener('click', async (e) => {
 
 				e.target.classList.add('user--check__active');
 
-				e.target.setAttribute('title', 'Entrega confirmada')
+				e.target.setAttribute('title', 'Entrega confirmada');
 
 				e.target.append(upDate(currentDate, $crE));
 			}
@@ -99,7 +118,8 @@ users.addEventListener('click', async (e) => {
 	// CALL API Update description
 	if (e.target.getAttribute('data-btnDescrip')) {
 		const description = e.target.parentElement;
-		const id = description.parentElement.parentElement.children[5].textContent;
+
+		const id = description.parentElement.parentElement.children[6].textContent;
 
 		if (e.target.textContent === '📤') {
 			try {
