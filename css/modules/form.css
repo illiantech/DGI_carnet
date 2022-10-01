@@ -34,16 +34,23 @@
 	margin-bottom: 10px;
 }
 
-.form-container > input {
+.form-container--input {
+	height: 30px;
+	outline: none;
+	border: 3px solid transparent;
+	background-color: var(--bgDoc);
+	border-radius: 5px;
+	position: relative;
+	transition: border-color 0.2s;
 	margin-bottom: 25px;
 	width: 100%;
 }
 
-.form-container > input:nth-of-type(3) {
+.form-container--input:nth-of-type(3) {
 	text-align: center;
 }
 
-.form-container > input:last-of-type {
+.form-container--input:nth-of-type(4) {
 	position: relative;
 	top: 5px;
 	left: 15px;
@@ -52,7 +59,13 @@
 	cursor: pointer;
 }
 
-.form-container > button {
+.form-container--submit {
+	border-radius: 5px;
+	border: none;
+	font-weight: bold;
+	cursor: pointer;
+	color: var(--colorSecondary);
+	background-color: var(--bgDoc);
 	height: 30px;
 	width: 110px;
 	display: block;
@@ -83,24 +96,24 @@
 	}
 
 	.form-container > label,
-	.form-container > input {
+	.form-container--input {
 		margin-top: 0;
 		margin-bottom: 0;
 	}
 
-	.form-container > label:last-of-type {
+	.form-container > label:nth-of-type(4) {
 		font-size: 0.9rem;
 		position: absolute;
 		top: 75.5%;
 		left: 75.5%;
 	}
 
-	.form-container > input {
+	.form-container--input {
 		margin-right: 30px;
 		width: 160px;
 	}
 
-	.form-container > input:last-of-type {
+	.form-container--input:nth-of-type(4) {
 		margin-right: 0px;
 		position: absolute;
 		width: 18px;
@@ -109,11 +122,11 @@
 		left: 85%;
 	}
 
-	.form-container > button {
+	.form-container--submit {
 		margin-left: 0;
 		margin-right: 0;
 	}
-	.form-container > button:hover {
+	.form-container--submit:hover {
 		border-color: var(--colorSecondary);
 	}
 }

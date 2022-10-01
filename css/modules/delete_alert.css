@@ -1,5 +1,6 @@
-.remove-alert {
+.delete-alert {
 	width: 150px;
+	z-index: 1000;
 	font-weight: bold;
 	border-radius: 10px;
 	padding: 15px 30px 15px 15px;
@@ -9,10 +10,10 @@
 	position: fixed;
 	top: 50px;
 	left: -100%;
-	transition: left 0.8s;
+	transition: left 0.7s;
 }
 
-.remove-alert::before {
+.delete-alert::before {
 	content: '';
 	position: absolute;
 	top: 0;
@@ -22,6 +23,6 @@
 	background-color: var(--colorSecondary);
 }
 
-.remove-alert__active {
+.delete-alert__active {
 	left: 5%;
 }

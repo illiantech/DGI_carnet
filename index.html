@@ -8,7 +8,7 @@
 		<link rel="stylesheet" href="css/config/Normalize.css" />
 		<link rel="stylesheet" href="css/config/template.css" />
 		<link rel="stylesheet" href="css/modules/form.css" />
-		<link rel="stylesheet" href="./css/modules/remove_alert.css" />
+		<link rel="stylesheet" href="./css/modules/delete_alert.css" />
 		<link rel="stylesheet" href="css/modules/user.css" />
 		<link rel="stylesheet" href="css/modules/user_check.css" />
 		<link rel="stylesheet" href="css/modules/user_data_wrapper.css" />
@@ -22,18 +22,18 @@
 		<form class="form" id="form">
 			<div class="form-container">
 				<label for="ciForm">Cédula:</label>
-				<input placeholder="21543876" type="number" id="ciForm" />
+				<input class="form-container--input" placeholder="21543876" type="number" id="ciForm" />
 
 				<label for="nameForm">Nombre:</label>
-				<input placeholder="Daniel" type="text" id="nameForm" />
+				<input class="form-container--input" placeholder="Daniel" type="text" id="nameForm" />
 
 				<label for="dateForm">Fecha:</label>
-				<input type="month" id="dateForm" min="2022-01" />
+				<input class="form-container--input" type="month" id="dateForm" min="2022-01" />
 
 				<label for="checkForm">Entregados:</label>
-				<input title="Entregados" id="checkForm" type="checkbox" />
+				<input class="form-container--input" title="Entregados" id="checkForm" type="checkbox" />
 
-				<button title="Buscar">Buscar</button>
+				<input class="form-container--submit" type="submit" title="Buscar" value="Buscar" />
 			</div>
 
 			<div class="form--data-length"></div>
@@ -47,7 +47,7 @@
 			<h3>Entregado</h3>
 		</div>
 
-		<div class="remove-alert" id="removeAlert">Removido exitosamente</div>
+		<div class="delete-alert" id="deleteAlert">Removido exitosamente</div>
 		<div id="users"></div>
 
 		<!-- <div class="user">

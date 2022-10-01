@@ -2,6 +2,10 @@ import dataTable, { rootServer, objPUT, $crE, updateCheckDateTime as upDate, upd
 
 // Variables y constantes
 
+let removeDeleteAlert, counterDelete;
+
+const deleteAlert = document.getElementById('deleteAlert');
+
 const form = document.getElementById('form');
 
 const submit = form[4];
@@ -11,6 +15,8 @@ const users = document.getElementById('users');
 // CALL API Form
 
 form.addEventListener('submit', async (e) => {
+	e.preventDefault();
+
 	const ci = e.target[0].value;
 
 	const name = e.target[1].value.trim();
@@ -19,9 +25,10 @@ form.addEventListener('submit', async (e) => {
 
 	const check = e.target[3].checked;
 
-	try {
-		submit.textContent = 'Cargando...';
+	submit.value = 'Cargando...';
+	submit.setAttribute('disabled', 'true');
 
+	try {
 		const data = await fetch(`${rootServer}/historial?cedula=${ci}&Nombre=${name}&fecha=${date}&entregado=${check}`)
 			.then((res) => res.json())
 			.then((res) => {
@@ -38,21 +45,24 @@ form.addEventListener('submit', async (e) => {
 			users.append(notFound);
 
 			form.lastElementChild.textContent = '';
-
-			submit.textContent = 'Buscar';
 		} else {
 			dataTable(data, users, $crE, upDate, upDescrip);
 
 			form.lastElementChild.textContent = `${data.length} Usuarios`;
 
-			submit.textContent = 'Buscar';
+			// Para tener referencia global del la cantidad de usuarios para luego restarle con un operador de preDecremento
+			counterDelete = data.length;
 		}
+
+		submit.value = 'Buscar';
+		submit.removeAttribute('disabled');
 
 		form.reset();
 	} catch (err) {
 		alert(`Error de conexión\n${err}`);
 
 		submit.textContent = 'Buscar';
+		submit.removeAttribute('disabled');
 
 		form.reset();
 	}
@@ -65,18 +75,34 @@ users.addEventListener('click', async (e) => {
 
 	if (e.target.classList.contains('user--delete')) {
 		const id = e.target.parentElement.children[6].textContent;
+		const user = e.target.parentElement;
+
+		// Limpiar setTimeout para evitar su acumulacion asincrona
+		clearTimeout(removeDeleteAlert);
+
+		// eliminar clase y transicion para reimcorporarlas si se selecciona rapidamente el elemento
+		deleteAlert.style.transitionDuration = '0s';
+		deleteAlert.classList.remove('delete-alert__active');
 
 		try {
 			await fetch(`${rootServer}/eliminados/${id}`, { method: 'DELETE' })
 				.then((res) => res.json())
 				.then((res) => console.log(res));
 
-			const removeAlert = document.getElementById('removeAlert');
+			user.remove();
 
-			removeAlert.classList.add('remove-alert__active');
-			e.preventDefault();
+			// Recolocar la clase y transicion con setTimeout para en el caso de que cargue rapido la consulte darle tiempo a sobrescribir las pripiedades de transicion
+			setTimeout(() => {
+				deleteAlert.style.transitionDuration = '0.7s';
+				deleteAlert.classList.add('delete-alert__active');
+			}, 10);
 
-			const user = id.parentElement;
+			// remover luego de X tiempo para visualizar el contenido
+			removeDeleteAlert = setTimeout(() => {
+				deleteAlert.classList.remove('delete-alert__active');
+			}, 3000);
+
+			form.lastElementChild.textContent = `${--counterDelete} Usuarios`;
 		} catch (err) {
 			alert(`Error de conexión\n${err}`);
 		}
@@ -86,14 +112,14 @@ users.addEventListener('click', async (e) => {
 	if (e.target.classList.contains('user--check')) {
 		const id = e.target.parentElement.parentElement.children[6].textContent;
 
-		try {
-			// fetch que manda datos a la BD
-			// compracion de si el check esta desactivado para entrar
-			if (!e.target.classList.contains('user--check__active')) {
-				// opacidad para UX, indicar al usuario que esta cargando el check
+		// fetch que manda datos a la BD
+		// compracion de si el check esta desactivado para entrar
+		if (!e.target.classList.contains('user--check__active')) {
+			// opacidad para UX, indicar al usuario que esta cargando el check
 
-				e.target.classList.add('user--check__load');
+			e.target.classList.add('user--check__load');
 
+			try {
 				const currentDate = await fetch(`${rootServer}/entregados/${id}`, objPUT(true))
 					.then((res) => res.json())
 					.then((res) => {
@@ -108,10 +134,10 @@ users.addEventListener('click', async (e) => {
 				e.target.setAttribute('title', 'Entrega confirmada');
 
 				e.target.append(upDate(currentDate, $crE));
+			} catch (err) {
+				alert(`Error de conexión\n${err}`);
+				e.target.classList.remove('user--check__load');
 			}
-		} catch (err) {
-			alert(`Error de conexión\n${err}`);
-			e.target.classList.remove('user--check__load');
 		}
 	}
 
@@ -122,15 +148,15 @@ users.addEventListener('click', async (e) => {
 		const id = description.parentElement.parentElement.children[6].textContent;
 
 		if (e.target.textContent === '📤') {
-			try {
-				let dataDescripEdit = e.target.nextElementSibling.value.trim();
+			let dataDescripEdit = e.target.nextElementSibling.value.trim();
 
-				if (dataDescripEdit) {
-					// parseo de la primera letra en Mayuscula porque flex no deja hacer efecto del pseudoElemento
-					dataDescripEdit = `${dataDescripEdit.slice(0, 1).toUpperCase()}${dataDescripEdit.slice(1)}`;
+			if (dataDescripEdit) {
+				// parseo de la primera letra en Mayuscula porque flex no deja hacer efecto del pseudoElemento
+				dataDescripEdit = `${dataDescripEdit.slice(0, 1).toUpperCase()}${dataDescripEdit.slice(1)}`;
 
-					e.target.textContent = '...';
+				e.target.textContent = '...';
 
+				try {
 					await fetch(`${rootServer}/descripciones/${id}`, objPUT(dataDescripEdit))
 						.then((res) => res.json())
 						.then((res) => console.log(res));
@@ -138,10 +164,10 @@ users.addEventListener('click', async (e) => {
 					description.innerHTML = '';
 
 					description.append(upDescrip(dataDescripEdit, $crE));
+				} catch (err) {
+					alert(`Error de conexión\n${err}`);
+					e.target.textContent = '📤';
 				}
-			} catch (err) {
-				alert(`Error de conexión\n${err}`);
-				e.target.textContent = '📤';
 			}
 		} else if (e.target.textContent === '✏') {
 			const dataDescripText = e.target.nextElementSibling.textContent;
