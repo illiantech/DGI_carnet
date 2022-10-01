@@ -10,7 +10,7 @@
 	position: fixed;
 	top: 50px;
 	left: -100%;
-	transition: left 0.7s;
+	transition-property: left;
 }
 
 .delete-alert::before {
