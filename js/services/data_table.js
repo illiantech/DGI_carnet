@@ -207,13 +207,16 @@ export const setObserverData = (loadUser, getHistorial, dataTable, getHistorialP
 					try {
 						const data = await getHistorial(getHistorialParams, userViews);
 
-						if (data.length > 0) {
+						// Aqui tiene que ser la posicion 0 para que haga skip en las consultas, asi podemos saber cuando dejan de existir elementos para mostrar
+						if (data[0].length > 0) {
 							loadUser.classList.remove('load-user__active');
 
-							dataTable(dataTableParams, data, entry.isIntersecting);
+							dataTable(dataTableParams, data[0], entry.isIntersecting);
 
 							observer.observe(users.lastElementChild);
-						} else loadUser.classList.remove('load-user__active');
+						}
+
+						loadUser.classList.remove('load-user__active');
 					} catch (err) {
 						alert(`Error de conexión\n${err}`);
 					}

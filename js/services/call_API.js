@@ -42,9 +42,11 @@ form.addEventListener('submit', async (e) => {
 
 	try {
 		// Los valores del formulario de infieren en el scop
+		// data es un array que contiene en la posicion 0 son los elementos a pintar (de 5 en 5) y en la 1 la cantidad de elementos
 		const data = await getHistorial(getHistorialParams, 0);
 
-		if (data.length === 0) {
+		// Aqui cualquiera sirve porque funciona para indicar que existen usuarios
+		if (data[1] === 0) {
 			const notFound = $crE('h2');
 			notFound.textContent = 'Usuario no encontrado';
 
@@ -56,12 +58,12 @@ form.addEventListener('submit', async (e) => {
 		} else {
 			const dataTableParams = [users, $crE, upDate, upDescrip];
 
-			dataTable(dataTableParams, data, undefined);
+			dataTable(dataTableParams, data[0], undefined);
 
-			form.lastElementChild.textContent = `${data.length} Usuarios`;
+			form.lastElementChild.textContent = `${data[1]} Usuarios`;
 
 			// Para tener referencia global del la cantidad de usuarios para luego restarle con un operador de preDecremento
-			counterDelete = data.length;
+			counterDelete = data[1];
 
 			// intersection observer
 
