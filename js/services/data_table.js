@@ -71,8 +71,10 @@ export const updateDescription = (dataText, $crE) => {
 
 // funcion que generea dinamicamente los elementos de la lista de usuarios
 
-export default function dataTable(data, users, $crE, upDate, upDescrip) {
-	users.innerHTML = '';
+export default function dataTable(dataTableParams, data, intersecting) {
+	const [users, $crE, upDate, upDescrip] = dataTableParams;
+
+	if (!intersecting) users.innerHTML = '';
 
 	const fragment = document.createDocumentFragment();
 
@@ -116,6 +118,7 @@ export default function dataTable(data, users, $crE, upDate, upDescrip) {
 
 		const check = $crE('div');
 		check.classList.add('user--check');
+
 		if (user.entregado) check.setAttribute('title', 'Entrega confirmada');
 		else check.setAttribute('title', 'Confirmar entrega');
 		check.classList.toggle('user--check__active', user.entregado);
@@ -169,3 +172,56 @@ export default function dataTable(data, users, $crE, upDate, upDescrip) {
 
 	users.append(fragment);
 }
+
+// GET historial
+
+export const getHistorial = (getHistorialParams, userViews) => {
+	const [ci, name, date, check] = getHistorialParams;
+
+	return fetch(`${rootServer}/historial?cedula=${ci}&Nombre=${name}&fecha=${date}&entregado=${check}&userViews=${userViews}`)
+		.then((res) => res.json())
+		.then((res) => {
+			console.log(res);
+			return res;
+		});
+};
+
+// Intersection Observer
+
+export const setObserverData = (loadUser, getHistorial, dataTable, getHistorialParams, dataTableParams) => {
+	let userViews = 0;
+
+	const [users] = dataTableParams;
+
+	const observer = new IntersectionObserver(
+		(entries) => {
+			entries.forEach(async (entry) => {
+				if (entry.isIntersecting) {
+					// dejar de observar el elemento anterior
+					observer.unobserve(users.lastElementChild);
+
+					loadUser.classList.add('load-user__active');
+
+					userViews = userViews + 5;
+
+					try {
+						const data = await getHistorial(getHistorialParams, userViews);
+
+						if (data.length > 0) {
+							loadUser.classList.remove('load-user__active');
+
+							dataTable(dataTableParams, data, entry.isIntersecting);
+
+							observer.observe(users.lastElementChild);
+						} else loadUser.classList.remove('load-user__active');
+					} catch (err) {
+						alert(`Error de conexión\n${err}`);
+					}
+				}
+			});
+		},
+		{ threshold: 0.5 }
+	);
+
+	observer.observe(users.lastElementChild);
+};

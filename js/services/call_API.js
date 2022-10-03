@@ -1,4 +1,12 @@
-import dataTable, { rootServer, objPUT, $crE, updateCheckDateTime as upDate, updateDescription as upDescrip } from './data_table.js';
+import dataTable, {
+	getHistorial,
+	setObserverData,
+	rootServer,
+	objPUT,
+	$crE,
+	updateCheckDateTime as upDate,
+	updateDescription as upDescrip
+} from './data_table.js';
 
 // Variables y constantes
 
@@ -11,6 +19,8 @@ const form = document.getElementById('form');
 const submit = form[4];
 
 const users = document.getElementById('users');
+
+const loadUser = document.getElementById('loadUser');
 
 // CALL API Form
 
@@ -25,16 +35,14 @@ form.addEventListener('submit', async (e) => {
 
 	const check = e.target[3].checked;
 
+	const getHistorialParams = [ci, name, date, check];
+
 	submit.value = 'Cargando...';
 	submit.setAttribute('disabled', 'true');
 
 	try {
-		const data = await fetch(`${rootServer}/historial?cedula=${ci}&Nombre=${name}&fecha=${date}&entregado=${check}`)
-			.then((res) => res.json())
-			.then((res) => {
-				console.log(res);
-				return res;
-			});
+		// Los valores del formulario de infieren en el scop
+		const data = await getHistorial(getHistorialParams, 0);
 
 		if (data.length === 0) {
 			const notFound = $crE('h2');
@@ -46,12 +54,19 @@ form.addEventListener('submit', async (e) => {
 
 			form.lastElementChild.textContent = '';
 		} else {
-			dataTable(data, users, $crE, upDate, upDescrip);
+			const dataTableParams = [users, $crE, upDate, upDescrip];
+
+			dataTable(dataTableParams, data, undefined);
 
 			form.lastElementChild.textContent = `${data.length} Usuarios`;
 
 			// Para tener referencia global del la cantidad de usuarios para luego restarle con un operador de preDecremento
 			counterDelete = data.length;
+
+			// intersection observer
+
+			// Los parametros de getHistorial y dataTable de infieren en el scop
+			setObserverData(loadUser, getHistorial, dataTable, getHistorialParams, dataTableParams);
 		}
 
 		submit.value = 'Buscar';
@@ -61,8 +76,8 @@ form.addEventListener('submit', async (e) => {
 	} catch (err) {
 		alert(`Error de conexión\n${err}`);
 
-		submit.textContent = 'Buscar';
 		submit.removeAttribute('disabled');
+		submit.value = 'Buscar';
 
 		form.reset();
 	}
