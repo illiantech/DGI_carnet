@@ -12,6 +12,8 @@ import dataTable, {
 
 let removeDeleteAlert, counterDelete;
 
+const selectTitle = document.getElementById('titleSelect');
+
 const deleteAlert = document.getElementById('deleteAlert');
 
 const form = document.getElementById('form');
@@ -76,7 +78,7 @@ form.addEventListener('submit', async (e) => {
 
 		form.reset();
 	} catch (err) {
-		alert(`Error de conexión\n${err}`);
+		alert(`Error de conexión\nError de formulario\n${err}`);
 
 		submit.removeAttribute('disabled');
 		submit.value = 'Buscar';
@@ -121,7 +123,24 @@ users.addEventListener('click', async (e) => {
 
 			form.lastElementChild.textContent = `${--counterDelete} Usuarios`;
 		} catch (err) {
-			alert(`Error de conexión\n${err}`);
+			alert(`Error de conexión\nError al eliminar usuario\n${err}`);
+		}
+	}
+
+	// CALL API Estado del carnet del usuario
+
+	if (e.target.textContent === 'Activo' || e.target.textContent === 'Inactivo' || e.target.textContent === 'Extraviado') {
+		const id = e.target.parentElement.parentElement.parentElement.children[6].textContent;
+
+		titleSelect.textContent = '...';
+		try {
+			await fetch(`${rootServer}/estado/${id}`, objPUT(e.target.textContent))
+				.then((res) => res.json())
+				.then((res) => console.log(res));
+
+			titleSelect.textContent = e.target.textContent;
+		} catch (err) {
+			alert(`Error de conexión\nError al cambiar el estado\n${err}`);
 		}
 	}
 
@@ -152,7 +171,7 @@ users.addEventListener('click', async (e) => {
 
 				e.target.append(upDate(currentDate, $crE));
 			} catch (err) {
-				alert(`Error de conexión\n${err}`);
+				alert(`Error de conexión\nError en el boton que confirma la entrega del carnet\n${err}`);
 				e.target.classList.remove('user--check__load');
 			}
 		}
@@ -182,7 +201,7 @@ users.addEventListener('click', async (e) => {
 
 					description.append(upDescrip(dataDescripEdit, $crE));
 				} catch (err) {
-					alert(`Error de conexión\n${err}`);
+					alert(`Error de conexión\nError al cambiar decripciòn\n${err}`);
 					e.target.textContent = '📤';
 				}
 			}

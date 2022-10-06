@@ -152,6 +152,37 @@ export default function dataTable(dataTableParams, data, intersecting) {
 
 		dataWrapper.append(titleCargo, cargo, titleDependencia, dependencia, titleDescripcion, descripcion);
 
+		const selectTitle = $crE('div');
+		selectTitle.classList.add('user--select-title');
+		selectTitle.setAttribute('id', 'titleSelect');
+
+		const status = ['Activo', 'Inactivo', 'Extraviado'];
+
+		selectTitle.textContent = status[user.estado];
+
+		const selectWrapper = $crE('div');
+		selectWrapper.classList.add('user--select-wrapper');
+
+		const select = $crE('div');
+		select.classList.add('user--select');
+		select.setAttribute('id', 'userSelect');
+
+		const activeSelect = $crE('div');
+		activeSelect.setAttribute('data-value', 'active');
+		activeSelect.textContent = 'Activo';
+
+		const inactiveSelect = $crE('div');
+		inactiveSelect.setAttribute('data-value', 'inactive');
+		inactiveSelect.textContent = 'Inactivo';
+
+		const strayedSelect = $crE('div');
+		strayedSelect.setAttribute('data-value', 'strayed');
+		strayedSelect.textContent = 'Extraviado';
+
+		select.append(activeSelect, inactiveSelect, strayedSelect);
+
+		selectWrapper.append(select);
+
 		containerUser.append(
 			deleteUser,
 			titleCedula,
@@ -164,7 +195,9 @@ export default function dataTable(dataTableParams, data, intersecting) {
 			fecha,
 			titleCheck,
 			containerCheck,
-			dataWrapper
+			dataWrapper,
+			selectTitle,
+			selectWrapper
 		);
 
 		fragment.append(containerUser);

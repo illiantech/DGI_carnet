@@ -102,7 +102,3 @@ button {
 	position: absolute;
 	opacity: 0;
 }
-
-input:focus {
-	border-color: var(--colorPrimary);
-}

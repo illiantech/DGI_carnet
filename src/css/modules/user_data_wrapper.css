@@ -4,6 +4,7 @@
 	background-color: var(--colorPrimary);
 	color: var(--bgDoc);
 	position: absolute;
+	z-index: 100;
 	left: 0;
 	top: 0;
 	display: grid;
