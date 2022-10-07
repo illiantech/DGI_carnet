@@ -48,16 +48,7 @@ form.addEventListener('submit', async (e) => {
 		const data = await getHistorial(getHistorialParams, 0);
 
 		// Aqui cualquiera sirve porque funciona para indicar que existen usuarios
-		if (data[1] === 0) {
-			const notFound = $crE('h2');
-			notFound.textContent = 'Usuario no encontrado';
-
-			users.innerHTML = '';
-
-			users.append(notFound);
-
-			form.lastElementChild.textContent = '';
-		} else {
+		if (data[1] > 0) {
 			const dataTableParams = [users, $crE, upDate, upDescrip];
 
 			dataTable(dataTableParams, data[0], undefined);
@@ -71,6 +62,15 @@ form.addEventListener('submit', async (e) => {
 
 			// Los parametros de getHistorial y dataTable de infieren en el scop
 			setObserverData(loadUser, getHistorial, dataTable, getHistorialParams, dataTableParams);
+		} else {
+			const notFound = $crE('h2');
+			notFound.textContent = 'Usuario no encontrado';
+
+			users.innerHTML = '';
+
+			users.append(notFound);
+
+			form.lastElementChild.textContent = '';
 		}
 
 		submit.value = 'Buscar';
@@ -138,7 +138,7 @@ users.addEventListener('click', async (e) => {
 				.then((res) => res.json())
 				.then((res) => console.log(res));
 
-			titleSelect.textContent = e.target.textContent;
+			titleSelect.textContent = ` - ${e.target.textContent}`;
 		} catch (err) {
 			alert(`Error de conexión\nError al cambiar el estado\n${err}`);
 		}

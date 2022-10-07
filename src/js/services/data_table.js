@@ -158,7 +158,7 @@ export default function dataTable(dataTableParams, data, intersecting) {
 
 		const status = ['Activo', 'Inactivo', 'Extraviado'];
 
-		selectTitle.textContent = status[user.estado];
+		selectTitle.textContent = ` - ${status[user.estado]}`;
 
 		const selectWrapper = $crE('div');
 		selectWrapper.classList.add('user--select-wrapper');
@@ -247,6 +247,12 @@ export const setObserverData = (loadUser, getHistorial, dataTable, getHistorialP
 							dataTable(dataTableParams, data[0], entry.isIntersecting);
 
 							observer.observe(users.lastElementChild);
+						} else {
+							const notMore = $crE('h2');
+
+							notMore.textContent = 'No se encuentran más usuarios con los datos proporcionados';
+
+							users.append(notMore);
 						}
 
 						loadUser.classList.remove('load-user__active');
