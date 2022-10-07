@@ -45,6 +45,8 @@
 	color: var(--LetBgLetter);
 	font-family: sans-serif;
 	transition: background-color 0.4s;
+	scroll-behavior: smooth;
+
 	/* color elements and text (optional) */
 	--colorPrimary: hsl(224, 60%, 40%);
 	--colorPrimaryTwo: hsl(223, 49%, 23%);

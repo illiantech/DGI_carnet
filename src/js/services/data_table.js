@@ -1,8 +1,8 @@
 // ruta de base de datos
 
-export const rootServer = 'http://historial-carnets.guarico.gob.ve';
+// export const rootServer = 'http://historial-carnets.guarico.gob.ve';
 
-// export const rootServer = 'http://localhost:8000';
+export const rootServer = 'http://localhost:8000';
 
 // Funcion que genera de manera mas legible elementos
 

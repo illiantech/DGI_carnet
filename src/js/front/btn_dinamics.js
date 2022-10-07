@@ -38,5 +38,5 @@ blackMode.addEventListener('click', () => {
 const btnBack = document.getElementById('btnBack');
 
 btnBack.addEventListener('click', () => {
-	history.back();
+	location.hash === '#btnBack' ? history.go(-2) : history.go(-1);
 });
