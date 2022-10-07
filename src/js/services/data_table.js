@@ -159,6 +159,7 @@ export default function dataTable(dataTableParams, data, intersecting) {
 		const status = ['Activo', 'Inactivo', 'Extraviado'];
 
 		selectTitle.textContent = ` - ${status[user.estado]}`;
+		selectTitle.setAttribute('title', 'Estado');
 
 		const selectWrapper = $crE('div');
 		selectWrapper.classList.add('user--select-wrapper');
