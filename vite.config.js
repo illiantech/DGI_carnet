@@ -11,14 +11,14 @@ export default defineConfig({
 			minify: true
 		})
 	],
-	root: 'src',
+	root: 'docs',
 	build: {
 		outDir: '../dist',
 		emptyOutDir: true,
 		target: 'es2015',
 		rollupOptions: {
 			input: {
-				index: resolve(__dirname, './src/index.html')
+				index: resolve(__dirname, './docs/index.html')
 			}
 		}
 	},
