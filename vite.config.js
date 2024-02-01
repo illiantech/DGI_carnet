@@ -5,7 +5,7 @@ import { resolve } from 'path';
 
 export default defineConfig({
 	publicDir: '../public',
-	base: './',
+	base: './src',
 	plugins: [
 		createHtmlPlugin({
 			minify: true
