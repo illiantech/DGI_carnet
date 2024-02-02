@@ -1,6 +1,6 @@
 // ruta de base de datos
 
-export const rootServer = 'http://historial-carnets.guarico.gob.ve';
+export const rootServer = 'https://historial-carnets.guarico.gob.ve';
 
 // export const rootServer = 'http://localhost:8000';
 
