@@ -20,14 +20,6 @@ function App() {
 
 	const { userViews } = useLazyUser({ setVisibleUser, visibleUser, setUsers, refSearch });
 
-	/*
-FALTA : 
- - Modo oscuro 
- - input date and scroll in firefox 
- - create user 
- - separar constantes (const, functions, icons, querys)
- - convertir wrapper user en un boton
- */
 
 	const classDeleteAlert = deleteAlert ? 'delete-alert delete-alert__active' : 'delete-alert';
 
