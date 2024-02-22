@@ -23,14 +23,12 @@
 	position: absolute;
 	width: 25px;
 	height: 25px;
-	border-radius: 5px;
-	background-color: inherit;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	top: 10px;
 	left: 15px;
-	cursor: pointer;
+
 }
 
 .user--delete::before,
@@ -51,27 +49,22 @@
 	transform: rotate(-45deg);
 }
 
-.user > h3 {
+.user--title {
 	width: 80%;
 	margin-top: 50px;
 	margin-bottom: 5px;
 	color: var(--colorPrimaryTwo);
 }
 
-.user > p,
-.user--check-container {
+.user--content {
+	display: inline-block;
 	margin-top: 0;
 	margin-bottom: 0;
 	width: 80%;
-	position: relative;
 }
 
-.user > p:nth-of-type(2) {
+.user--content:nth-of-type(2) {
 	text-transform: capitalize;
-}
-
-.user--check-container {
-	margin-bottom: 50px;
 }
 
 @media (min-width: 1000px) {
@@ -93,21 +86,15 @@
 		height: 150px;
 		max-width: 1300px;
 		flex-direction: row;
-		top: 0;
 	}
 
-	.user > h3 {
+	.user--title {
 		display: none;
 	}
 
-	.user > p,
-	.user--check-container {
+	.user--content {
 		display: flex;
 		justify-content: center;
 		width: 100%;
-	}
-
-	.user--check-container {
-		margin-bottom: 0px;
 	}
 }

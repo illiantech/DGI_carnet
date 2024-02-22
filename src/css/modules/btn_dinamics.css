@@ -37,17 +37,6 @@
 	left: calc(100% - (55px / 2));
 }
 
-/* back page */
-.btn-back {
-	position: absolute;
-	left: 40px;
-	top: 40px;
-	height: 30px;
-	width: 80px;
-	border: 2px solid var(--colorSecondary);
-	transition: all 0.2s;
-}
-
 /* Scroll top btn */
 
 .scroll-top {
@@ -57,11 +46,6 @@
 	border-radius: 50%;
 	display: grid;
 	place-content: center;
-	text-decoration: none;
-	color: var(--bgLetter);
-	font-size: 2rem;
-	font-family: monospace, sans-serif;
-	font-weight: bold;
 	width: 50px;
 	height: 50px;
 	bottom: 5%;
@@ -69,13 +53,6 @@
 	z-index: 200;
 }
 
-.scroll-top i {
-	height: 32px;
-}
-
-@media (min-width: 1000px) {
-	.btn-back:hover {
-		color: var(--bgDoc);
-		background-color: var(--colorSecondary);
-	}
+.scroll-top img {
+	width: 25px;
 }

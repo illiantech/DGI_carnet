@@ -1,18 +1,26 @@
-/* check buttom */
-.user--check {
+/* check-user buttom */
+.check-user {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	width: 80%;
+	height: 60px;
+	margin-bottom: 15px;
+}
+
+.check-user--button {
 	height: 20px;
 	width: 40px;
 	border-radius: 20px;
 	background-color: var(--colorSecondary);
 	position: relative;
 	box-shadow: 0 0 15px -8px var(--bgLetter);
-	cursor: pointer;
 	opacity: 1;
 	transition-duration: 0.2s;
 	transition-property: background-color opacity;
 }
 
-.user--check::before {
+.check-user--button::before {
 	content: '';
 	position: absolute;
 	height: 20px;
@@ -21,29 +29,36 @@
 	border-radius: 50%;
 	box-shadow: 0 0 15px -8px var(--bgLetter);
 	background-image: linear-gradient(to bottom left, hsl(0, 0%, 98%) 30%, var(--colorPrimary) 400%);
+	top: 0%;
 	left: 0%;
 	transition: left 0.2s;
 }
 
-/* opacidad para UX, indicar al usuario que esta cargando el check */
+/* opacidad para UX, indicar al usuario que esta cargando el check-user */
 
-.user--check__load {
-	opacity: 0.5;
-}
-
-.user--check__active {
+.check-user--button__active {
 	background-color: var(--colorPrimary);
 }
 
-.user--check__active::before {
+.check-user--button__active::before {
 	left: 50%;
 }
 
 /* user buttom DATE TIME */
 
-.user--check-dateTime {
-	position: absolute;
-	top: 80%;
+.check-user--dateTime {
+	display: inline-block;
 	width: 100px;
 	font-size: 0.8rem;
+}
+
+@media (min-width: 1000px) {
+	.check-user{
+		margin-top: 50px;
+		align-items: center;
+	}
+
+	.check-user--button {
+		left: -15%;
+	}
 }

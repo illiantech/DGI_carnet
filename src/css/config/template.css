@@ -1,10 +1,10 @@
 * {
 	box-sizing: border-box;
 
-	/* in firefox */
+	/* in firefox - warning (support chromium)*/
 
-	scrollbar-width: thin;
-	scrollbar-color: var(--colorSecondary) var(--LetBgDoc);
+	/* scrollbar-width: thin;
+	scrollbar-color: var(--colorSecondary) var(--LetBgDoc); */
 }
 
 /* scroll */
@@ -50,7 +50,7 @@
 	/* color elements and text (optional) */
 	--colorPrimary: hsl(224, 60%, 40%);
 	--colorPrimaryTwo: hsl(223, 49%, 23%);
-	--colorSecondary: hsl(357, 71%, 44%);
+	--colorSecondary: hsl(360, 50%, 50%);
 	--shadowGeneral: -5px 5px 15px -10px var(--bgLetter);
 	--GrdGeneral: linear-gradient(to bottom, hsl(0, 0%, 97%) 70%, var(--colorPrimary) 600%);
 	/* variable change */

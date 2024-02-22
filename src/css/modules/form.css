@@ -7,9 +7,8 @@
 	margin-right: auto;
 	margin-bottom: 100px;
 	border-radius: 20px;
-	height: 380px;
+	height: 400px;
 	display: flex;
-	flex-direction: column;
 	align-items: center;
 	justify-content: center;
 	background-color: hsl(228, 4%, 76%);
@@ -20,18 +19,32 @@
 	position: absolute;
 	font-size: 0.8rem;
 	width: 100px;
-	top: 105%;
+	top: 100%;
 	left: 70%;
 	color: var(--LetColorPrimaryTwo);
 }
 
+.form--empty-fields {
+	position: absolute;
+	font-size: 0.9rem;
+	color: var(--colorSecondary);
+	font-weight: bold;
+	bottom: 15px;
+}
+
 .form-container {
 	width: 160px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 25px;
 }
 
 .form-container > label {
-	display: inline-block;
-	margin-bottom: 10px;
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	gap: 5px;
 }
 
 .form-container--input {
@@ -42,18 +55,18 @@
 	border-radius: 5px;
 	position: relative;
 	transition: border-color 0.2s;
-	margin-bottom: 25px;
-	width: 100%;
 }
 
-.form-container--input:nth-of-type(3) {
+.form-container > label:nth-of-type(3) > .form-container--input {
 	text-align: center;
 }
 
-.form-container--input:nth-of-type(4) {
-	position: relative;
-	top: 5px;
-	left: 15px;
+.form-container > label:nth-of-type(4) {
+	flex-direction: row;
+	gap: 20px;
+}
+
+.form-container > label:nth-of-type(4) > .form-container--input {
 	width: 20px;
 	height: 20px;
 	cursor: pointer;
@@ -72,9 +85,7 @@
 	background-color: var(--bgDoc);
 	height: 30px;
 	width: 110px;
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
+	display: inline-block;
 	border: 3px solid transparent;
 	transition: border-color 0.2s;
 }
@@ -86,9 +97,12 @@
 	}
 
 	.form--data-length {
-		top: 75%;
-		left: 85%;
-		color: var(--bgLetter);
+		left: 90%;
+	}
+
+	.form--empty-fields {
+		bottom: 30px;
+		right: 10px;
 	}
 
 	.form-container {
@@ -102,10 +116,11 @@
 		top: -10px;
 	}
 
-	.form-container > label,
-	.form-container--input {
-		margin-top: 0;
-		margin-bottom: 0;
+	.form-container > label {
+		flex-direction: row;
+		align-items: center;
+		gap: 10px;
+		width: auto;
 	}
 
 	.form-container > label:nth-of-type(4) {
@@ -116,23 +131,9 @@
 	}
 
 	.form-container--input {
-		margin-right: 30px;
 		width: 160px;
 	}
 
-	.form-container--input:nth-of-type(4) {
-		margin-right: 0px;
-		position: absolute;
-		width: 18px;
-		height: 18px;
-		top: 79.5%;
-		left: 15%;
-	}
-
-	.form-container--submit {
-		margin-left: 0;
-		margin-right: 0;
-	}
 	.form-container--submit:hover {
 		border-color: var(--colorSecondary);
 	}
