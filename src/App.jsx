@@ -1,5 +1,4 @@
 import React, { useState, useRef } from 'react';
-
 import { Form } from './components/form';
 import { User } from './components/user';
 import { Spinner } from './components/spinner';
