@@ -17,11 +17,11 @@
 		var(--titleMeasures) var(--textMeasures) var(--titleMeasures) var(--textMeasures)
 		var(--titleMeasures) var(--textMeasures);
 	cursor: pointer;
-	clip-path: circle(13% at 100% 100%);
+	clip-path: circle(15% at 100% 100%);
 	transition: clip-path 1s cubic-bezier(0.82, -0.2, 0.18, 1.2);
 }
 
-.wrapper-user:hover {
+.wrapper-user__active {
 	clip-path: circle(150% at 100% 100%);
 }
 
@@ -45,8 +45,7 @@
 	color: currentColor;
 }
 
-.wrapper-user--content,
-.descrip-wrapper {
+.wrapper-user--content {
 	width: var(--twoThirds);
 	display: flex;
 	justify-content: center;
@@ -55,66 +54,14 @@
 	left: calc(50% - (var(--twoThirds) / 2));
 }
 
-.descrip-wrapper--button {
-	position: absolute;
-	left: 0;
-	top: -20%;
-	font-size: 1.3rem;
-	width: 33px;
-	display: grid;
-	place-content: center;
-}
-
-.descrip-wrapper--textEdit {
-	resize: none;
-	outline: none;
-	width: 100%;
-	height: 80%;
-	border-radius: 5px;
-	border: 1px solid hsl(0, 0%, 60%);
-	background-color: var(--colorPrimary);
-	color: var(--bgDoc);
-	padding: 5px;
-}
-
-.descrip-wrapper--textEdit::placeholder {
-	color: hsl(0, 0%, 60%);
-}
-
-.descrip-wrapper--paragraph {
-	width: 100%;
-	height: 80%;
-	padding: 6px;
-	overflow-y: auto;
-}
-
-.descrip-wrapper--textEdit,
-.descrip-wrapper--paragraph {
-	/* in firefox - warning (support chromium) */
-
-	/* scrollbar-color: var(--colorSecondary) var(--bgDoc); */
-}
-
-.descrip-wrapper--textEdit::-webkit-scrollbar:vertical,
-.descrip-wrapper--paragraph::-webkit-scrollbar:vertical {
-	width: 0.5rem;
-}
-
-.descrip-wrapper--textEdit::-webkit-scrollbar-thumb,
-.descrip-wrapper--paragraph::-webkit-scrollbar-thumb {
-	background-color: var(--bgDoc);
-	border-radius: 20px;
-	border: 2px solid var(--colorPrimary);
-}
-
 @media (min-width: 1000px) {
 	.wrapper-user {
 		grid-template-columns: repeat(3, 1fr);
 		grid-template-rows: calc(100% / 4) calc(100% / 1.3333);
-		clip-path: circle(7% at 0% 100%);
+		clip-path: circle(8% at 0% 100%);
 	}
 
-	.wrapper-user:hover {
+	.wrapper-user__active {
 		clip-path: circle(150% at 0% 100%);
 	}
 

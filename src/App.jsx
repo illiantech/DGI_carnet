@@ -1,9 +1,10 @@
 import React, { useState, useRef } from 'react';
-import imgArrowUp from './assets/arrow-up.svg';
+
 import { Form } from './components/form';
 import { User } from './components/user';
 import { Spinner } from './components/spinner';
-import { DeleteUser } from './components/deleteUser';
+import { DeleteUser } from './components/user-childrens/deleteUser';
+import { ArrowUpIcon } from './components/icons';
 import { useUsers } from './hooks/controlUsers';
 import { useObserverUser } from './hooks/observerUser';
 import { useLazyUser } from './hooks/lazyUser';
@@ -23,10 +24,6 @@ function App() {
 	/*
 FALTA : 
  - Modo oscuro 
- - input date and scroll in firefox 
- - create user 
- - separar constantes (const, functions, icons, querys)
- - convertir wrapper user en un boton
  */
 
 	const classDeleteAlert = deleteAlert ? 'delete-alert delete-alert__active' : 'delete-alert';
@@ -82,7 +79,7 @@ FALTA :
 				{noMoreUser && <h2>No se encuentran más usuarios con los datos proporcionados</h2>}
 				{visibleUser && <Spinner />}
 				<a role="button" title="Ir al inicio" href="#home" className="scroll-top">
-					<img src={imgArrowUp} alt="Flecha arriba" />
+					<ArrowUpIcon />
 				</a>
 			</main>
 		</>

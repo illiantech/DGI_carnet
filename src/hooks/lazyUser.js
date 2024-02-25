@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import { mapData } from '../consts';
+import { mapData } from '../resources/mapping';
 import { getUsers } from './controlUsers';
 
 export function useLazyUser({ setUsers, setVisibleUser, visibleUser, refSearch }) {

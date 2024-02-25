@@ -1,13 +1,3 @@
-export const rootServer = 'https://historial-carnets.guarico.gob.ve';
-
-export const objPUT = (data) => ({
-	method: 'PUT',
-	body: JSON.stringify({ data }),
-	headers: {
-		'Content-type': 'application/json'
-	}
-});
-
 export const mapData = (data) => {
 	return data.map((user) => {
 		return {

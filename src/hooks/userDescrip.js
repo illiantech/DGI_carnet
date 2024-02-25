@@ -1,5 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
-import { rootServer, objPUT,userTextFormatted } from '../consts';
+import { userTextFormatted } from '../resources/mapping';
+import { rootServer } from '../resources/consts';
+import { objPUT } from '../resources/querys';
 
 const putDescrip = (id, descrip) => {
 	return fetch(`${rootServer}/descripciones/${id}`, objPUT(descrip))
@@ -9,13 +11,12 @@ const putDescrip = (id, descrip) => {
 		});
 };
 
-export function useDescrip({ description, id}) {
+export function useDescrip({ description, id }) {
 	const [textDescrip, setTextDescrip] = useState(description);
 	const [loadDescrip, setLoadDescrip] = useState(false);
 	const refTextareaDescrip = useRef();
 	const refElmtDescrip = useRef();
 
-	
 	useEffect(() => {
 		const controlQueryDescrip = async () => {
 			if (textDescrip) refTextareaDescrip.current = textDescrip;

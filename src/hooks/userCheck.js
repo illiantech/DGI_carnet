@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
-import { objPUT, rootServer } from '../consts';
+import { rootServer } from '../resources/consts';
+import { objPUT } from '../resources/querys';
 
 const putCheck = (id, check) => {
 	return fetch(`${rootServer}/entregados/${id}`, objPUT(check))

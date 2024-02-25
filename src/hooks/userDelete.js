@@ -1,5 +1,6 @@
 import { useCallback } from 'react';
-import { rootServer } from '../consts';
+import { rootServer } from '../resources/consts';
+
 
 const queryDeleteUser = (id) => {
 	return fetch(`${rootServer}/eliminados/${id}`, { method: 'DELETE' })

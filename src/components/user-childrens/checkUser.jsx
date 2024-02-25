@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
-import { deliveredDateFormatted } from '../consts';
-import { useCheck } from '../hooks/userCheck';
+import { deliveredDateFormatted } from '../../resources/mapping';
+import { useCheck } from '../../hooks/userCheck';
 
 export function CheckUser({ delivered, deliveredDate, id }) {
 	const { check, loadCheck, deliDate, setLoadCheck } = useCheck({ delivered, deliveredDate, id });

@@ -1,0 +1,17 @@
+/* eslint-disable react/prop-types */
+import React from 'react';
+import { ClickIcon } from '../icons';
+
+export function ButtonWrapperUser({ setViewWrapper }) {
+	const handleClickWrapper = () => {
+		setViewWrapper((prevState) => !prevState);
+	};
+
+	return (
+		<button title="Click" className="button-wrapper" onClick={handleClickWrapper}>
+			<div className="button-wrapper--container"> 
+				<ClickIcon />
+			</div>
+		</button>
+	);
+}

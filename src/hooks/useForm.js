@@ -2,7 +2,7 @@ import { useCallback } from 'react';
 
 export function useForm() {
 	const createHandleSubmit = useCallback(
-		({ setEmptyFields, refSearch, controlQueryUsers, userViews }) =>
+		({ setEmptyFields, refSearch, controlQueryUsers, userViews, regInput }) =>
 			(e) => {
 				e.preventDefault();
 
@@ -11,6 +11,8 @@ export function useForm() {
 
 				fields.nameForm = fields.nameForm.trim();
 				fields.checkForm = Boolean(fields.checkForm);
+
+				if ((!regInput.name.test(fields.nameForm) && fields.nameForm) || (!regInput.ci.test(fields.ciForm) && fields.ciForm)) return;
 
 				if (!fields.nameForm && !fields.ciForm && !fields.dateForm && !fields.checkForm) {
 					setEmptyFields(true);
@@ -33,5 +35,5 @@ export function useForm() {
 		[]
 	);
 
-    return {createHandleSubmit}
+	return { createHandleSubmit };
 }

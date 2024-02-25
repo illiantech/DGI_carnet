@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
-import { useDelete } from '../hooks/userDelete';
+import { useDelete } from '../../hooks/userDelete';
 
 export function DeleteUser({ setDeleteAlert, refTimeoutDeleteAlert, id, setCountUsers, setUsers, deleteAlert }) {
 	const { createHandleDeleteUser } = useDelete();

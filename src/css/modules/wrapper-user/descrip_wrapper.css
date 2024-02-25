@@ -1,0 +1,65 @@
+.descrip-wrapper {
+	width: var(--twoThirds);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+	left: calc(50% - (var(--twoThirds) / 2));
+}
+.descrip-wrapper--button {
+	position: absolute;
+	left: 0;
+	top: -20%;
+	font-size: 1.3rem;
+	width: 35px;
+	height: 25px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.descrip-wrapper--button > svg {
+	width: 1.1rem;
+}
+
+.descrip-wrapper--textEdit {
+	resize: none;
+	outline: none;
+	width: 90%;
+	height: 80%;
+	border-radius: 5px;
+	border: 1px solid hsl(0, 0%, 60%);
+	background-color: var(--colorPrimary);
+	color: var(--bgDoc);
+	padding: 5px;
+}
+
+.descrip-wrapper--textEdit::placeholder {
+	color: hsl(0, 0%, 60%);
+}
+
+.descrip-wrapper--paragraph {
+	width: 90%;
+	height: 80%;
+	padding: 6px;
+	overflow-y: auto;
+}
+
+.descrip-wrapper--textEdit,
+.descrip-wrapper--paragraph {
+	/* in firefox - warning (support chromium) */
+
+	/* scrollbar-color: var(--colorSecondary) var(--bgDoc); */
+}
+
+.descrip-wrapper--textEdit::-webkit-scrollbar:vertical,
+.descrip-wrapper--paragraph::-webkit-scrollbar:vertical {
+	width: 0.5rem;
+}
+
+.descrip-wrapper--textEdit::-webkit-scrollbar-thumb,
+.descrip-wrapper--paragraph::-webkit-scrollbar-thumb {
+	background-color: var(--bgDoc);
+	border-radius: 20px;
+	border: 2px solid var(--colorPrimary);
+}

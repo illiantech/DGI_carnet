@@ -53,6 +53,6 @@
 	z-index: 200;
 }
 
-.scroll-top img {
+.scroll-top > svg {
 	width: 25px;
 }
