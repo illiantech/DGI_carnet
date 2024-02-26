@@ -7,13 +7,14 @@ export default defineConfig({
 	plugins: [
 		react(),
 		VitePWA({
+			registerType: 'autoUpdate',
 			includeAssets: ['favicon.ico', 'favicon-16x16.png', 'favicon-32x32.png', 'apple-touch-icon.png'],
 			manifest: {
-				display: 'standalone',
+				display: 'fullscreen',
 				display_override: ['window-controls-overlay'],
-				lang: 'es',
+				lang: 'es-ES',
 				name: 'DGI Carnets',
-				short_name: 'Carnets',
+				short_name: 'DGI Carnets',
 				description: 'Registro de ususarios con o sin carnets',
 				theme_color: '#262626',
 				background_color: '#4d4d4d',
