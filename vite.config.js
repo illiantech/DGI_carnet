@@ -9,7 +9,7 @@ export default defineConfig({
 		VitePWA({
 			includeAssets: ['favicon.ico', 'favicon-16x16.png', 'favicon-32x32.png', 'apple-touch-icon.png'],
 			manifest: {
-				display: 'fullscreen',
+				display: 'standalone',
 				display_override: ['window-controls-overlay'],
 				lang: 'es',
 				name: 'DGI Carnets',
