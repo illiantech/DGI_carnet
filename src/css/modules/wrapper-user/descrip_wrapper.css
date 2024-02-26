@@ -29,7 +29,7 @@
 	border-radius: 5px;
 	border: 1px solid hsl(0, 0%, 60%);
 	background-color: var(--colorPrimary);
-	color: var(--bgDoc);
+	color: currentColor;
 	padding: 5px;
 }
 
@@ -47,7 +47,6 @@
 .descrip-wrapper--textEdit::selection,
 .descrip-wrapper--paragraph::selection {
 	background-color: var(--colorSecondary);
-	color: var(--bgDoc);
 }
 
 .descrip-wrapper--textEdit::-webkit-scrollbar:vertical,

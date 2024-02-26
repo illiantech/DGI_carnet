@@ -56,7 +56,6 @@
 .wrapper-user--title::selection,
 .wrapper-user--content::selection {
 	background-color: var(--colorSecondary);
-	color: var(--bgDoc);
 }
 
 @media (min-width: 1000px) {

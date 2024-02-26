@@ -1,6 +1,6 @@
 import React from 'react';
 import { describe, test, expect, beforeAll, afterEach, afterAll, beforeEach } from 'vitest';
-import { screen, render, cleanup, prettyDOM } from '@testing-library/react';
+import { screen, render, cleanup } from '@testing-library/react';
 import { server } from './mocks/node';
 import userEvent from '@testing-library/user-event';
 import App from './App';

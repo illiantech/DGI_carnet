@@ -11,7 +11,6 @@ export function useLazyUser({ setUsers, setVisibleUser, visibleUser, refSearch }
 				.catch((err) => alert(`Error de conexión\n${err}`))
 				.finally(() => setVisibleUser(false));
 
-			console.log(visibleUser);
 			const newUsers = mapData(data[0]);
 
 			setUsers((previewUsers) => [...previewUsers, ...newUsers]);

@@ -3,10 +3,12 @@ import { Form } from './components/form';
 import { User } from './components/user';
 import { Spinner } from './components/spinner';
 import { DeleteUser } from './components/user-childrens/deleteUser';
+import { BtnBlackMode } from './components/blackMode';
 import { ArrowUpIcon } from './components/icons';
 import { useUsers } from './hooks/controlUsers';
 import { useObserverUser } from './hooks/observerUser';
 import { useLazyUser } from './hooks/lazyUser';
+import { useSEO } from './hooks/useSEO';
 
 function App() {
 	const [deleteAlert, setDeleteAlert] = useState(false);
@@ -20,9 +22,10 @@ function App() {
 
 	const { userViews } = useLazyUser({ setVisibleUser, visibleUser, setUsers, refSearch });
 
+	useSEO({ title: `[${countUsers}] DGI Carnets` });
+
 	/*
 FALTA : 
- - Modo oscuro 
  - PWA
  */
 
@@ -30,6 +33,7 @@ FALTA :
 
 	return (
 		<>
+			<BtnBlackMode />
 			<h1 id="home">Registro de carnets</h1>
 			<header>
 				<nav className="form">

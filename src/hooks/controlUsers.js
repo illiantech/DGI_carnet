@@ -1,6 +1,7 @@
 import { useState, useCallback } from 'react';
 import { mapData } from '../resources/mapping';
 import { rootServer } from '../resources/consts';
+// import dataMock from '../mocks/data.json';
 
 export const getUsers = ({ ciForm, nameForm, dateForm, checkForm }, userViews) => {
 	return fetch(`${rootServer}/historial?cedula=${ciForm}&Nombre=${nameForm}&fecha=${dateForm}&entregado=${checkForm}&userViews=${userViews}`)

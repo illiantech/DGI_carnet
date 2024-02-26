@@ -10,19 +10,24 @@
 	cursor: pointer;
 }
 
-.black-mode::before {
-	content: '☀';
-	display: grid;
-	place-content: center;
+.black-mode--container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	width: calc(55px / 2);
 	height: 20px;
-	transform: scale(1.05);
+	transform: scale(1.1);
 	border-radius: 3px;
 	position: absolute;
+	top: 0;
 	left: 0;
 	background-image: linear-gradient(to bottom, hsl(0, 0%, 97%) 30%, var(--colorPrimary) 600%);
 	color: hsl(0, 0%, 10%);
-	transition: all 0.4s;
+	transition: all 0.4s ease;
+}
+
+.black-mode--container > svg {
+	transform: scale(0.5) rotate(-25deg);
 }
 
 /* active black mode */
@@ -31,7 +36,7 @@
 	background-image: linear-gradient(to bottom, hsl(0, 0%, 95%) 30%, var(--colorPrimary) 600%);
 }
 
-.black-mode__active::before {
+.black-mode__active > .black-mode--container {
 	background-image: linear-gradient(to bottom, hsl(0, 0%, 10%) 40%, hsl(0, 0%, 90%) 500%);
 	color: hsl(0, 0%, 95%);
 	left: calc(100% - (55px / 2));

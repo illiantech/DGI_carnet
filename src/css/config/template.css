@@ -53,6 +53,11 @@
 	--LetColorPrimaryTwo: hsl(223, 49%, 23%);
 }
 
+[data-theme='dark'] {
+	--LetBgDoc: hsl(0, 0%, 15%);
+	--LetColorPrimaryTwo: hsl(0, 0%, 95%);
+}
+
 /* titles */
 
 h1,
