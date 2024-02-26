@@ -18,15 +18,12 @@ export function useCheck({ delivered, deliveredDate, id }) {
 
 	useEffect(() => {
 		const controlQueryCheck = async () => {
-			try {
-				const res = await putCheck(id, !check);
-				setDeliDate(res);
-				setCheck(!check);
-			} catch (err) {
-				alert(`Error de conexión\nError en el boton que confirma la entrega del carnet\n${err}`);
-			} finally {
-				setLoadCheck(false);
-			}
+			const res = await putCheck(id, !check)
+				.catch((err) => alert(`Error de conexión\nError en el boton que confirma la entrega del carnet\n${err}`))
+				.finally(() => setLoadCheck(false));
+
+			setDeliDate(res);
+			setCheck(!check);
 		};
 		if (loadCheck) controlQueryCheck();
 	}, [loadCheck]);

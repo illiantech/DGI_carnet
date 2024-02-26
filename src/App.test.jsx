@@ -1,6 +1,6 @@
 import React from 'react';
 import { describe, test, expect, beforeAll, afterEach, afterAll, beforeEach } from 'vitest';
-import { screen, render, cleanup } from '@testing-library/react';
+import { screen, render, cleanup, prettyDOM } from '@testing-library/react';
 import { server } from './mocks/node';
 import userEvent from '@testing-library/user-event';
 import App from './App';
@@ -44,8 +44,8 @@ describe('<App/> <User/>', () => {
 		// buscar input nombre
 		const inputName = screen.getByRole('searchbox');
 		const buttonForm = form.querySelector('button');
-		const sectionUser = screen.getByRole('section');
-		expect(sectionUser).toBeDefined();
+
+		const sectionUser = screen.getByRole('section-user');
 
 		await userEvent.type(inputName, 'adara');
 		const mockName = inputName.value;
@@ -53,23 +53,25 @@ describe('<App/> <User/>', () => {
 
 		await userEvent.click(buttonForm);
 
-		const user = sectionUser.querySelectorAll('article');
+		expect(sectionUser.children).toHaveLength(2);
+
+		const user = sectionUser.children[0];
 		expect(user).toBeDefined();
 
-		expect(user[0].innerHTML).toMatch(mockName);
-		expect(user[1].innerHTML).toMatch(mockName);
+		expect(screen.getAllByText('Cargo')).toBeDefined();
+		expect(user.innerText).toMatch(mockName);
 
-		const buttonDeleteUserOne = user[0].querySelector('button');
+		const buttonDeleteUserOne = user.querySelector('button');
 
 		await userEvent.click(buttonDeleteUserOne);
 
 		expect(sectionUser.children).toHaveLength(1);
 
-		// const buttonCheckUser = user[1].querySelector('.check-user').firstElementChild;
+		// const buttonCheckUser = user.querySelector('.check-user').firstElementChild;
 
 		// await userEvent.click(buttonCheckUser);
 
-		// const timeCheckUser = user[1].querySelector('.check-user').lastElementChild;
+		// const timeCheckUser = user.querySelector('.check-user').lastElementChild;
 		// expect(timeCheckUser).toBeDefined();
 	});
 });

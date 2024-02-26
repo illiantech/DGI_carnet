@@ -23,6 +23,7 @@ function App() {
 	/*
 FALTA : 
  - Modo oscuro 
+ - PWA
  */
 
 	const classDeleteAlert = deleteAlert ? 'delete-alert delete-alert__active' : 'delete-alert';
@@ -46,18 +47,11 @@ FALTA :
 					<h3>Entregado</h3>
 				</section>
 				<div className={classDeleteAlert}>Removido exitosamente</div>
-				<section role="section" ref={refContainerUsers}>
+				<section aria-label="Registro de usuarios" role="section-user" ref={refContainerUsers}>
 					{users ? (
 						users.map((user) => {
 							return (
-								<User
-									{...user}
-									setUsers={setUsers}
-									setCountUsers={setCountUsers}
-									refTimeoutDeleteAlert={refTimeoutDeleteAlert}
-									setDeleteAlert={setDeleteAlert}
-									deleteAlert={deleteAlert}
-									key={user.id}>
+								<User {...user} key={user.id}>
 									<DeleteUser
 										deleteAlert={deleteAlert}
 										setDeleteAlert={setDeleteAlert}

@@ -7,16 +7,14 @@ export function useLazyUser({ setUsers, setVisibleUser, visibleUser, refSearch }
 
 	useEffect(() => {
 		const queryUsersOberver = async () => {
-			try {
-				const data = await getUsers(refSearch.current, userViews.current);
-				const newUsers = mapData(data[0]);
+			const data = await getUsers(refSearch.current, userViews.current)
+				.catch((err) => alert(`Error de conexión\n${err}`))
+				.finally(() => setVisibleUser(false));
 
-				setUsers((previewUsers) => [...previewUsers, ...newUsers]);
-			} catch (err) {
-				alert(`Error de conexión\n${err}`);
-			} finally {
-				setVisibleUser(false);
-			}
+			console.log(visibleUser);
+			const newUsers = mapData(data[0]);
+
+			setUsers((previewUsers) => [...previewUsers, ...newUsers]);
 		};
 
 		if (visibleUser) {

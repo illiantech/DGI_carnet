@@ -1,10 +1,5 @@
 * {
 	box-sizing: border-box;
-
-	/* in firefox - warning (support chromium)*/
-
-	/* scrollbar-width: thin;
-	scrollbar-color: var(--colorSecondary) var(--LetBgDoc); */
 }
 
 /* scroll */
@@ -95,6 +90,12 @@ button {
 	cursor: pointer;
 	color: var(--colorSecondary);
 	background-color: var(--bgDoc);
+}
+
+a::selection,
+button::selection,
+label::selection {
+	background-color: transparent;
 }
 
 /* delete icon input dateTime */

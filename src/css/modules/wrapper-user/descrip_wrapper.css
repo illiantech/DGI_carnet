@@ -4,7 +4,6 @@
 	justify-content: center;
 	align-items: center;
 	position: relative;
-	left: calc(50% - (var(--twoThirds) / 2));
 }
 .descrip-wrapper--button {
 	position: absolute;
@@ -45,11 +44,10 @@
 	overflow-y: auto;
 }
 
-.descrip-wrapper--textEdit,
-.descrip-wrapper--paragraph {
-	/* in firefox - warning (support chromium) */
-
-	/* scrollbar-color: var(--colorSecondary) var(--bgDoc); */
+.descrip-wrapper--textEdit::selection,
+.descrip-wrapper--paragraph::selection {
+	background-color: var(--colorSecondary);
+	color: var(--bgDoc);
 }
 
 .descrip-wrapper--textEdit::-webkit-scrollbar:vertical,

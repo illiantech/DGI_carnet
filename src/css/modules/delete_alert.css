@@ -10,6 +10,7 @@
 	position: fixed;
 	top: 50px;
 	left: -60%;
+	transition: left 1s ease;
 }
 
 .delete-alert::before {
@@ -23,27 +24,5 @@
 }
 
 .delete-alert__active {
-	animation-name: move;
-	animation-duration: 8s;
-	animation-timing-function: cubic-bezier(0, 0.8, 0.1, 1);
-}
-
-@keyframes move {
-	0% {
-		left: -50%;
-	}
-
-	20% {
-		left: 10%;
-	}
-
-	100% {
-		left: -50%;
-	}
-}
-
-@media (min-width: 1000px) {
-	.delete-alert__active {
-		animation-duration: 12s;
-	}
+	left: 10%;
 }

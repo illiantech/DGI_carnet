@@ -42,6 +42,7 @@
 .scroll-top {
 	position: fixed;
 	background-color: #fff;
+	color: var(--bgLetter);
 	box-shadow: var(--shadowGeneral);
 	border-radius: 50%;
 	display: grid;

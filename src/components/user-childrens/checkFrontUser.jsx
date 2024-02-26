@@ -15,7 +15,7 @@ export function CheckUser({ delivered, deliveredDate, id }) {
 	const handleCheck = () => {
 		if (!check) setLoadCheck(true);
 
-		// setLoadCheck(true);
+	
 	};
 
 	return (
