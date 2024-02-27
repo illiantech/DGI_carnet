@@ -24,11 +24,15 @@ export function useDescrip({ description, id }) {
 			const textareaValue = userTextFormatted(refElmtDescrip.current?.value.trim());
 
 			if (!textDescrip && textareaValue && textareaValue !== refTextareaDescrip.current) {
-				await putDescrip(id, textareaValue)
-					.catch((err) => alert(`Error de conexión\nError al cambiar decripciòn\n${err}`))
-					.finally(() => setLoadDescrip(false));
+				try {
+					await putDescrip(id, textareaValue);
 
-				setTextDescrip(textareaValue);
+					setTextDescrip(textareaValue);
+				} catch (err) {
+					alert(`Error de conexión\nError al cambiar decripciòn\n${err}`);
+				} finally {
+					setLoadDescrip(false);
+				}
 			} else {
 				setLoadDescrip(false);
 				setTextDescrip('');

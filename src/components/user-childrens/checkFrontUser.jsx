@@ -14,15 +14,13 @@ export function CheckUser({ delivered, deliveredDate, id }) {
 
 	const handleCheck = () => {
 		if (!check) setLoadCheck(true);
-
-	
 	};
 
 	return (
 		<div className="check-user">
 			<button onClick={handleCheck} title={titleCheck} style={stylelineCheck} className={classCheck}></button>
 			{check && (
-				<time dateTime={deliDate} title="Fecha de entrega" className="check-user--dateTime">
+				<time role="time" dateTime={deliDate} title="Fecha de entrega" className="check-user--dateTime">
 					{deliveredDateFormatted(deliDate)}
 				</time>
 			)}

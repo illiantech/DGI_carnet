@@ -9,7 +9,7 @@ const users = [
 			Cargo: 'OPERADOR MASTER',
 			id: 134,
 			fecha: '2023-10-03T00:00:00.000Z',
-			entregado: true,
+			entregado: false,
 			descripcion: null,
 			fecha_entregado: '2023-10-03T16:33:33.372Z',
 			estado: 0

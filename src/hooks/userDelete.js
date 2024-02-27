@@ -1,7 +1,6 @@
 import { useCallback } from 'react';
 import { rootServer } from '../resources/consts';
 
-
 const queryDeleteUser = (id) => {
 	return fetch(`${rootServer}/eliminados/${id}`, { method: 'DELETE' })
 		.then((res) => res.json())
@@ -26,7 +25,7 @@ export function useDelete() {
 						setDeleteAlert(false);
 					}, 3000);
 				} catch (err) {
-					alert(`Error de conexión\nError al eliminar usuario\n${err}`);
+					alert(`Error al eliminar usuario \n ${err}`);
 				}
 			};
 	}, []);

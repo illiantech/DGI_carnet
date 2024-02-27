@@ -22,12 +22,7 @@ function App() {
 
 	const { userViews } = useLazyUser({ setVisibleUser, visibleUser, setUsers, refSearch });
 
-	useSEO({ title: `[${countUsers}] DGI Carnets` });
-
-	/*
-FALTA : 
- - PWA
- */
+	useSEO({ title: `${countUsers > 0 ? `[${countUsers}] ` : ''}DGI Carnets` });
 
 	const classDeleteAlert = deleteAlert ? 'delete-alert delete-alert__active' : 'delete-alert';
 

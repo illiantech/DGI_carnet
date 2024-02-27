@@ -19,22 +19,22 @@ export function useUsers({ refSearch, setSubmit }) {
 	const controlQueryUsers = useCallback(async ({ fields, form }) => {
 		setSubmit(true);
 
-		const data = await getUsers(fields, 0)
-			.catch((err) => {
-				alert(`Error de conexión\nError de formulario\n${err}`);
-				refSearch.current = undefined;
-			})
-			.finally(() => {
-				setSubmit(false);
-				form.reset();
-			});
+		try {
+			const data = await getUsers(fields, 0);
 
-		if (data[1] > 0) {
-			setUsers(mapData(data[0]));
-			setCountUsers(data[1]);
-		} else {
-			setUsers(false);
-			setCountUsers(0);
+			if (data[1] > 0) {
+				setUsers(mapData(data[0]));
+				setCountUsers(data[1]);
+			} else {
+				setUsers(false);
+				setCountUsers(0);
+			}
+		} catch (err) {
+			alert(`Error de conexión\nError de formulario\n${err}`);
+			refSearch.current = undefined;
+		} finally {
+			setSubmit(false);
+			form.reset();
 		}
 	}, []);
 

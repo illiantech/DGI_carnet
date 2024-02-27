@@ -1,6 +1,6 @@
 import React from 'react';
 import { describe, test, expect, beforeAll, afterEach, afterAll, beforeEach } from 'vitest';
-import { screen, render, cleanup } from '@testing-library/react';
+import { screen, render, cleanup, prettyDOM } from '@testing-library/react';
 import { server } from './mocks/node';
 import userEvent from '@testing-library/user-event';
 import App from './App';
@@ -64,14 +64,14 @@ describe('<App/> <User/>', () => {
 		const buttonDeleteUserOne = user.querySelector('button');
 
 		await userEvent.click(buttonDeleteUserOne);
-
 		expect(sectionUser.children).toHaveLength(1);
 
-		// const buttonCheckUser = user.querySelector('.check-user').firstElementChild;
+		expect(user.querySelector('.check-user').children).toHaveLength(1);
+		const buttonCheckUser = user.querySelector('.check-user').children[0];
 
-		// await userEvent.click(buttonCheckUser);
+		await userEvent.click(buttonCheckUser);
 
-		// const timeCheckUser = user.querySelector('.check-user').lastElementChild;
-		// expect(timeCheckUser).toBeDefined();
+		const timeCheckUser = user.querySelector('.check-user').children[1];
+		console.log(prettyDOM(timeCheckUser));
 	});
 });

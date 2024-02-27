@@ -38,3 +38,10 @@ export const userTextFormatted = (text) => {
 
 export const userNameFormatted = (name) => name.toLowerCase();
 export const userDateFormatted = (date) => date.slice(0, 10).split('-').reverse().join('/');
+
+export class ErrorForm extends Error {
+	constructor(message) {
+		super(message);
+		this.name = 'Error de validación';
+	}
+}
