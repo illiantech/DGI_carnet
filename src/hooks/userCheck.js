@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { rootServer } from '../resources/consts';
 import { objPUT } from '../resources/querys';
+import { ErrorConnect } from '../resources/mapping';
 
 const putCheck = (id, check) => {
 	return fetch(`${rootServer}/entregados/${id}`, objPUT(check))
@@ -8,6 +9,9 @@ const putCheck = (id, check) => {
 		.then((res) => {
 			console.log(res);
 			return res.fecha_entregado;
+		})
+		.catch(() => {
+			throw new ErrorConnect();
 		});
 };
 
@@ -24,7 +28,7 @@ export function useCheck({ delivered, deliveredDate, id }) {
 				setDeliDate(res);
 				setCheck(!check);
 			} catch (err) {
-				alert(`Error de conexión\nError en el boton que confirma la entrega del carnet\n${err}`);
+				if (err instanceof ErrorConnect) alert(err);
 			} finally {
 				setLoadCheck(false);
 			}

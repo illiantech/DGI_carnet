@@ -1,6 +1,8 @@
 import { http, HttpResponse } from 'msw';
 
-const users = [
+import { rootServer } from '../resources/consts';
+
+const usersMock = [
 	[
 		{
 			cedula: '27238110',
@@ -30,19 +32,23 @@ const users = [
 	2
 ];
 
+// const allPosts = new Map();
+
 export const handlers = [
-	http.get('https://historial-carnets.guarico.gob.ve/historial', () => {
+	http.get(`${rootServer}/historial`, () => {
 		// Note that you DON'T have to stringify the JSON!
-		return HttpResponse.json(users);
+		return HttpResponse.json(usersMock);
 	}),
-	http.delete('https://historial-carnets.guarico.gob.ve/eliminados:id', (req) => {
-		const { id } = req.params;
-		// Note that you DON'T have to stringify the JSON!
-		return HttpResponse.json(users[0].find((item) => item.id === id));
+	http.delete(`${rootServer}/eliminados/:id`, ({ params }) => {
+		const { id } = params;
+		const res = usersMock[0].find((item) => item.id === Number(id));
+		return HttpResponse.json(res);
 	}),
-	http.put(' https://historial-carnets.guarico.gob.ve/entregados:id', (req) => {
-		const { id } = req.params;
-		// Note that you DON'T have to stringify the JSON!
-		return HttpResponse.json(users[0].find((item) => item.id === id));
+	http.put(`${rootServer}/entregados/:id`, () => {
+		return HttpResponse.json({ fecha_entregado: '2023-11-05T16:33:33.372Z' });
+	}),
+	http.put(`${rootServer}/descripciones/:id`, ({ params }) => {
+		const { id } = params;
+		return HttpResponse.json({ id, message: 'Descripción actualizada' });
 	})
 ];

@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { userTextFormatted } from '../resources/mapping';
+import { userTextFormatted, ErrorConnect } from '../resources/mapping';
 import { rootServer } from '../resources/consts';
 import { objPUT } from '../resources/querys';
 
@@ -8,6 +8,9 @@ const putDescrip = (id, descrip) => {
 		.then((res) => res.json())
 		.then((res) => {
 			console.log(res);
+		})
+		.catch(() => {
+			throw new ErrorConnect();
 		});
 };
 
@@ -29,7 +32,7 @@ export function useDescrip({ description, id }) {
 
 					setTextDescrip(textareaValue);
 				} catch (err) {
-					alert(`Error de conexión\nError al cambiar decripciòn\n${err}`);
+					if (err instanceof ErrorConnect) alert(err);
 				} finally {
 					setLoadDescrip(false);
 				}

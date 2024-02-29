@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import { mapData } from '../resources/mapping';
+import {ErrorConnect, mapData } from '../resources/mapping';
 import { getUsers } from './controlUsers';
 
 export function useLazyUser({ setUsers, setVisibleUser, visibleUser, refSearch }) {
@@ -14,7 +14,7 @@ export function useLazyUser({ setUsers, setVisibleUser, visibleUser, refSearch }
 
 				setUsers((previewUsers) => [...previewUsers, ...newUsers]);
 			} catch (err) {
-				alert(`Error de conexión\n${err}`);
+				if (err instanceof ErrorConnect) alert(err);
 			} finally {
 				setVisibleUser(false);
 			}

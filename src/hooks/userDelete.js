@@ -1,10 +1,14 @@
 import { useCallback } from 'react';
 import { rootServer } from '../resources/consts';
+import { ErrorConnect } from '../resources/mapping';
 
 const queryDeleteUser = (id) => {
 	return fetch(`${rootServer}/eliminados/${id}`, { method: 'DELETE' })
 		.then((res) => res.json())
-		.then((res) => console.log(res));
+		.then((res) => console.log(res))
+		.catch(() => {
+			throw new ErrorConnect();
+		});
 };
 
 export function useDelete() {
@@ -25,7 +29,7 @@ export function useDelete() {
 						setDeleteAlert(false);
 					}, 3000);
 				} catch (err) {
-					alert(`Error al eliminar usuario \n ${err}`);
+					if (err instanceof ErrorConnect) alert(err);
 				}
 			};
 	}, []);

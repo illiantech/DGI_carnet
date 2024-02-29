@@ -8,7 +8,7 @@ import { DescripWrapperUser } from './user-childrens/descripwrapperUser';
 
 export function User({ delivered, deliveredDate, description, ci, name, id, date, position, dependence, children }) {
 	return (
-		<article className="user">
+		<article className="user" role="listitem">
 			{children}
 
 			<FrontUser ci={ci} name={name} id={id} date={date}>

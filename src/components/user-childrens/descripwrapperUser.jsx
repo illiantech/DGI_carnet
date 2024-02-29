@@ -6,7 +6,7 @@ import { EditIcon, CloudUploadIcon } from '../icons';
 export function DescripWrapperUser({ description, id }) {
 	const { refTextareaDescrip, textDescrip, setLoadDescrip, refElmtDescrip, loadDescrip } = useDescrip({ description, id });
 
-	const titleBtnDescrip = textDescrip ? 'Editar' : 'Enviar';
+	const titleBtnDescrip = textDescrip ? 'Editar descripción' : 'Enviar descripción';
 
 	const btnDescrip = () => {
 		if (loadDescrip) return '...';

@@ -1,5 +1,5 @@
 import { useState, useCallback } from 'react';
-import { mapData } from '../resources/mapping';
+import { ErrorConnect, mapData } from '../resources/mapping';
 import { rootServer } from '../resources/consts';
 // import dataMock from '../mocks/data.json';
 
@@ -9,6 +9,9 @@ export const getUsers = ({ ciForm, nameForm, dateForm, checkForm }, userViews) =
 		.then((res) => {
 			console.log(res);
 			return res;
+		})
+		.catch(() => {
+			throw new ErrorConnect();
 		});
 };
 
@@ -30,7 +33,7 @@ export function useUsers({ refSearch, setSubmit }) {
 				setCountUsers(0);
 			}
 		} catch (err) {
-			alert(`Error de conexión\nError de formulario\n${err}`);
+			if (err instanceof ErrorConnect) alert(err);
 			refSearch.current = undefined;
 		} finally {
 			setSubmit(false);

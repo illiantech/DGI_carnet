@@ -39,9 +39,10 @@ export const userTextFormatted = (text) => {
 export const userNameFormatted = (name) => name.toLowerCase();
 export const userDateFormatted = (date) => date.slice(0, 10).split('-').reverse().join('/');
 
-export class ErrorForm extends Error {
-	constructor(message) {
+export class ErrorConnect extends Error {
+	constructor(message = 'Vuelvalo a intentar o revise su conexión') {
 		super(message);
-		this.name = 'Error de validación';
+		this.name = 'Error de conexión';
+		this.stack = '';
 	}
 }

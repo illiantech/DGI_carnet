@@ -8,7 +8,7 @@ export function CheckUser({ delivered, deliveredDate, id }) {
 
 	const titleCheck = check ? 'Entrega confirmada' : 'Confirmar entrega';
 
-	const classCheck = check ? 'check-user--button__active check-user--button' : 'checkuser--button';
+	const classCheck = check ? 'check-user--button__active check-user--button' : 'check-user--button';
 
 	const stylelineCheck = loadCheck ? { opacity: 0.5 } : { opacity: 1 };
 
@@ -20,7 +20,7 @@ export function CheckUser({ delivered, deliveredDate, id }) {
 		<div className="check-user">
 			<button onClick={handleCheck} title={titleCheck} style={stylelineCheck} className={classCheck}></button>
 			{check && (
-				<time role="time" dateTime={deliDate} title="Fecha de entrega" className="check-user--dateTime">
+				<time dateTime={deliDate} title="Fecha de entrega" className="check-user--dateTime">
 					{deliveredDateFormatted(deliDate)}
 				</time>
 			)}

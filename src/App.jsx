@@ -29,7 +29,7 @@ function App() {
 	return (
 		<>
 			<BtnBlackMode />
-			<h1 id="home">Registro de carnets</h1>
+			<h1 id="home">DGI Carnets</h1>
 			<header>
 				<nav className="form">
 					<Form userViews={userViews} refSearch={refSearch} submit={submit} controlQueryUsers={controlQueryUsers} />
@@ -46,7 +46,7 @@ function App() {
 					<h3>Entregado</h3>
 				</section>
 				<div className={classDeleteAlert}>Removido exitosamente</div>
-				<section aria-label="Registro de usuarios" role="section-user" ref={refContainerUsers}>
+				<section aria-label="Registro de usuarios" role="list" ref={refContainerUsers}>
 					{users ? (
 						users.map((user) => {
 							return (
