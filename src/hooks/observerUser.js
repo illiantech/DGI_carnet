@@ -9,7 +9,7 @@ export function useObserverUser({ users, countUsers }, options) {
 		new IntersectionObserver((entries) => {
 			const [entry] = entries;
 			if (entry.isIntersecting) {
-				console.log(entry);
+				console.log(`IsIntesecting: ${entry.isIntersecting}`);
 				setVisibleUser(true);
 			}
 		}, options),

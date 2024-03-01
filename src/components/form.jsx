@@ -22,7 +22,7 @@ export function Form({ controlQueryUsers, submit, refSearch, userViews }) {
 			{emptyFields && <span className="form--empty-fields">Rellene los campos</span>}
 			<form
 				aria-label="Buscar usuarios con o sin carnet"
-				onSubmit={createHandleSubmit({ setEmptyFields, refSearch, controlQueryUsers, userViews, regInput })}
+				onSubmit={createHandleSubmit({ setEmptyFields, refSearch, controlQueryUsers, userViews })}
 				className="form-container">
 				<label title="Escribir cedula">
 					Cédula:

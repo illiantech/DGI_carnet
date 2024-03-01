@@ -1,6 +1,6 @@
 import React from 'react';
 import { describe, test, expect, beforeAll, afterEach, afterAll, beforeEach } from 'vitest';
-import { screen, render, cleanup } from '@testing-library/react';
+import { screen, render, cleanup, waitFor } from '@testing-library/react';
 import { server } from './mocks/node';
 import userEvent from '@testing-library/user-event';
 import App from './App';
@@ -9,23 +9,24 @@ import 'intersection-observer';
 describe('<App/> E2E (should search items) ', () => {
 	let sectionUser;
 	let user;
+
 	beforeEach(async () => {
 		cleanup();
 		render(<App />);
 
 		const mockName = 'adara';
 
-		// buscar input nombre
+		// Search input name
 		const inputName = screen.getByRole('searchbox');
 		const buttonForm = screen.getByText('Buscar');
 
 		sectionUser = screen.getByRole('list');
 		expect(sectionUser.children).toHaveLength(0);
 
-		// Escribir en el formulario
+		// Write in the form
 		await userEvent.type(inputName, mockName);
 
-		// Enviar formulario
+		// Submit form
 		await userEvent.click(buttonForm);
 
 		expect(sectionUser.children).toHaveLength(2);
@@ -33,9 +34,12 @@ describe('<App/> E2E (should search items) ', () => {
 		user = screen.getAllByRole('listitem')[0];
 		expect(user).toBeDefined();
 
-		// Esperar que exista componentes <frontUser/> <wrapperUser/>
+		// Expect it exist <frontUser/> <wrapperUser/>
 		expect(screen.getAllByText('Cargo')).toBeDefined();
 		expect(user.innerText).toMatch(mockName);
+
+		// synchronized intersection observer, it default async
+		await waitFor(() => expect(sectionUser.children).toHaveLength(4));
 	});
 
 	beforeAll(() => server.listen());
@@ -44,9 +48,10 @@ describe('<App/> E2E (should search items) ', () => {
 
 	test('should delete item', async () => {
 		const buttonDeleteUserOne = screen.getAllByTitle('Borrar')[0];
-		// Borrar un usuario
+
+		// Delete user
 		await userEvent.click(buttonDeleteUserOne);
-		expect(sectionUser.children).toHaveLength(1);
+		expect(sectionUser.children).toHaveLength(3);
 	});
 
 	test('should update check item', async () => {

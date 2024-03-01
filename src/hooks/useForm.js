@@ -1,8 +1,9 @@
 import { useCallback } from 'react';
+import { regInput } from '../resources/consts';
 
 export function useForm() {
 	const createHandleSubmit = useCallback(
-		({ setEmptyFields, refSearch, controlQueryUsers, userViews, regInput }) =>
+		({ setEmptyFields, refSearch, controlQueryUsers, userViews }) =>
 			(e) => {
 				e.preventDefault();
 

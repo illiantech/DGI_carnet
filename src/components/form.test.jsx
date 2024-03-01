@@ -20,7 +20,7 @@ describe('<Form/> Unit Test ', () => {
 		form = render(<Form controlQueryUsers={mockHandle} refSearch={mockref} userViews={mockUserViews} />);
 		expect(form).toBeDefined();
 
-		// acceder a DOM dentro de componente (cotainer necessary)
+		// Access to DOM inside the component (cotainer necessary)
 		buttonForm = form.container.querySelector('button');
 	});
 
@@ -29,7 +29,7 @@ describe('<Form/> Unit Test ', () => {
 	afterAll(() => server.close());
 
 	test('should indicate fields empty in Form', async () => {
-		// buscar sin campos llenos
+		// search with empty fields
 
 		await userEvent.click(buttonForm);
 
@@ -38,7 +38,7 @@ describe('<Form/> Unit Test ', () => {
 	});
 
 	test('should call once function controlsUser with MOCKS in form submit', async () => {
-		// Testear cuantas veces se llama la funcion controlQuerysUsers con MOCKS
+		// Testing how many times the function controlQuerysUsers is called with MOCKS
 
 		const inputName = form.getByRole('searchbox');
 
