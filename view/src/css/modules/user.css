@@ -1,100 +1,102 @@
 /* User */
 .user-propertys {
-	display: none;
+  display: none;
 }
 
 .user {
-	margin-left: auto;
-	margin-right: auto;
-	margin-bottom: 100px;
-	background-image: var(--GrdGeneral);
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	width: 90%;
-	max-width: 400px;
-	box-shadow: var(--shadowGeneral);
-	border-radius: 20px;
-	position: relative;
-	overflow: hidden;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 100px;
+  background-image: var(--GrdGeneral);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 90%;
+  max-width: 400px;
+  min-height: 500px;
+  box-shadow: var(--shadowGeneral);
+  border-radius: 20px;
+  position: relative;
+  overflow: hidden;
 }
 
 .user--delete {
-	position: absolute;
-	width: 25px;
-	height: 25px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	top: 10px;
-	left: 15px;
-
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 10px;
+  left: 15px;
 }
 
 .user--delete::before,
 .user--delete::after {
-	content: '';
-	background-color: var(--colorSecondary);
-	position: absolute;
-	height: 3px;
-	width: 20px;
-	border-radius: 5px;
+  content: '';
+  background-color: var(--colorSecondary);
+  position: absolute;
+  height: 3px;
+  width: 20px;
+  border-radius: 5px;
 }
 
 .user--delete::before {
-	transform: rotate(45deg);
+  transform: rotate(45deg);
 }
 
 .user--delete::after {
-	transform: rotate(-45deg);
+  transform: rotate(-45deg);
 }
 
 .user--title {
-	width: 80%;
-	margin-top: 50px;
-	margin-bottom: 5px;
-	color: var(--colorPrimaryTwo);
+  width: 80%;
+  margin-top: 50px;
+  margin-bottom: 5px;
+  color: var(--colorPrimaryTwo);
 }
 
 .user--content {
-	display: inline-block;
-	margin-top: 0;
-	margin-bottom: 0;
-	width: 80%;
+  display: inline-block;
+  margin-top: 0;
+  margin-bottom: 0;
+  width: 80%;
 }
 
 .user--content:nth-of-type(2) {
-	text-transform: capitalize;
+  text-transform: capitalize;
 }
 
 @media (min-width: 1000px) {
-	.user-propertys {
-		max-width: 1300px;
-		margin-left: auto;
-		margin-right: auto;
-		margin-bottom: 50px;
-		display: flex;
-	}
+  .user-propertys {
+    max-width: 1300px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 50px;
+    display: flex;
+  }
 
-	.user-propertys > h3 {
-		text-align: center;
-		width: 100%;
-	}
+  .user-propertys > h3 {
+    text-align: center;
+    width: 100%;
+  }
 
-	.user {
-		width: 95%;
-		height: 150px;
-		max-width: 1300px;
-		flex-direction: row;
-	}
+  .user {
+    width: 95%;
+    height: 150px;
+    min-height: 0px;
+    max-width: 1300px;
+    flex-direction: row;
+  }
 
-	.user--title {
-		display: none;
-	}
+  .user--title {
+    display: none;
+  }
 
-	.user--content {
-		display: flex;
-		justify-content: center;
-		width: 100%;
-	}
+  .user--content {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
 }
