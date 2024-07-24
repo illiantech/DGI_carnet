@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
-import React from 'react';
-import { userNameFormatted, userDateFormatted } from '../../resources/mapping';
+import React from "react";
+import { userNameFormatted, userDateFormatted } from "../../resources/mapping";
 
 export function FrontUser({ ci, date, name, children }) {
   return (

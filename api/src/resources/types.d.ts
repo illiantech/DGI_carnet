@@ -1,5 +1,5 @@
-import { type ZodError } from 'zod';
-import { type DependenceKeys, type PositionKeys } from './enums';
+import { type ZodError } from "zod";
+import { type DependenceKeys, type PositionKeys } from "./enums";
 
 type Position =
   | PositionKeys.enginer
@@ -34,7 +34,7 @@ export interface UserValidateGetFilter {
   data?: UserType[] | [];
 }
 
-type PartialUserType = Partial<Pick<UserType, 'name' | 'ci' | 'delivered'>>;
+type PartialUserType = Partial<Pick<UserType, "name" | "ci" | "delivered">>;
 
 export interface UserParams extends PartialUserType {
   userCount?: number;

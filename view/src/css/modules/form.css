@@ -1,171 +1,171 @@
 .form {
-	width: 95%;
-	max-width: 300px;
-	margin-left: auto;
-	margin-right: auto;
-	margin-bottom: 100px;
-	border-radius: 20px;
-	height: 420px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	background-color: hsl(228, 4%, 76%);
-	position: relative;
+  width: 95%;
+  max-width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 100px;
+  border-radius: 20px;
+  height: 420px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: hsl(228, 4%, 76%);
+  position: relative;
 }
 
 .form--data-length {
-	position: absolute;
-	font-size: 0.8rem;
-	width: 100px;
-	top: 100%;
-	left: 70%;
-	color: var(--LetColorPrimaryTwo);
+  position: absolute;
+  font-size: 0.8rem;
+  width: 100px;
+  top: 100%;
+  left: 70%;
+  color: var(--LetColorPrimaryTwo);
 }
 
 .form--empty-fields {
-	position: absolute;
-	font-size: 0.9rem;
-	color: var(--colorSecondary);
-	font-weight: bold;
-	bottom: 15px;
+  position: absolute;
+  font-size: 0.9rem;
+  color: var(--colorSecondary);
+  font-weight: bold;
+  bottom: 15px;
 }
 
 .form-container {
-	width: 160px;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	gap: 30px;
+  width: 160px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
 }
 
 .form-container > label {
-	display: flex;
-	flex-direction: column;
-	width: 100%;
-	gap: 5px;
-	position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 5px;
+  position: relative;
 }
 
 .form-container > label:nth-of-type(1)::after,
 .form-container > label:nth-of-type(2)::after {
-	position: absolute;
-	font-size: 0.7rem;
-	opacity: 0.8;
-	top: 105%;
+  position: absolute;
+  font-size: 0.7rem;
+  opacity: 0.8;
+  top: 105%;
 }
 
 .form-container > label:nth-of-type(1)::after {
-	content: 'De 5 a 10 dígitos';
+  content: "De 5 a 10 dígitos";
 }
 
 .form-container > label:nth-of-type(2)::after {
-	content: 'Solo letras (Max 24)';
+  content: "Solo letras (Max 24)";
 }
 
 .form-container > label:nth-of-type(4) {
-	flex-direction: row;
-	gap: 20px;
+  flex-direction: row;
+  gap: 20px;
 }
 
 .form-container--input {
-	height: 30px;
-	outline: none;
-	border: 3px solid transparent;
-	background-color: var(--bgDoc);
-	border-radius: 5px;
-	position: relative;
-	transition: border-color 0.2s;
+  height: 30px;
+  outline: none;
+  border: 3px solid transparent;
+  background-color: var(--bgDoc);
+  border-radius: 5px;
+  position: relative;
+  transition: border-color 0.2s;
 }
 
 .form-container > label:nth-of-type(3) > .form-container--input {
-	text-align: center;
+  text-align: center;
 }
 
 .form-container > label:nth-of-type(4) > .form-container--input {
-	width: 20px;
-	height: 20px;
-	cursor: pointer;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
 }
 
 .form-container--input:focus {
-	border-color: var(--colorPrimary);
+  border-color: var(--colorPrimary);
 }
 
 .form-container--input__invalid,
 .form-container--input__invalid:focus {
-	border-color: var(--colorSecondary);
+  border-color: var(--colorSecondary);
 }
 
 .form-container--submit {
-	border-radius: 5px;
-	border: none;
-	font-weight: bold;
-	cursor: pointer;
-	color: var(--colorSecondary);
-	background-color: var(--bgDoc);
-	height: 30px;
-	width: 110px;
-	display: inline-block;
-	border: 3px solid transparent;
-	transition: border-color 0.2s;
+  border-radius: 5px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  color: var(--colorSecondary);
+  background-color: var(--bgDoc);
+  height: 30px;
+  width: 110px;
+  display: inline-block;
+  border: 3px solid transparent;
+  transition: border-color 0.2s;
 }
 
 @media (min-width: 1000px) {
-	.form {
-		max-width: 1000px;
-		height: 140px;
-	}
+  .form {
+    max-width: 1000px;
+    height: 140px;
+  }
 
-	.form--data-length {
-		left: 90%;
-	}
+  .form--data-length {
+    left: 90%;
+  }
 
-	.form--empty-fields {
-		bottom: 30px;
-		right: 10px;
-	}
+  .form--empty-fields {
+    bottom: 30px;
+    right: 10px;
+  }
 
-	.form-container {
-		display: flex;
-		flex-direction: row;
-		width: 100%;
-		height: 100%;
-		justify-content: space-evenly;
-		align-items: center;
-		position: relative;
-		top: -10px;
-	}
+  .form-container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+    justify-content: space-evenly;
+    align-items: center;
+    position: relative;
+    top: -10px;
+  }
 
-	.form-container > label {
-		flex-direction: row;
-		align-items: center;
-		gap: 10px;
-		width: auto;
-		flex-wrap: wrap;
-	}
+  .form-container > label {
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    width: auto;
+    flex-wrap: wrap;
+  }
 
-	.form-container > label:nth-of-type(1)::after {
-		top: 110%;
-		left: 30%;
-	}
+  .form-container > label:nth-of-type(1)::after {
+    top: 110%;
+    left: 30%;
+  }
 
-	.form-container > label:nth-of-type(2)::after {
-		top: 110%;
-		left: 32%;
-	}
+  .form-container > label:nth-of-type(2)::after {
+    top: 110%;
+    left: 32%;
+  }
 
-	.form-container > label:nth-of-type(4) {
-		font-size: 0.9rem;
-		position: absolute;
-		top: 80%;
-		left: 5%;
-	}
+  .form-container > label:nth-of-type(4) {
+    font-size: 0.9rem;
+    position: absolute;
+    top: 80%;
+    left: 5%;
+  }
 
-	.form-container--input {
-		width: 160px;
-	}
+  .form-container--input {
+    width: 160px;
+  }
 
-	.form-container--submit:hover {
-		border-color: var(--colorSecondary);
-	}
+  .form-container--submit:hover {
+    border-color: var(--colorSecondary);
+  }
 }

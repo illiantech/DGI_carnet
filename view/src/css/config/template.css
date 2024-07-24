@@ -1,112 +1,116 @@
 * {
-	box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 /* scroll */
 /* in webkit/blink (chromium) */
 
 *::-webkit-scrollbar {
-	-webkit-appearance: none;
+  -webkit-appearance: none;
 }
 
 *::-webkit-scrollbar:vertical {
-	width: 0.8em;
+  width: 0.8em;
 }
 
 *::-webkit-scrollbar-button:increment {
-	display: none;
+  display: none;
 }
 
 *::-webkit-scrollbar:horizontal {
-	height: 10px;
+  height: 10px;
 }
 
 *::-webkit-scrollbar-thumb {
-	background-color: var(--colorSecondary);
-	border-radius: 20px;
-	border: 4px solid var(--LetBgDoc);
+  background-color: var(--colorSecondary);
+  border-radius: 20px;
+  border: 4px solid var(--LetBgDoc);
 }
 
 *::-webkit-scrollbar-track {
-	border-radius: 10px;
+  border-radius: 10px;
 }
 
 /* variables */
 :root {
-	/* color document appropriate */
-	--bgDoc: hsl(0, 0%, 95%);
-	--bgLetter: hsl(0, 0%, 5%);
-	background-color: var(--LetBgDoc);
-	color: var(--LetBgLetter);
-	font-family: sans-serif;
-	transition: background-color 0.4s;
-	scroll-behavior: smooth;
+  /* color document appropriate */
+  --bgDoc: hsl(0, 0%, 95%);
+  --bgLetter: hsl(0, 0%, 5%);
+  background-color: var(--LetBgDoc);
+  color: var(--LetBgLetter);
+  font-family: sans-serif;
+  transition: background-color 0.4s;
+  scroll-behavior: smooth;
 
-	/* color elements and text (optional) */
-	--colorPrimary: hsl(224, 60%, 40%);
-	--colorPrimaryTwo: hsl(223, 49%, 23%);
-	--colorSecondary: hsl(360, 50%, 50%);
-	--shadowGeneral: -5px 5px 15px -10px var(--bgLetter);
-	--GrdGeneral: linear-gradient(to bottom, hsl(0, 0%, 97%) 70%, var(--colorPrimary) 600%);
-	/* variable change */
-	--LetBgDoc: hsl(0, 0%, 95%);
-	--LetColorPrimaryTwo: hsl(223, 49%, 23%);
+  /* color elements and text (optional) */
+  --colorPrimary: hsl(224, 60%, 40%);
+  --colorPrimaryTwo: hsl(223, 49%, 23%);
+  --colorSecondary: hsl(360, 50%, 50%);
+  --shadowGeneral: -5px 5px 15px -10px var(--bgLetter);
+  --GrdGeneral: linear-gradient(
+    to bottom,
+    hsl(0, 0%, 97%) 70%,
+    var(--colorPrimary) 600%
+  );
+  /* variable change */
+  --LetBgDoc: hsl(0, 0%, 95%);
+  --LetColorPrimaryTwo: hsl(223, 49%, 23%);
 }
 
-[data-theme='dark'] {
-	--LetBgDoc: hsl(0, 0%, 15%);
-	--LetColorPrimaryTwo: hsl(0, 0%, 95%);
+[data-theme="dark"] {
+  --LetBgDoc: hsl(0, 0%, 15%);
+  --LetColorPrimaryTwo: hsl(0, 0%, 95%);
 }
 
 /* titles */
 
 h1,
 h2 {
-	margin-top: 100px;
-	margin-bottom: 50px;
-	color: var(--LetColorPrimaryTwo);
-	text-align: center;
+  margin-top: 100px;
+  margin-bottom: 50px;
+  color: var(--LetColorPrimaryTwo);
+  text-align: center;
 }
 
 h3,
 h4 {
-	color: var(--LetColorPrimaryTwo);
-	cursor: initial;
+  color: var(--LetColorPrimaryTwo);
+  cursor: initial;
 }
 
 /* paragraph */
 
 p {
-	cursor: initial;
+  cursor: initial;
 }
 
 /* form */
 
 label {
-	font-weight: bold;
-	color: var(--colorPrimaryTwo);
-	cursor: pointer;
+  font-weight: bold;
+  color: var(--colorPrimaryTwo);
+  cursor: pointer;
 }
 
 button {
-	border-radius: 5px;
-	border: none;
-	font-weight: bold;
-	cursor: pointer;
-	color: var(--colorSecondary);
-	background-color: var(--bgDoc);
+  border-radius: 5px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  color: var(--colorSecondary);
+  background-color: var(--bgDoc);
 }
 
 a::selection,
 button::selection,
 label::selection {
-	background-color: transparent;
+  background-color: transparent;
 }
 
 /* delete icon input dateTime */
-[type='month']::-webkit-calendar-picker-indicator {
-	width: 100%;
-	height: 100%;
-	position: absolute;
-	opacity: 0;
+[type="month"]::-webkit-calendar-picker-indicator {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  opacity: 0;
 }

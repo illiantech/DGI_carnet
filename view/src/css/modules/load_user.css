@@ -1,22 +1,22 @@
 .load-user {
-	width: 30px;
-	height: 30px;
-	margin-left: auto;
-	margin-right: auto;
-	border-radius: 50%;
-	border: 5px solid var(--colorPrimary);
-	border-left: 5px solid var(--colorSecondary);
-	margin-bottom: 100px;
-	transition: opacity 0.5s;
-	animation: spin 1.5s infinite linear;
+  width: 30px;
+  height: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 50%;
+  border: 5px solid var(--colorPrimary);
+  border-left: 5px solid var(--colorSecondary);
+  margin-bottom: 100px;
+  transition: opacity 0.5s;
+  animation: spin 1.5s infinite linear;
 }
 
 @keyframes spin {
-	0% {
-		transform: rotate(0deg);
-	}
+  0% {
+    transform: rotate(0deg);
+  }
 
-	100% {
-		transform: rotate(360deg);
-	}
+  100% {
+    transform: rotate(360deg);
+  }
 }

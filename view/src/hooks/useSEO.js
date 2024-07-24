@@ -1,7 +1,7 @@
-import { useEffect } from 'react';
+import { useEffect } from "react";
 
 export function useSEO({ title }) {
-	useEffect(() => {
-		document.title = title;
-	}, [title]);
+  useEffect(() => {
+    document.title = title;
+  }, [title]);
 }

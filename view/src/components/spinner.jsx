@@ -1,5 +1,5 @@
-import React from 'react';
+import React from "react";
 
 export function Spinner() {
-	return <div className="load-user"></div>;
+  return <div className="load-user"></div>;
 }

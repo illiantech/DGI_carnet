@@ -20,7 +20,12 @@ function App() {
 
   const { visibleUser, noMoreUser, refContainerUsers, setVisibleUser } = useObserverUser({ users, countUsers }, { threshold: 0 });
 
-  const { userViews } = useLazyUser({ setVisibleUser, visibleUser, setUsers, refSearch });
+  const { userViews } = useLazyUser({
+    setVisibleUser,
+    visibleUser,
+    setUsers,
+    refSearch
+  });
 
   useSEO({ title: `${countUsers > 0 ? `[${countUsers}] ` : ''}DGI Carnets` });
 
@@ -50,14 +55,7 @@ function App() {
             users.map((user) => {
               return (
                 <User {...user} key={user.id}>
-                  <DeleteUser
-                    deleteAlert={deleteAlert}
-                    setDeleteAlert={setDeleteAlert}
-                    refTimeoutDeleteAlert={refTimeoutDeleteAlert}
-                    setCountUsers={setCountUsers}
-                    setUsers={setUsers}
-                    id={user.id}
-                  />
+                  <DeleteUser deleteAlert={deleteAlert} setDeleteAlert={setDeleteAlert} refTimeoutDeleteAlert={refTimeoutDeleteAlert} setCountUsers={setCountUsers} setUsers={setUsers} id={user.id} />
                 </User>
               );
             })

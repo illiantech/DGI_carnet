@@ -1,22 +1,23 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 
+export function useBlackMode({ prefTheme }) {
+  const [blackMode, setBlackMode] = useState(prefTheme);
 
-export function useBlackMode({prefTheme}) {
-	const [blackMode, setBlackMode] = useState(prefTheme);
+  useEffect(() => {
+    const mode = blackMode ? "dark" : "light";
 
-	useEffect(() => {
-		const mode = blackMode ? 'dark' : 'light';
+    document.firstElementChild.setAttribute("data-theme", mode);
+  }, [blackMode]);
 
-		document.firstElementChild.setAttribute('data-theme', mode);
-	}, [blackMode]);
+  const handleBlackMode = () => {
+    setBlackMode(!blackMode);
+  };
 
-	const handleBlackMode = () => {
-		setBlackMode(!blackMode);
-	};
+  const classBlackMode = blackMode
+    ? "black-mode black-mode__active"
+    : "black-mode";
 
-	const classBlackMode = blackMode ? 'black-mode black-mode__active' : 'black-mode';
+  const titileBlackMode = blackMode ? "Modo claro" : "Modo oscuro";
 
-	const titileBlackMode = blackMode ? 'Modo claro' : 'Modo oscuro';
-
-	return { handleBlackMode, classBlackMode, titileBlackMode, blackMode };
+  return { handleBlackMode, classBlackMode, titileBlackMode, blackMode };
 }

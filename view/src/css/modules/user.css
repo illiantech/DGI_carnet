@@ -34,7 +34,7 @@
 
 .user--delete::before,
 .user--delete::after {
-  content: '';
+  content: "";
   background-color: var(--colorSecondary);
   position: absolute;
   height: 3px;

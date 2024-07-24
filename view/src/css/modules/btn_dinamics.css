@@ -1,64 +1,80 @@
 .black-mode {
-	height: 20px;
-	width: 55px;
-	position: absolute;
-	right: 40px;
-	top: 40px;
-	border-radius: 3px;
-	background-image: linear-gradient(to bottom, hsl(0, 0%, 10%) 40%, hsl(0, 0%, 90%) 500%);
-	box-shadow: 0 0 10px -5px var(--bgLetter);
-	cursor: pointer;
+  height: 20px;
+  width: 55px;
+  position: absolute;
+  right: 40px;
+  top: 40px;
+  border-radius: 3px;
+  background-image: linear-gradient(
+    to bottom,
+    hsl(0, 0%, 10%) 40%,
+    hsl(0, 0%, 90%) 500%
+  );
+  box-shadow: 0 0 10px -5px var(--bgLetter);
+  cursor: pointer;
 }
 
 .black-mode--container {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	width: calc(55px / 2);
-	height: 20px;
-	transform: scale(1.1);
-	border-radius: 3px;
-	position: absolute;
-	top: 0;
-	left: 0;
-	background-image: linear-gradient(to bottom, hsl(0, 0%, 97%) 30%, var(--colorPrimary) 600%);
-	color: hsl(0, 0%, 10%);
-	transition: all 0.4s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: calc(55px / 2);
+  height: 20px;
+  transform: scale(1.1);
+  border-radius: 3px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-image: linear-gradient(
+    to bottom,
+    hsl(0, 0%, 97%) 30%,
+    var(--colorPrimary) 600%
+  );
+  color: hsl(0, 0%, 10%);
+  transition: all 0.4s ease;
 }
 
 .black-mode--container > svg {
-	transform: scale(0.5) rotate(-25deg);
+  transform: scale(0.5) rotate(-25deg);
 }
 
 /* active black mode */
 
 .black-mode__active {
-	background-image: linear-gradient(to bottom, hsl(0, 0%, 95%) 30%, var(--colorPrimary) 600%);
+  background-image: linear-gradient(
+    to bottom,
+    hsl(0, 0%, 95%) 30%,
+    var(--colorPrimary) 600%
+  );
 }
 
 .black-mode__active > .black-mode--container {
-	background-image: linear-gradient(to bottom, hsl(0, 0%, 10%) 40%, hsl(0, 0%, 90%) 500%);
-	color: hsl(0, 0%, 95%);
-	left: calc(100% - (55px / 2));
+  background-image: linear-gradient(
+    to bottom,
+    hsl(0, 0%, 10%) 40%,
+    hsl(0, 0%, 90%) 500%
+  );
+  color: hsl(0, 0%, 95%);
+  left: calc(100% - (55px / 2));
 }
 
 /* Scroll top btn */
 
 .scroll-top {
-	position: fixed;
-	background-color: #fff;
-	color: var(--bgLetter);
-	box-shadow: var(--shadowGeneral);
-	border-radius: 50%;
-	display: grid;
-	place-content: center;
-	width: 50px;
-	height: 50px;
-	bottom: 5%;
-	right: 5%;
-	z-index: 200;
+  position: fixed;
+  background-color: #fff;
+  color: var(--bgLetter);
+  box-shadow: var(--shadowGeneral);
+  border-radius: 50%;
+  display: grid;
+  place-content: center;
+  width: 50px;
+  height: 50px;
+  bottom: 5%;
+  right: 5%;
+  z-index: 200;
 }
 
 .scroll-top > svg {
-	width: 25px;
+  width: 25px;
 }

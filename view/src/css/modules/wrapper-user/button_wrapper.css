@@ -1,39 +1,39 @@
 .button-wrapper {
-	box-sizing: content-box;
-	position: absolute;
-	right: -3%;
-	bottom: -2%;
-	background-color: transparent;
-	padding-top: 25px;
-	padding-left: 25px;
+  box-sizing: content-box;
+  position: absolute;
+  right: -3%;
+  bottom: -2%;
+  background-color: transparent;
+  padding-top: 25px;
+  padding-left: 25px;
 }
 
 .button-wrapper--container {
-	background-color: var(--bgDoc);
-	height: 50px;
-	width: 50px;
-	border-radius: 200px 100px 0px 35px / 200px 35px 0px 100px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
+  background-color: var(--bgDoc);
+  height: 50px;
+  width: 50px;
+  border-radius: 200px 100px 0px 35px / 200px 35px 0px 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .button-wrapper--container > svg {
-	width: 1.2rem;
+  width: 1.2rem;
 }
 
 @media (min-width: 1000px) {
-	.button-wrapper {
-		padding-left: 0;
-		padding-right: 25px;
+  .button-wrapper {
+    padding-left: 0;
+    padding-right: 25px;
 
-		width: 50px;
+    width: 50px;
 
-		left: -0.5%;
-		bottom: -5%;
-	}
+    left: -0.5%;
+    bottom: -5%;
+  }
 
-	.button-wrapper--container {
-		transform: rotate(90deg);
-	}
+  .button-wrapper--container {
+    transform: rotate(90deg);
+  }
 }

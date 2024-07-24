@@ -1,28 +1,32 @@
 .delete-alert {
-	width: 150px;
-	z-index: 1000;
-	font-weight: bold;
-	border-radius: 10px;
-	padding: 15px 30px 15px 15px;
-	background: linear-gradient(to bottom, hsl(0, 0%, 97%) 60%, var(--colorPrimary) 400%);
-	box-shadow: var(--shadowGeneral);
-	overflow: hidden;
-	position: fixed;
-	top: 50px;
-	left: -60%;
-	transition: left 1s ease;
+  width: 150px;
+  z-index: 1000;
+  font-weight: bold;
+  border-radius: 10px;
+  padding: 15px 30px 15px 15px;
+  background: linear-gradient(
+    to bottom,
+    hsl(0, 0%, 97%) 60%,
+    var(--colorPrimary) 400%
+  );
+  box-shadow: var(--shadowGeneral);
+  overflow: hidden;
+  position: fixed;
+  top: 50px;
+  left: -60%;
+  transition: left 1s ease;
 }
 
 .delete-alert::before {
-	content: '';
-	position: absolute;
-	top: 0;
-	right: 0;
-	height: 100%;
-	width: 15%;
-	background-color: var(--colorSecondary);
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 15%;
+  background-color: var(--colorSecondary);
 }
 
 .delete-alert__active {
-	left: 10%;
+  left: 10%;
 }

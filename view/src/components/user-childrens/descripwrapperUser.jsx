@@ -1,15 +1,23 @@
 /* eslint-disable react/prop-types */
-import React from 'react';
-import { useDescrip } from '../../hooks/userDescrip';
-import { EditIcon, CloudUploadIcon } from '../icons';
+import React from "react";
+import { useDescrip } from "../../hooks/userDescrip";
+import { EditIcon, CloudUploadIcon } from "../icons";
 
 export function DescripWrapperUser({ description, id }) {
-  const { refTextareaDescrip, textDescrip, setLoadDescrip, refElmtDescrip, loadDescrip } = useDescrip({ description, id });
+  const {
+    refTextareaDescrip,
+    textDescrip,
+    setLoadDescrip,
+    refElmtDescrip,
+    loadDescrip,
+  } = useDescrip({ description, id });
 
-  const titleBtnDescrip = textDescrip ? 'Editar descripción' : 'Enviar descripción';
+  const titleBtnDescrip = textDescrip
+    ? "Editar descripción"
+    : "Enviar descripción";
 
   const btnDescrip = () => {
-    if (loadDescrip) return '...';
+    if (loadDescrip) return "...";
     return textDescrip ? <EditIcon /> : <CloudUploadIcon />;
   };
 
@@ -19,7 +27,11 @@ export function DescripWrapperUser({ description, id }) {
 
   return (
     <div className="descrip-wrapper">
-      <button className="descrip-wrapper--button" title={titleBtnDescrip} onClick={handleDescription}>
+      <button
+        className="descrip-wrapper--button"
+        title={titleBtnDescrip}
+        onClick={handleDescription}
+      >
         {btnDescrip()}
       </button>
       {textDescrip ? (
@@ -29,7 +41,8 @@ export function DescripWrapperUser({ description, id }) {
           className="descrip-wrapper--textEdit"
           defaultValue={refTextareaDescrip.current}
           ref={refElmtDescrip}
-          placeholder="Escribe una descripción del usuario en relación a su registro o entrega del carnet..."></textarea>
+          placeholder="Escribe una descripción del usuario en relación a su registro o entrega del carnet..."
+        ></textarea>
       )}
     </div>
   );
