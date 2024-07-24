@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback, useRef } from "react";
+import { useState, useEffect, useCallback, useRef } from 'react';
 
 export function useObserverUser({ users, countUsers }, options) {
   const [visibleUser, setVisibleUser] = useState(false);
@@ -13,12 +13,11 @@ export function useObserverUser({ users, countUsers }, options) {
         setVisibleUser(true);
       }
     }, options),
-    [],
+    []
   );
 
   useEffect(() => {
-    if (users.length < countUsers && users.length > 0)
-      observer.observe(refContainerUsers.current.lastElementChild);
+    if (users.length < countUsers && users.length > 0) observer.observe(refContainerUsers.current.lastElementChild);
 
     if (users.length === countUsers && countUsers > 0) setNoMoreUser(true);
 
