@@ -1,1 +1,1 @@
-if('serviceWorker' in navigator) {window.addEventListener('load', () => {navigator.serviceWorker.register('/C:/Users/Corina/documents/daniel/dgi_carnet/view/vite.config.js/sw.js', { scope: '/C:/Users/Corina/documents/daniel/dgi_carnet/view/vite.config.js/' })})}
+if('serviceWorker' in navigator) {window.addEventListener('load', () => {navigator.serviceWorker.register('/sw.js', { scope: '/' })})}
