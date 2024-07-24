@@ -23,6 +23,6 @@ git commit -m 'deploy'
 # if you are deploying to https://<USERNAME>.github.io
 # git push -f git@github.com:<USERNAME>/<USERNAME>.github.io.git main
 
-# if you are deploying to https://illiantech.github.io/DGI_carnet_frontend/
-# git push -f git@github.com:illiantech/DGI_carnet_frontend.git main:gh-pages
+# if you are deploying to https://illiantech.github.io/DGI_carnet/
+# git push -f git@github.com:illiantech/DGI_carnet.git main:gh-pages
 
