@@ -1,10 +1,11 @@
 import { z } from 'zod';
 import { type UserValidateGetFilter } from './types';
 import { DependenceKeys, PositionKeys } from './enums';
+import mongoose from 'mongoose';
 
 const userSchemaGetFilter = z.array(
   z.object({
-    _id: z.any(),
+    _id: z.instanceof(mongoose.Types.ObjectId),
     name: z.string({ invalid_type_error: 'no se encuentra nombre de usuario' }),
     ci: z.number().int().positive(),
     date: z.date(),
