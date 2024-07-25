@@ -27,3 +27,5 @@ const userSchema = new Schema({
 });
 
 export const User = model("User", userSchema);
+
+console.log(typeof User)

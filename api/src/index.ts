@@ -5,6 +5,10 @@ import { dbOpen } from "./conections/mongo";
 
 // cors
 // port
+// errors
+// delete
+// separation concepts
+// middlewares
 
 dbOpen();
 const app = express();

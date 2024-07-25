@@ -1,14 +1,15 @@
 import { useState, useEffect } from 'react';
 import { rootServer } from '../resources/consts';
 import { objPUT } from '../resources/querys';
-import { ErrorConnect } from '../resources/mapping';
+import { ErrorConnect} from '../resources/mapping';
 
 const putCheck = (id, check) => {
-  return fetch(`${rootServer}/entregados/${id}`, objPUT(check))
+  return fetch(`${rootServer}/users/${id}`, objPUT(check))
     .then((res) => res.json())
     .then((res) => {
       console.log(res);
-      return res.fecha_entregado;
+
+      return res.deliveredDate;
     })
     .catch(() => {
       throw new ErrorConnect();

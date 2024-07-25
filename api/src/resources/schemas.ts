@@ -5,13 +5,13 @@ import mongoose from 'mongoose';
 
 const userSchemaGetFilter = z.array(
   z.object({
-    _id: z.instanceof(mongoose.Types.ObjectId),
+    _id: z.instanceof(mongoose.Types.ObjectId).readonly(),
     name: z.string({ invalid_type_error: 'no se encuentra nombre de usuario' }),
     ci: z.number().int().positive(),
     date: z.date(),
-    deliveredDate: z.date(),
+    deliveredDate: z.date().optional(),
     delivered: z.boolean(),
-    description: z.string(),
+    description: z.string().optional(),
     position: z.union([
       z.literal(PositionKeys.counter),
       z.literal(PositionKeys.designer),
@@ -37,7 +37,7 @@ export const validateUserSchemaGetFilter = <T>(data: T): UserValidateGetFilter =
 // //
 
 export const schemaPatchCheck = z.object({
-  data: z.boolean(),
+  data: z.literal(true),
   id: z.string().readonly()
 });
 

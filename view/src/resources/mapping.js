@@ -1,31 +1,31 @@
 export const mapData = (data) => {
   return data.map((user) => {
+    const { name, ci, date, deliveredDate, delivered, _id, description, position, dependence } = user;
     return {
-      name: user.Nombre,
-      ci: user.cedula,
-      date: user.fecha,
-      deliveredDate: user.fecha_entregado,
-      id: user.id,
-      delivered: user.entregado,
-      description: user.descripcion,
-      position: user.Cargo,
-      dependence: user.Dependencia,
-      stade: user.estado,
+      name,
+      ci,
+      date,
+      deliveredDate,
+      id: _id,
+      delivered,
+      description,
+      position,
+      dependence
     };
   });
 };
 
 export const deliveredDateFormatted = (deliveredDate) => {
-  const deliveredDateFormatted = Intl.DateTimeFormat("es-419", {
-    timeZone: "America/Caracas",
+  const deliveredDateFormatted = Intl.DateTimeFormat('es-419', {
+    timeZone: 'America/Caracas',
     hour12: true,
-    hourCycle: "h12",
-    year: "numeric",
-    month: "2-digit",
-    day: "2-digit",
-    hour: "2-digit",
-    minute: "2-digit",
-    second: "2-digit",
+    hourCycle: 'h12',
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit'
   }).format(new Date(deliveredDate));
 
   return deliveredDateFormatted;
@@ -37,13 +37,12 @@ export const userTextFormatted = (text) => {
 };
 
 export const userNameFormatted = (name) => name.toLowerCase();
-export const userDateFormatted = (date) =>
-  date.slice(0, 10).split("-").reverse().join("/");
+export const userDateFormatted = (date) => date.slice(0, 10).split('-').reverse().join('/');
 
 export class ErrorConnect extends Error {
-  constructor(message = "Vuelvalo a intentar o revise su conexión") {
+  constructor(message = 'Vuelvalo a intentar o revise su conexión') {
     super(message);
-    this.name = "Error de conexión";
-    this.stack = "";
+    this.name = 'Error de conexión o validación';
+    this.stack = '';
   }
 }

@@ -8,7 +8,7 @@ export const getUsers = (
   userViews,
 ) => {
   return fetch(
-    `${rootServer}/historial?cedula=${ciForm}&Nombre=${nameForm}&fecha=${dateForm}&entregado=${checkForm}&userViews=${userViews}`,
+    `${rootServer}/users?ci=${ciForm}&name=${nameForm}&date=${dateForm}&delivered=${checkForm}&userCount=${userViews}`,
   )
     .then((res) => res.json())
     .then((res) => {

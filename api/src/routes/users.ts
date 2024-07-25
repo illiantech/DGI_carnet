@@ -1,7 +1,7 @@
 import { Router } from 'express';
 import * as UserModel from '../models/users';
 import { regexParams } from '../resources/mapping';
-import { schemaPatchCheck } from '../resources/schemas';
+import { schemaPatchCheck, schemaPatchDescrip } from '../resources/schemas';
 
 export const usersRouter = Router();
 
@@ -19,8 +19,8 @@ usersRouter.get('/', async (req, res) => {
 
   const result = await UserModel.getFilterLazy(filterParams);
 
-  if (result.error != null) {
-    return res.status(400).json(result.error);
+  if (result.error !== null) {
+    return res.status(406).json(result.error);
   }
 
   const resultLenght = await UserModel.getFilterLenght(filterParams);
@@ -36,17 +36,21 @@ usersRouter.patch('/:id', async (req, res) => {
 
   const validationCheck = schemaPatchCheck.safeParse({ id, data });
 
-  // const validationDescrip = schemaPatchDescrip.safeParse({ id, data })
+  const validationDescrip = schemaPatchDescrip.safeParse({ id, data });
 
-  if (validationCheck.error != null) {
-    return res.status(400).json(validationCheck.error);
-  }
-
+  if (validationCheck.success) {
     const result = await UserModel.patchCheck(validationCheck.data);
 
-    console.log(result);
-    return res.status(200).json(result);
+    return result !== null ? res.status(200).json(result) : res.status(404).json(result);
+  }
 
+  if (validationDescrip.success) {
+    const result = await UserModel.patchDescrip(validationDescrip.data);
+
+    return result !== null ? res.status(200).json(result) : res.status(404).json(result);
+  }
+
+  return res.status(406).json({ errorCheck: validationCheck.error, errorDescrip: validationDescrip.error });
 });
 
 usersRouter.delete('/', (_req, _res) => {});

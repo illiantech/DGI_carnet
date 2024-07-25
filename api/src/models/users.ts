@@ -1,7 +1,7 @@
 import { User } from '../conections/mongo';
 import { objFilterRequest } from '../resources/mapping';
 import { validateUserSchemaGetFilter } from '../resources/schemas';
-import { type UserParams, type UserValidateGetFilter } from '../resources/types';
+import { type UserType, type UserParams, type UserValidateGetFilter } from '../resources/types';
 
 export const getFilterLazy = async ({ ci, name, delivered, date, userCount }: UserParams): Promise<UserValidateGetFilter> => {
   if (ci === undefined && name === undefined && delivered === undefined && date === undefined) return validateUserSchemaGetFilter(undefined);
@@ -23,6 +23,10 @@ export const getFilterLenght = async ({ ci, name, delivered, date, userCount }: 
   return undefined;
 };
 
-export const patchCheck = async ({ id, data }: { id: string; data: boolean }): Promise<any> => {
-  return { id, data };
+export const patchCheck = async ({ id, data }: { id: string; data: true }): Promise<UserType | null> => {
+  return await User.findByIdAndUpdate(id, { delivered: data, deliveredDate: new Date() }, { new: true });
+};
+
+export const patchDescrip = async ({ id, data }: { id: string; data: string }): Promise<UserType | null> => {
+  return await User.findByIdAndUpdate(id, { description: data }, { new: true });
 };

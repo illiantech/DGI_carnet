@@ -11,8 +11,8 @@ export interface UserType {
   ci: number;
   delivered: boolean;
   date: Date;
-  deliveredDate: Date;
-  description: string;
+  deliveredDate?: Date;
+  description?: string;
   position: Position;
   dependence: Dependence;
 }
