@@ -22,3 +22,7 @@ export const getFilterLenght = async ({ ci, name, delivered, date, userCount }: 
 
   return undefined;
 };
+
+export const patchCheck = async ({ id, data }: { id: string; data: boolean }): Promise<any> => {
+  return { id, data };
+};

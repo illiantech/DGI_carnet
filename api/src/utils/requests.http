@@ -1,1 +1,1 @@
-GET http://localhost:3002/users?name=hh&ci=&delivered=true&date=&userCount=0
+GET http://localhost:3002/users?name=alice&ci=&delivered=&date=&userCount=0
