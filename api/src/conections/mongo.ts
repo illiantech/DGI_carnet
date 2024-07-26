@@ -1,21 +1,19 @@
-import mongoose, { model } from "mongoose";
+import mongoose, { model, Schema } from 'mongoose';
+import { type UserType } from '../resources/types';
 
-const uri = "mongodb://localhost:27017/dgi";
+const uri = 'mongodb://localhost:27017/dgi';
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
-export const dbOpen = (): void => {
-  mongoose
-    .connect(uri)
-    .then(() => {
-      console.log("database conection");
-    })
-    .catch((err) => {
-      console.error(err);
-    });
-};
 
-const { Schema } = mongoose;
+mongoose
+  .connect(uri)
+  .then(() => {
+    console.log('database conection');
+  })
+  .catch((err) => {
+    console.error(err);
+  });
 
-const userSchema = new Schema({
+const userSchema = new Schema<UserType>({
   name: String,
   ci: Number,
   date: Date,
@@ -23,9 +21,7 @@ const userSchema = new Schema({
   delivered: Boolean,
   description: String,
   position: String,
-  dependence: String,
+  dependence: String
 });
 
-export const User = model("User", userSchema);
-
-console.log(typeof User)
+export const User = model('User', userSchema);

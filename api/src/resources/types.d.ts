@@ -1,11 +1,22 @@
-import { type ZodError } from 'zod';
 import { type DependenceKeys, type PositionKeys } from './enums';
+import { type Document } from 'mongoose';
 
-type Position = PositionKeys.enginer | PositionKeys.counter | PositionKeys.secretary | PositionKeys.designer | PositionKeys.support | PositionKeys.publicist;
+type Position =
+  | PositionKeys.enginer
+  | PositionKeys.counter
+  | PositionKeys.secretary
+  | PositionKeys.designer
+  | PositionKeys.support
+  | PositionKeys.publicist;
 
-type Dependence = DependenceKeys.civilProtection | DependenceKeys.comunityManager | DependenceKeys.dgi | DependenceKeys.secretaryOfWorks | DependenceKeys.secretaryTransport;
+type Dependence =
+  | DependenceKeys.civilProtection
+  | DependenceKeys.comunityManager
+  | DependenceKeys.dgi
+  | DependenceKeys.secretaryOfWorks
+  | DependenceKeys.secretaryTransport;
 
-export interface UserType {
+export interface UserType extends Document {
   readonly _id: string;
   name: string;
   ci: number;
@@ -17,12 +28,6 @@ export interface UserType {
   dependence: Dependence;
 }
 
-export interface UserValidateGetFilter {
-  success: boolean;
-  error?: ZodError;
-  data?: UserType[] | [];
-}
-
 type PartialUserType = Partial<Pick<UserType, 'name' | 'ci' | 'delivered'>>;
 
 export interface UserParams extends PartialUserType {
@@ -30,14 +35,10 @@ export interface UserParams extends PartialUserType {
   date?: string;
 }
 
-export interface ObjFilterRequest {
-  date?:
-    | {
-        $gte: Date;
-        $lt: Date;
-      }
-    | undefined;
-  delivered?: boolean | undefined;
-  ci?: number | undefined;
-  name?: RegExp | undefined;
+export interface ObjFilterRequest extends PartialUserType {
+  date?: {
+    $gte: Date;
+    $lt: Date;
+  };
+  name?: RegExp;
 }

@@ -1,12 +1,12 @@
 import { Router } from 'express';
 import * as UserModel from '../models/users';
 import { regexParams } from '../resources/mapping';
-import { schemaPatchCheck, schemaPatchDescrip } from '../resources/schemas';
+import { schemaPatchCheck, schemaPatchDescrip, userSchemaGetFilter } from '../resources/schemas';
 
 export const usersRouter = Router();
 
 // eslint-disable-next-line @typescript-eslint/no-misused-promises
-usersRouter.get('/', async (req, res) => {
+usersRouter.get('/', async (req, res, next) => {
   const { ci, name, date, delivered, userCount } = req.query;
 
   const filterParams = {
@@ -17,40 +17,49 @@ usersRouter.get('/', async (req, res) => {
     userCount: !regexParams.number.test(userCount as string) || userCount === undefined ? 0 : +userCount
   };
 
-  const result = await UserModel.getFilterLazy(filterParams);
+  const result = await UserModel.getFilterLazy(filterParams).catch(next);
 
-  if (result.error !== null) {
-    return res.status(406).json(result.error);
+  const validateResult = userSchemaGetFilter.safeParse(result);
+
+  if (!validateResult.success) {
+    return res.status(406).json(validateResult.error);
   }
 
-  const resultLenght = await UserModel.getFilterLenght(filterParams);
+  const resultLenght = await UserModel.getFilterLenght(filterParams).catch(next);
 
-  return res.status(200).json([result.data, resultLenght]);
+  return res.status(200).json([validateResult.data, resultLenght]);
 });
 
 // eslint-disable-next-line @typescript-eslint/no-misused-promises
-usersRouter.patch('/:id', async (req, res) => {
+usersRouter.patch('/:id', async (req, res, next) => {
   const { id } = req.params;
 
   const { data } = req.body;
 
-  const validationCheck = schemaPatchCheck.safeParse({ id, data });
+  const validateCheck = schemaPatchCheck.safeParse({ id, data });
 
-  const validationDescrip = schemaPatchDescrip.safeParse({ id, data });
+  const validateDescrip = schemaPatchDescrip.safeParse({ id, data });
 
-  if (validationCheck.success) {
-    const result = await UserModel.patchCheck(validationCheck.data);
+  if (validateCheck.success) {
+    const result = await UserModel.patchCheck(validateCheck.data).catch(next);
 
-    return result !== null ? res.status(200).json(result) : res.status(404).json(result);
+    return result !== null ? res.status(200).json(result) : res.status(404).send({ error: 'Not found user pacth check id' });
   }
 
-  if (validationDescrip.success) {
-    const result = await UserModel.patchDescrip(validationDescrip.data);
+  if (validateDescrip.success) {
+    const result = await UserModel.patchDescrip(validateDescrip.data).catch(next);
 
-    return result !== null ? res.status(200).json(result) : res.status(404).json(result);
+    return result !== null ? res.status(200).json(result) : res.status(404).send({ error: 'Not found user pacth descrip id' });
   }
 
-  return res.status(406).json({ errorCheck: validationCheck.error, errorDescrip: validationDescrip.error });
+  return res.status(406).json({ errorCheck: validateCheck.error, errorDescrip: validateDescrip.error });
 });
 
-usersRouter.delete('/', (_req, _res) => {});
+// eslint-disable-next-line @typescript-eslint/no-misused-promises
+usersRouter.delete('/:id', async (req, res, next) => {
+  const { id } = req.params;
+
+  const result = await UserModel.deleteId({ id }).catch(next);
+
+  return result !== null ? res.status(200).json(result) : res.status(404).send({ error: 'Not found user delete id' });
+});

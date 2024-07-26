@@ -1,4 +1,4 @@
-export enum PositionKeys {
+export const enum PositionKeys {
   enginer = "Ingeniero/a",
   counter = "Contador/a",
   secretary = "Secretario/a",
@@ -7,7 +7,7 @@ export enum PositionKeys {
   publicist = "Publicista",
 }
 
-export enum DependenceKeys {
+export const enum DependenceKeys {
   dgi = "Dirección general de informática",
   comunityManager = "Medios de comunicación y prensa",
   secretaryOfWorks = "Secretaria de obras públicas",
