@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { rootServer } from '../resources/consts';
 import { objPUT } from '../resources/querys';
-import { ErrorConnect} from '../resources/mapping';
+import { ErrorConnect } from '../resources/mapping';
 
 const putCheck = (id, check) => {
   return fetch(`${rootServer}/users/${id}`, objPUT(check))

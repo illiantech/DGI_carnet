@@ -1,13 +1,8 @@
-import { useEffect, useRef } from "react";
-import { ErrorConnect, mapData } from "../resources/mapping";
-import { getUsers } from "./controlUsers";
+import { useEffect, useRef } from 'react';
+import { ErrorConnect, mapData } from '../resources/mapping';
+import { getUsers } from './controlUsers';
 
-export function useLazyUser({
-  setUsers,
-  setVisibleUser,
-  visibleUser,
-  refSearch,
-}) {
+export function useLazyUser({ setUsers, setVisibleUser, visibleUser, refSearch }) {
   const userViews = useRef(0);
 
   useEffect(() => {

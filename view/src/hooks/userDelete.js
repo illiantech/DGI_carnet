@@ -16,7 +16,7 @@ export function useDelete() {
     if (!deleteAlert)
       return async () => {
         try {
-          // await queryDeleteUser(id);
+          await queryDeleteUser(id);
 
           setDeleteAlert(true);
 

@@ -39,7 +39,7 @@ function App() {
         <nav className="form">
           <Form userViews={userViews} refSearch={refSearch} submit={submit} controlQueryUsers={controlQueryUsers} />
 
-          {countUsers > 0 && <p className="form--data-length">{`${countUsers} Usuarios`}</p>}
+          {countUsers > 0 && <p className="form--data-length ">{`${countUsers} Usuarios`}</p>}
         </nav>
       </header>
       <main>
@@ -55,7 +55,14 @@ function App() {
             users.map((user) => {
               return (
                 <User {...user} key={user.id}>
-                  <DeleteUser deleteAlert={deleteAlert} setDeleteAlert={setDeleteAlert} refTimeoutDeleteAlert={refTimeoutDeleteAlert} setCountUsers={setCountUsers} setUsers={setUsers} id={user.id} />
+                  <DeleteUser
+                    deleteAlert={deleteAlert}
+                    setDeleteAlert={setDeleteAlert}
+                    refTimeoutDeleteAlert={refTimeoutDeleteAlert}
+                    setCountUsers={setCountUsers}
+                    setUsers={setUsers}
+                    id={user.id}
+                  />
                 </User>
               );
             })
