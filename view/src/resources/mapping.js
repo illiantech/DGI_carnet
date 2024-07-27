@@ -16,7 +16,7 @@ export const mapData = (data) => {
 };
 
 export const deliveredDateFormatted = (deliveredDate) => {
-  const deliveredDateFormatted = Intl.DateTimeFormat('es-419', {
+  return Intl.DateTimeFormat('es-419', {
     timeZone: 'America/Caracas',
     hour12: true,
     hourCycle: 'h12',
@@ -27,8 +27,6 @@ export const deliveredDateFormatted = (deliveredDate) => {
     minute: '2-digit',
     second: '2-digit'
   }).format(new Date(deliveredDate));
-
-  return deliveredDateFormatted;
 };
 
 export const userTextFormatted = (text) => {

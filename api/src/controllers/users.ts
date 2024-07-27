@@ -19,7 +19,7 @@ export const getFilter = async (req: Request, res: Response, next: NextFunction)
   const validateResult = userSchemaGetFilter.safeParse(result);
 
   if (!validateResult.success) {
-    return res.status(406).json(validateResult.error);
+    return res.status(406).send(validateResult.error);
   }
 
   const resultLenght = await UserModel.getFilterLenght(filterParams).catch(next);
@@ -57,7 +57,7 @@ export const patchDescription = async (req: Request, res: Response, next: NextFu
     return result !== null ? res.status(200).json(result) : res.status(404).send({ error: 'Not found user pacth descrip id' });
   }
 
-  return res.status(406).json({ error: 'PATCH invalid type' });
+  return res.status(406).send({ error: 'PATCH invalid type' });
 };
 
 export const deleteId = async (req: Request, res: Response, next: NextFunction): Promise<Response> => {

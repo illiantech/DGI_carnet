@@ -4,7 +4,12 @@ import { rootServer } from '../resources/consts';
 
 export const getUsers = ({ ciForm, nameForm, dateForm, checkForm }, userViews) => {
   return fetch(`${rootServer}/users?ci=${ciForm}&name=${nameForm}&date=${dateForm}&delivered=${checkForm}&userCount=${userViews}`)
-    .then((res) => res.json())
+    .then((res) => {
+      if (res.status >= 400) {
+        throw new ErrorConnect();
+      }
+      return res.json();
+    })
     .then((res) => {
       console.log(res);
       return res;
@@ -27,7 +32,6 @@ export function useUsers({ refSearch, setSubmit }) {
       if (data[1] > 0) {
         setUsers(mapData(data[0]));
         setCountUsers(data[1]);
-     
       } else {
         setUsers(undefined);
         setCountUsers(0);

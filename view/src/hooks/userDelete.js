@@ -4,7 +4,12 @@ import { ErrorConnect } from '../resources/mapping';
 
 const queryDeleteUser = (id) => {
   return fetch(`${rootServer}/users/${id}`, { method: 'DELETE' })
-    .then((res) => res.json())
+    .then((res) => {
+      if (res.status >= 400) {
+        throw new ErrorConnect();
+      }
+      return res.json();
+    })
     .then((res) => console.log(res))
     .catch(() => {
       throw new ErrorConnect();

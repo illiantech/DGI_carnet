@@ -5,10 +5,14 @@ import { objPUT } from '../resources/querys';
 
 const putDescrip = (id, descrip) => {
   return fetch(`${rootServer}/users/${id}`, objPUT(descrip))
-    .then((res) => res.json())
+    .then((res) => {
+      if (res.status >= 400) {
+        throw new ErrorConnect();
+      }
+      return res.json();
+    })
     .then((res) => {
       console.log(res);
-  
     })
     .catch(() => {
       throw new ErrorConnect();

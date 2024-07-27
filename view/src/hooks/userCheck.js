@@ -5,7 +5,12 @@ import { ErrorConnect } from '../resources/mapping';
 
 const putCheck = (id, check) => {
   return fetch(`${rootServer}/users/${id}`, objPUT(check))
-    .then((res) => res.json())
+    .then((res) => {
+      if (res.status >= 400) {
+        throw new ErrorConnect();
+      }
+      return res.json();
+    })
     .then((res) => {
       console.log(res);
 
