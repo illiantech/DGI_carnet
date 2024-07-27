@@ -15,7 +15,7 @@ export const errorServer = (err: ErrorRequestHandler, _req: Request, res: Respon
   } else return res.status(500).send({ error: 'Server error' });
 };
 
-const acceptsOrigins = ['http://localhost:5173', 'http://localhost:4173', 'https://illiantech.github.io/DGI_carnet/'];
+const acceptsOrigins = ['http://localhost:5173', 'http://localhost:4173', 'https://illiantech.github.io'];
 export const corsOptions: CorsOptions = {
   origin: (origin, callback) => {
     if (acceptsOrigins.includes(origin as unknown as string) || origin === undefined) {

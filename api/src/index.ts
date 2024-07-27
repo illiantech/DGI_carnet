@@ -1,16 +1,17 @@
 import express from 'express';
 import { usersRouter } from './routes/users';
-import * as mid from './resources/middleware';
+import * as mid from './utils/middleware';
 import cors from 'cors';
+import dotenv from 'dotenv';
 
-// port
-// separation concepts
-// mongoDB atlas
+dotenv.config();
+
 // .env sensitive info
+// mongoDB atlas
 // despliegue
 
 const app = express();
-const port = 3101;
+const port = process.env.PORT ?? 3001;
 
 app.use(cors(mid.corsOptions));
 app.use(express.json());
@@ -23,5 +24,5 @@ app.use(mid.notFound);
 app.use(mid.errorServer);
 
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}!`);
+  console.log(`Example app listening on port http://localhost:${port}`);
 });

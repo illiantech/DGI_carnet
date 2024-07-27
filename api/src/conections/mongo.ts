@@ -1,7 +1,10 @@
 import mongoose, { model, Schema } from 'mongoose';
-import { type UserType } from '../resources/types';
+import { type UserType } from '../utils/types';
+import dotenv from 'dotenv';
 
-const uri = 'mongodb://localhost:27017/dgi';
+dotenv.config();
+
+const uri = process.env.ROOT_DB ?? 'mongodb://localhost:27017/dgi';
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
 
 mongoose
@@ -25,3 +28,23 @@ const userSchema = new Schema<UserType>({
 });
 
 export const User = model('User', userSchema);
+
+// const user = new User({
+//   name: 'sdsds',
+//   ci: 34343,
+//   date: new Date('2024-05'),
+//   deliveredDate: new Date('2024-06'),
+//   delivered: false,
+
+//   position: 'sdsdasd',
+//   dependence: 'sadasda'
+// });
+
+// user
+//   .save()
+//   .then((res) => {
+//     console.log(res);
+//   })
+//   .catch((err) => {
+//     console.log(`error conexion ${err}`);
+//   });

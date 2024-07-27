@@ -30,9 +30,6 @@ export const userSchemaGetFilter = z.array(
   })
 );
 
-
-// //
-
 export const schemaPatchCheck = z.object({
   data: z.literal(true),
   id: z.string().readonly()

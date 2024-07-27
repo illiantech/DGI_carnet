@@ -1,6 +1,6 @@
 import { User } from '../conections/mongo';
-import { objFilterRequest } from '../resources/mapping';
-import { type UserType, type UserParams } from '../resources/types';
+import { objFilterRequest } from '../utils/utils';
+import { type UserType, type UserParams } from '../utils/types';
 
 export const getFilterLazy = async ({ ci, name, delivered, date, userCount }: UserParams): Promise<UserType[] | null> => {
   if (ci === undefined && name === undefined && delivered === undefined && date === undefined) return null;
