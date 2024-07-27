@@ -1,20 +1,12 @@
-import React from "react";
-import {
-  describe,
-  test,
-  expect,
-  beforeAll,
-  afterEach,
-  afterAll,
-  beforeEach,
-} from "vitest";
-import { screen, render, cleanup, waitFor } from "@testing-library/react";
-import { server } from "./mocks/node";
-import userEvent from "@testing-library/user-event";
-import App from "./App";
-import "intersection-observer";
+import React from 'react';
+import { describe, test, expect, beforeAll, afterEach, afterAll, beforeEach } from 'vitest';
+import { screen, render, cleanup, waitFor } from '@testing-library/react';
+import { server } from './mocks/node';
+import userEvent from '@testing-library/user-event';
+import App from './App';
+import 'intersection-observer';
 
-describe("<App/> E2E (should search items) ", () => {
+describe('<App/> E2E (should search items) ', () => {
   let sectionUser;
   let user;
 
@@ -22,13 +14,13 @@ describe("<App/> E2E (should search items) ", () => {
     cleanup();
     render(<App />);
 
-    const mockName = "adara";
+    const mockName = 'adara';
 
     // Search input name
-    const inputName = screen.getByRole("searchbox");
-    const buttonForm = screen.getByText("Buscar");
+    const inputName = screen.getByRole('searchbox');
+    const buttonForm = screen.getByText('Buscar');
 
-    sectionUser = screen.getByRole("list");
+    sectionUser = screen.getByRole('list');
     expect(sectionUser.children).toHaveLength(0);
 
     // Write in the form
@@ -37,13 +29,13 @@ describe("<App/> E2E (should search items) ", () => {
     // Submit form
     await userEvent.click(buttonForm);
 
-    expect(sectionUser.children).toHaveLength(2);
+    await waitFor(() => expect(sectionUser.children).toHaveLength(2));
 
-    user = screen.getAllByRole("listitem")[0];
+    user = screen.getAllByRole('listitem')[0];
     expect(user).toBeDefined();
 
     // Expect it exist <frontUser/> <wrapperUser/>
-    expect(screen.getAllByText("Cargo")).toBeDefined();
+    expect(screen.getAllByText('Cargo')).toBeDefined();
     expect(user.innerText).toMatch(mockName);
 
     // synchronized intersection observer, it default async
@@ -54,45 +46,41 @@ describe("<App/> E2E (should search items) ", () => {
   afterEach(() => server.resetHandlers());
   afterAll(() => server.close());
 
-  test("should delete item", async () => {
-    const buttonDeleteUserOne = screen.getAllByTitle("Borrar")[0];
+  test('should delete item', async () => {
+    const buttonDeleteUserOne = screen.getAllByTitle('Borrar')[0];
 
     // Delete user
     await userEvent.click(buttonDeleteUserOne);
-    expect(sectionUser.children).toHaveLength(3);
+    await waitFor(() => expect(sectionUser.children).toHaveLength(3));
   });
 
-  test("should update check item", async () => {
-    expect(user.querySelector(".check-user").children).toHaveLength(1);
+  test('should update check item', async () => {
+    expect(user.querySelector('.check-user').children).toHaveLength(1);
 
-    const buttonCheckUser = screen.getAllByTitle("Confirmar entrega")[0];
+    const buttonCheckUser = screen.getAllByTitle('Confirmar entrega')[0];
 
     await userEvent.click(buttonCheckUser);
 
-    const timeCheckUser = screen.getByTitle("Fecha de entrega");
-    expect(timeCheckUser).toBeDefined();
-    expect(user.querySelector(".check-user").children).toHaveLength(2);
+    await waitFor(() => expect(screen.getByTitle('Fecha de entrega')).toBeDefined());
+    await waitFor(() => expect(user.querySelector('.check-user').children).toHaveLength(2));
   });
 
-  test("should update description item", async () => {
-    const textoDescrip = "Descripción actualizada";
+  test('should update description item', async () => {
+    const textDescrip = 'Descripción actualizada';
 
-    const buttonWrapperUser = screen.getAllByTitle("Abrir pestaña")[0];
+    const buttonWrapperUser = screen.getAllByTitle('Abrir pestaña')[0];
 
     await userEvent.click(buttonWrapperUser);
 
-    const textareaUser = screen.getAllByPlaceholderText(
-      "Escribe una descripción del usuario en relación a su registro o entrega del carnet...",
-    )[0];
+    const textareaUser = screen.getAllByPlaceholderText('Escribe una descripción del usuario en relación a su registro o entrega del carnet...')[0];
 
-    const buttonDescripUser = screen.getAllByTitle("Enviar descripción")[0];
+    const buttonDescripUser = screen.getAllByTitle('Enviar descripción')[0];
 
-    await userEvent.type(textareaUser, textoDescrip);
+    await userEvent.type(textareaUser, textDescrip);
 
     await userEvent.click(buttonDescripUser);
 
-    const descripUser = screen.getByText("Descripción actualizada");
-    expect(descripUser).toBeDefined();
-    expect(user.querySelector(".descrip-wrapper").children).toHaveLength(2);
+    await waitFor(() => expect(screen.getByText('Descripción actualizada')).toBeDefined());
+    await waitFor(() => expect(user.querySelector('.descrip-wrapper').children).toHaveLength(2));
   });
 });

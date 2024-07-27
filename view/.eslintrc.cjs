@@ -20,5 +20,11 @@ module.exports = {
     sourceType: 'module'
   },
   plugins: ['react'],
-  rules: {}
+  rules: {},
+  ignorePatterns: ['.eslintrc.cjs', 'dist', 'node_modules', 'coverage'],
+  settings: {
+    react: {
+      version: 'detect'
+    }
+  }
 };

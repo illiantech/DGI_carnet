@@ -37,8 +37,20 @@ export default defineConfig({
       }
     })
   ],
+
+  build: {
+    sourcemap: true
+  },
   test: {
-    environment: 'happy-dom'
+    globals: true,
+    environment: 'happy-dom',
+    coverage: {
+      all: true,
+      provider: 'v8',
+      reporter: ['text', 'json', 'html'],
+      exclude: ['node_modules/'],
+      include: ['src/**/*.jsx', 'src/**/*.js']
+    }
   },
   base: '/DGI_carnet/'
 });

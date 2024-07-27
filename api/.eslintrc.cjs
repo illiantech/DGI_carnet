@@ -32,5 +32,5 @@ module.exports = {
       }
     ]
   },
-  ignorePatterns: ['.eslintrc.cjs']
+  ignorePatterns: ['.eslintrc.cjs', 'build', 'node_modules', '.env']
 };

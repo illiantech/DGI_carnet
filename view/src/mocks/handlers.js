@@ -1,84 +1,77 @@
-import { http, HttpResponse } from "msw";
+import { http, HttpResponse } from 'msw';
 
-import { rootServer } from "../resources/consts";
+import { rootServer } from '../resources/consts';
 
 const usersMock = [
   {
-    cedula: "27238110",
-    Nombre: "AdAra PimEntel",
-    Dependencia: "SIBCI GUÁRICO",
-    Cargo: "OPERADOR MASTER",
-    id: 134,
-    fecha: "2023-10-03T00:00:00.000Z",
-    entregado: false,
-    descripcion: null,
-    fecha_entregado: "2023-10-03T16:33:33.372Z",
-    estado: 0,
+    ci: '27238110',
+    name: 'AdAra PimEntel',
+    dependence: 'SIBCI GUÁRICO',
+    position: 'OPERADOR MASTER',
+    _id: 134,
+    date: '2023-10-03T00:00:00.000Z',
+    delivered: false,
+    description: null,
+    deliveredDate: '2023-10-03T16:33:33.372Z'
   },
   {
-    cedula: "28262778",
-    Nombre: "AdAra roDriguez",
-    Dependencia: "servicios frio",
-    Cargo: "mecanico",
-    id: 135,
-    fecha: "2023-11-03T00:00:00.000Z",
-    entregado: false,
-    descripcion: null,
-    fecha_entregado: "2023-11-05T16:33:33.372Z",
-    estado: 0,
+    ci: '28262778',
+    name: 'AdAra roDriguez',
+    dependence: 'servicios frio',
+    position: 'mecanico',
+    _id: 135,
+    date: '2023-11-03T00:00:00.000Z',
+    delivered: false,
+    description: null,
+    deliveredDate: '2023-11-05T16:33:33.372Z'
   },
   {
-    cedula: "2438110",
-    Nombre: "AdAra castillo",
-    Dependencia: "Observer query",
-    Cargo: "OPEdsdsRADOR MASTER",
-    id: 136,
-    fecha: "2023-10-03T00:00:00.000Z",
-    entregado: false,
-    descripcion: null,
-    fecha_entregado: "2023-10-03T16:33:33.372Z",
-    estado: 0,
+    ci: '2438110',
+    name: 'AdAra castillo',
+    dependence: 'Observer query',
+    position: 'OPEdsdsRADOR MASTER',
+    _id: 136,
+    date: '2023-10-03T00:00:00.000Z',
+    delivered: false,
+    description: null,
+    deliveredDate: '2023-10-03T16:33:33.372Z'
   },
   {
-    cedula: "67262778",
-    Nombre: "AdAra perez",
-    Dependencia: "Observer query",
-    Cargo: "mecaniereco",
-    id: 137,
-    fecha: "2023-11-03T00:00:00.000Z",
-    entregado: false,
-    descripcion: null,
-    fecha_entregado: "2023-11-05T16:33:33.372Z",
-    estado: 0,
-  },
+    ci: '67262778',
+    name: 'AdAra perez',
+    dependence: 'Observer query',
+    position: 'mecaniereco',
+    _id: 137,
+    date: '2023-11-03T00:00:00.000Z',
+    delivered: false,
+    description: null,
+    deliveredDate: '2023-11-05T16:33:33.372Z'
+  }
 ];
 
 // const allPosts = new Map();
 
 export const handlers = [
-  http.get(`${rootServer}/historial`, ({ request }) => {
+  http.get(`${rootServer}/users`, ({ request }) => {
     const url = new URL(request.url);
 
     // Intersection Observer
-    const userViews = Number(url.searchParams.get("userViews"));
+    const userCount = +url.searchParams.get('userCount');
 
     let resUsers;
-    if (userViews === 0) resUsers = usersMock.filter((_, index) => index < 2);
+    if (userCount === 0) resUsers = usersMock.filter((_, index) => index < 2);
     else resUsers = usersMock.filter((_, index) => index >= 2);
 
     return HttpResponse.json([resUsers, 4]);
   }),
-  http.delete(`${rootServer}/eliminados/:id`, ({ params }) => {
+  http.delete(`${rootServer}/users/:id`, ({ params }) => {
     const { id } = params;
-    const res = usersMock.find((item) => item.id === Number(id));
-    return HttpResponse.json({ ...res, message: "ELEMENTO ELIMINADO EN MOCK" });
+    const res = usersMock.find((item) => item._id === +id);
+    return HttpResponse.json({ ...res, message: 'ELEMENTO ELIMINADO EN MOCK' });
   }),
-  http.put(`${rootServer}/entregados/:id`, () => {
-    return HttpResponse.json({ fecha_entregado: "2023-11-05T16:33:33.372Z" });
-  }),
-  http.put(`${rootServer}/descripciones/:id`, ({ params }) => {
+  http.patch(`${rootServer}/users/:id`, ({ params }) => {
     const { id } = params;
-
-    return HttpResponse.json({ id, message: "Descripción actualizada" });
-  }),
+    const res = usersMock.find((item) => item._id === +id);
+    return HttpResponse.json({ ...res });
+  })
 ];

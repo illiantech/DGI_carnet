@@ -51,8 +51,9 @@ function App() {
         </section>
         <div className={classDeleteAlert}>Removido exitosamente</div>
         <section aria-label="Registro de usuarios" role="list" ref={refContainerUsers}>
-          {users ? (
+          {users !== undefined ? (
             users.map((user) => {
+           
               return (
                 <User {...user} key={user.id}>
                   <DeleteUser

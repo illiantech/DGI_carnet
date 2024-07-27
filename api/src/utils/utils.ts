@@ -10,7 +10,7 @@ const dateMaxFormatted = (date: string): Date => {
 export const regexParams = {
   number: /^\d+$/,
   delivered: /^true$/,
-  date: /^\d{4}-\d{2}(-\d{2})?$/
+  date: /^\d{4}-\d{2}$/
 };
 
 export const objFilterRequest = ({ ci, name, delivered, date }: UserParams): ObjFilterRequest => {

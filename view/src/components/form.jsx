@@ -31,12 +31,19 @@ export function Form({ controlQueryUsers, submit, refSearch, userViews }) {
         className="form-container">
         <label title="Escribir cedula">
           Cédula:
-          <input onChange={changeInput} className="form-container--input" min={1} placeholder="21543876" type="number" name="ciForm" />
+          <input onChange={changeInput} className="form-container--input" min={1} placeholder="20500850" type="number" name="ciForm" />
         </label>
 
         <label title="Escribir nombre">
           Nombre:
-          <input onChange={changeInput} className="form-container--input" maxLength={24} placeholder="Daniel" type="search" name="nameForm" />
+          <input
+            onChange={changeInput}
+            className="form-container--input"
+            maxLength={24}
+            placeholder="Daniel Pimentel"
+            type="search"
+            name="nameForm"
+          />
         </label>
 
         <label title="Agregar fecha">

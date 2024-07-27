@@ -28,23 +28,3 @@ const userSchema = new Schema<UserType>({
 });
 
 export const User = model('User', userSchema);
-
-// const user = new User({
-//   name: 'sdsds',
-//   ci: 34343,
-//   date: new Date('2024-05'),
-//   deliveredDate: new Date('2024-06'),
-//   delivered: false,
-
-//   position: 'sdsdasd',
-//   dependence: 'sadasda'
-// });
-
-// user
-//   .save()
-//   .then((res) => {
-//     console.log(res);
-//   })
-//   .catch((err) => {
-//     console.log(`error conexion ${err}`);
-//   });

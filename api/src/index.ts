@@ -6,10 +6,6 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-// .env sensitive info
-// mongoDB atlas
-// despliegue
-
 const app = express();
 const port = process.env.PORT ?? 3001;
 
