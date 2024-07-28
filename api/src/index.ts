@@ -15,6 +15,7 @@ app.disable('x-powered-by');
 
 app.use('/users', usersRouter);
 
+// eslint-disable-next-line @typescript-eslint/no-misused-promises
 app.use(mid.notFound);
 
 app.use(mid.errorServer);

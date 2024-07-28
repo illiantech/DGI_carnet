@@ -1,8 +1,9 @@
-/* eslint-disable react/prop-types */
+
 import React from "react";
 import { useDescrip } from "../../hooks/userDescrip";
 import { EditIcon, CloudUploadIcon } from "../icons";
 
+// eslint-disable-next-line react/prop-types
 export function DescripWrapperUser({ description, id }) {
   const {
     refTextareaDescrip,

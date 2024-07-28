@@ -1,8 +1,9 @@
-/* eslint-disable react/prop-types */
+
 import React, { useState } from "react";
 import { ButtonWrapperUser } from "./buttonWrapperUser";
 import { userTextFormatted } from "../../resources/mapping";
 
+// eslint-disable-next-line react/prop-types
 export function WrapperUser({ position, dependence, children }) {
   const [viewWrapper, setViewWrapper] = useState(false);
 

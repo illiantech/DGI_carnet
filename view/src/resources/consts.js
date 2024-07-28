@@ -1,5 +1,4 @@
-// export const rootServer = "https://historial-carnets.guarico.gob.ve";
-export const rootServer = 'http://localhost:3000';
+export const rootServer = import.meta.env.VITE_ROOT_API ?? 'http://localhost:3001';
 
 export const regInput = {
   ci: /^\d{5,10}$/,

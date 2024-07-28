@@ -53,7 +53,6 @@ function App() {
         <section aria-label="Registro de usuarios" role="list" ref={refContainerUsers}>
           {users !== undefined ? (
             users.map((user) => {
-           
               return (
                 <User {...user} key={user.id}>
                   <DeleteUser

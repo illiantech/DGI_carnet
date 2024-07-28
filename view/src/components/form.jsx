@@ -1,8 +1,9 @@
-/* eslint-disable react/prop-types */
+
 import React, { useState } from 'react';
 import { useForm } from '../hooks/useForm';
 import { regInput } from '../resources/consts';
 
+// eslint-disable-next-line react/prop-types
 export function Form({ controlQueryUsers, submit, refSearch, userViews }) {
   const [emptyFields, setEmptyFields] = useState(false);
   const { createHandleSubmit } = useForm();

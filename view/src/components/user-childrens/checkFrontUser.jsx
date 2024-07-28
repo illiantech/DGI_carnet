@@ -1,8 +1,9 @@
-/* eslint-disable react/prop-types */
+
 import React from 'react';
 import { deliveredDateFormatted } from '../../resources/mapping';
 import { useCheck } from '../../hooks/userCheck';
 
+// eslint-disable-next-line react/prop-types
 export function CheckUser({ delivered, deliveredDate, id }) {
   const { check, loadCheck, deliDate, setLoadCheck } = useCheck({
     delivered,
