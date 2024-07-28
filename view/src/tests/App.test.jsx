@@ -3,7 +3,7 @@ import { describe, test, expect, beforeAll, afterEach, afterAll, beforeEach } fr
 import { screen, render, cleanup, waitFor } from '@testing-library/react';
 import { server } from './mocks/node';
 import userEvent from '@testing-library/user-event';
-import App from './App';
+import App from '../App';
 import 'intersection-observer';
 
 describe('<App/> E2E (should search items) ', () => {

@@ -1,6 +1,6 @@
 import { http, HttpResponse } from 'msw';
 
-import { rootServer } from '../resources/consts';
+import { rootServer } from '../../resources/consts';
 
 const usersMock = [
   {

@@ -1,9 +1,9 @@
 import React from 'react';
 import { describe, test, expect, beforeAll, afterEach, afterAll, beforeEach, vi } from 'vitest';
 import { render, cleanup } from '@testing-library/react';
-import { server } from '../mocks/node';
+import { server } from './mocks/node';
 import userEvent from '@testing-library/user-event';
-import { Form } from './form';
+import { Form } from '../components/form';
 import 'intersection-observer';
 
 describe('<Form/> Unit Test ', () => {

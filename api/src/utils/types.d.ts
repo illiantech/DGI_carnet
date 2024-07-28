@@ -1,5 +1,6 @@
 import { type DependenceKeys, type PositionKeys } from './enums';
 import { type Document } from 'mongoose';
+import { type NextFunction, type ErrorRequestHandler, type Request, type Response } from 'express';
 
 type Position =
   | PositionKeys.enginer
@@ -42,3 +43,7 @@ export interface ObjFilterRequest extends PartialUserType {
   };
   name?: RegExp;
 }
+
+export type Controllers = (req: Request, res: Response, next: NextFunction) => Promise<Response>;
+
+export type ControllersError = (err: ErrorRequestHandler, _req: Request, res: Response) => Response;

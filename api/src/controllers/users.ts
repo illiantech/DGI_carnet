@@ -1,9 +1,10 @@
 import { regexParams } from '../utils/utils';
 import * as UserModel from '../models/users';
 import { schemaPatchCheck, schemaPatchDescrip, userSchemaGetFilter } from '../utils/schemas';
+import { type Controllers } from '../utils/types';
 import { type NextFunction, type Request, type Response } from 'express';
 
-export const getFilter = async (req: Request, res: Response, next: NextFunction): Promise<Response> => {
+export const getFilter: Controllers = async (req, res, next) => {
   const { ci, name, date, delivered, userCount } = req.query;
 
   const filterParams = {
@@ -28,7 +29,7 @@ export const getFilter = async (req: Request, res: Response, next: NextFunction)
 };
 
 // eslint-disable-next-line @typescript-eslint/no-invalid-void-type
-export const patchDelivered = async (req: Request, res: Response, next: NextFunction): Promise<Response | void> => {
+export const patchDelivered = async (req: Request, res: Response, next: NextFunction): Promise<void | Response> => {
   const { id } = req.params;
 
   const { data } = req.body;
@@ -44,7 +45,7 @@ export const patchDelivered = async (req: Request, res: Response, next: NextFunc
   next();
 };
 
-export const patchDescription = async (req: Request, res: Response, next: NextFunction): Promise<Response> => {
+export const patchDescription: Controllers = async (req, res, next) => {
   const { id } = req.params;
 
   const { data } = req.body;
@@ -60,7 +61,7 @@ export const patchDescription = async (req: Request, res: Response, next: NextFu
   return res.status(406).send({ error: 'PATCH invalid type' });
 };
 
-export const deleteId = async (req: Request, res: Response, next: NextFunction): Promise<Response> => {
+export const deleteId: Controllers = async (req, res, next) => {
   const { id } = req.params;
 
   const result = await UserModel.deleteId({ id }).catch(next);
