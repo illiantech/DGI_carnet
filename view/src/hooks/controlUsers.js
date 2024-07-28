@@ -33,7 +33,7 @@ export function useUsers({ refSearch, setSubmit }) {
         setUsers(mapData(data[0]));
         setCountUsers(data[1]);
       } else {
-        setUsers(undefined);
+        setUsers(false);
         setCountUsers(0);
       }
     } catch (err) {

@@ -1,4 +1,4 @@
-export const rootServer = import.meta.env.VITE_ROOT_API ?? 'http://localhost:3001';
+export const rootServer = import.meta.env.VITE_ROOT_API ?? 'http://localhost:3000';
 
 export const regInput = {
   ci: /^\d{5,10}$/,

@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react';
 import { ErrorConnect, mapData } from '../resources/mapping';
 import { getUsers } from './controlUsers';
 
-export function useLazyUser({ setUsers, setVisibleUser, visibleUser, refSearch }) {
+export function useLazyUser({ setUsers, setVisibleUser, visibleUser, refSearch, refContainerUsers }) {
   const userViews = useRef(0);
 
   useEffect(() => {
@@ -21,7 +21,7 @@ export function useLazyUser({ setUsers, setVisibleUser, visibleUser, refSearch }
     };
 
     if (visibleUser) {
-      userViews.current += 5;
+      userViews.current = refContainerUsers.current.children.length;
 
       queryUsersOberver();
     }

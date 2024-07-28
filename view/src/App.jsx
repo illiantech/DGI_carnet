@@ -15,18 +15,21 @@ function App() {
   const [submit, setSubmit] = useState(false);
   const refTimeoutDeleteAlert = useRef();
   const refSearch = useRef();
+  const refContainerUsers = useRef();
 
   const { controlQueryUsers, users, setUsers, countUsers, setCountUsers } = useUsers({ refSearch, setSubmit });
 
-  const { visibleUser, noMoreUser, refContainerUsers, setVisibleUser } = useObserverUser({ users, countUsers }, { threshold: 0 });
+  const { visibleUser, noMoreUser, setVisibleUser } = useObserverUser({ users, countUsers, refContainerUsers }, { threshold: 0 });
 
   const { userViews } = useLazyUser({
     setVisibleUser,
     visibleUser,
     setUsers,
-    refSearch
+    refSearch,
+    refContainerUsers
   });
 
+  // evitar falsheo al scrollear mientras eliminas y llegas al tope
   useSEO({ title: `${countUsers > 0 ? `[${countUsers}] ` : ''}DGI Carnets` });
 
   const classDeleteAlert = deleteAlert ? 'delete-alert delete-alert__active' : 'delete-alert';
@@ -51,7 +54,7 @@ function App() {
         </section>
         <div className={classDeleteAlert}>Removido exitosamente</div>
         <section aria-label="Registro de usuarios" role="list" ref={refContainerUsers}>
-          {users !== undefined ? (
+          {users ? (
             users.map((user) => {
               return (
                 <User {...user} key={user.id}>

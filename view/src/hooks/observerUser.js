@@ -1,9 +1,8 @@
-import { useState, useEffect, useCallback, useRef } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 
-export function useObserverUser({ users, countUsers }, options) {
+export function useObserverUser({ users, countUsers, refContainerUsers }, options) {
   const [visibleUser, setVisibleUser] = useState(false);
   const [noMoreUser, setNoMoreUser] = useState(false);
-  const refContainerUsers = useRef();
 
   const observer = useCallback(
     new IntersectionObserver((entries) => {
@@ -17,9 +16,9 @@ export function useObserverUser({ users, countUsers }, options) {
   );
 
   useEffect(() => {
-    if (users.length < countUsers && users.length > 0) observer.observe(refContainerUsers.current.lastElementChild);
+    if (users?.length < countUsers && users?.length > 0) observer.observe(refContainerUsers.current.lastElementChild);
 
-    if (users.length === countUsers && countUsers > 0) setNoMoreUser(true);
+    if (users?.length === countUsers && countUsers > 0) setNoMoreUser(true);
 
     return () => {
       setNoMoreUser(false);
@@ -27,5 +26,5 @@ export function useObserverUser({ users, countUsers }, options) {
     };
   }, [users]);
 
-  return { visibleUser, noMoreUser, refContainerUsers, setVisibleUser };
+  return { visibleUser, noMoreUser, setVisibleUser };
 }
