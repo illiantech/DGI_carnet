@@ -11,7 +11,7 @@
     "format": "prettier --write .",
     "test": "vitest",
     "coverage": "vitest run --coverage",
-    "deploy": "vite build & gh-pages -d dist"
+    "deploy": "vite build && gh-pages -d dist"
   },
   "dependencies": {
     "gh-pages": "^6.1.1",
