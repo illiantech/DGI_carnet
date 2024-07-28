@@ -1,0 +1,1002 @@
+[
+   {
+      "name": "daniel Johnson",
+      "date": {
+         "$date": "2024-05-20T00:00:00.000Z"
+      },
+      "ci": 27334792,
+      "position": "Ingeniero/a",
+      "dependence": "Dirección general de informática",
+      "delivered": false
+   },
+   {
+      "name": "danielob Smith",
+      "date": {
+         "$date": "2024-05-20T00:00:00.000Z"
+      },
+      "ci": 21461318,
+      "position": "Contador/a",
+      "dependence": "Medios de comunicación y prensa",
+      "delivered": false
+   },
+   {
+      "name": "Charlie Brown",
+      "date": {
+         "$date": "2024-05-20T00:00:00.000Z"
+      },
+      "ci": 20381354,
+      "position": "Secretario/a",
+      "dependence": "Secretaria de obras públicas",
+      "delivered": false
+   },
+   {
+      "name": "Diana Prince",
+      "date": {
+         "$date": "2024-05-20T00:00:00.000Z"
+      },
+      "ci": 28891145,
+      "position": "Diseñador/a web",
+      "dependence": "Protección civil",
+      "delivered": false
+   },
+   {
+      "name": "Edward Green",
+      "date": {
+         "$date": "2024-05-20T00:00:00.000Z"
+      },
+      "ci": 24291163,
+      "position": "Soporte tecnico",
+      "dependence": "Secretaria de transporte",
+      "delivered": false
+   },
+   {
+      "name": "danieliona Blue",
+      "date": {
+         "$date": "2024-05-20T00:00:00.000Z"
+      },
+      "ci": 23431619,
+      "position": "Publicista",
+      "dependence": "Dirección general de informática",
+      "delivered": false
+   },
+   {
+      "name": "danieleorge Black",
+      "date": {
+         "$date": "2024-05-20T00:00:00.000Z"
+      },
+      "ci": 221041278,
+      "position": "Ingeniero/a",
+      "dependence": "Medios de comunicación y prensa",
+      "delivered": false
+   },
+   {
+      "name": "danielannah White",
+      "date": {
+         "$date": "2024-05-20T00:00:00.000Z"
+      },
+      "ci": 22610256,
+      "position": "Contador/a",
+      "dependence": "Secretaria de obras públicas",
+      "delivered": false
+   },
+   {
+      "name": "Isaac Red",
+      "date": {
+         "$date": "2024-05-20T00:00:00.000Z"
+      },
+      "ci": 23834121,
+      "position": "Secretario/a",
+      "dependence": "Protección civil",
+      "delivered": false
+   },
+   {
+      "name": "danielack Orange",
+      "date": {
+         "$date": "2024-05-20T00:00:00.000Z"
+      },
+      "ci": 26562224,
+      "position": "Diseñador/a web",
+      "dependence": "Secretaria de transporte",
+      "delivered": false
+   },
+   {
+      "name": "Karen Purple",
+      "date": {
+         "$date": "2024-05-20T00:00:00.000Z"
+      },
+      "ci": 24903888,
+      "position": "Soporte tecnico",
+      "dependence": "Dirección general de informática",
+      "delivered": false
+   },
+   {
+      "name": "danielarry Gray",
+      "date": {
+         "$date": "2024-05-20T00:00:00.000Z"
+      },
+      "ci": 20321178,
+      "position": "Publicista",
+      "dependence": "Medios de comunicación y prensa",
+      "delivered": false
+   },
+   {
+      "name": "Megan Brown",
+      "date": {
+         "$date": "2024-05-20T00:00:00.000Z"
+      },
+      "ci": 21264182,
+      "position": "Ingeniero/a",
+      "dependence": "Secretaria de obras públicas",
+      "delivered": false
+   },
+   {
+      "name": "Nathan Green",
+      "date": {
+         "$date": "2024-05-20T00:00:00.000Z"
+      },
+      "ci": 23810620,
+      "position": "Contador/a",
+      "dependence": "Protección civil",
+      "delivered": false
+   },
+   {
+      "name": "Olivia Black",
+      "date": {
+         "$date": "2024-05-20T00:00:00.000Z"
+      },
+      "ci": 22190748,
+      "position": "Secretario/a",
+      "dependence": "Secretaria de transporte",
+      "delivered": false
+   },
+   {
+      "name": "Paul White",
+      "date": {
+         "$date": "2024-05-20T00:00:00.000Z"
+      },
+      "ci": 22761765,
+      "position": "Diseñador/a web",
+      "dependence": "Dirección general de informática",
+      "delivered": false
+   },
+   {
+      "name": "danielane Smith",
+      "date": {
+         "$date": "2024-05-20T00:00:00.000Z"
+      },
+      "ci": 23298306,
+      "position": "Ingeniero/a",
+      "dependence": "Dirección general de informática",
+      "delivered": false
+   },
+   {
+      "name": "danielohn Doe",
+      "date": {
+         "$date": "2024-05-20T00:00:00.000Z"
+      },
+      "ci": 20132441,
+      "position": "Contador/a",
+      "dependence": "Medios de comunicación y prensa",
+      "delivered": false
+   },
+   {
+      "name": "Emily Johnson",
+      "date": {
+         "$date": "2024-05-20T00:00:00.000Z"
+      },
+      "ci": 27922847,
+      "position": "Secretario/a",
+      "dependence": "Secretaria de obras públicas",
+      "delivered": false
+   },
+   {
+      "name": "Michael Brown",
+      "date": {
+         "$date": "2024-05-20T00:00:00.000Z"
+      },
+      "ci": 281037726,
+      "position": "Diseñador/a web",
+      "dependence": "Protección civil",
+      "delivered": false
+   },
+   {
+      "name": "danielaura White",
+      "date": {
+         "$date": "2024-05-20T00:00:00.000Z"
+      },
+      "ci": 24494971,
+      "position": "Soporte tecnico",
+      "dependence": "Secretaria de transporte",
+      "delivered": false
+   },
+   {
+      "name": "David Green",
+      "date": {
+         "$date": "2024-05-20T00:00:00.000Z"
+      },
+      "ci": 221471058,
+      "position": "Publicista",
+      "dependence": "Dirección general de informática",
+      "delivered": false
+   },
+   {
+      "name": "Sarah Black",
+      "date": {
+         "$date": "2024-05-20T00:00:00.000Z"
+      },
+      "ci": 2510231054,
+      "position": "Ingeniero/a",
+      "dependence": "Medios de comunicación y prensa",
+      "delivered": false
+   },
+   {
+      "name": "William Blue",
+      "date": {
+         "$date": "2024-05-20T00:00:00.000Z"
+      },
+      "ci": 28867396,
+      "position": "Contador/a",
+      "dependence": "Secretaria de obras públicas",
+      "delivered": false
+   },
+   {
+      "name": "danielames Brown",
+      "date": {
+         "$date": "2024-05-20T00:00:00.000Z"
+      },
+      "ci": 23942552,
+      "position": "Secretario/a",
+      "dependence": "Protección civil",
+      "delivered": false
+   },
+   {
+      "name": "Patricia Yellow",
+      "date": {
+         "$date": "2024-01-20T00:00:00.000Z"
+      },
+      "ci": 20555585,
+      "position": "Diseñador/a web",
+      "dependence": "Secretaria de transporte",
+      "delivered": false
+   },
+   {
+      "name": "daniellice Johnson",
+      "date": {
+         "$date": "2024-02-20T00:00:00.000Z"
+      },
+      "ci": 271040454,
+      "position": "Ingeniero/a",
+      "dependence": "Dirección general de informática",
+      "delivered": false
+   },
+   {
+      "name": "danielob Smith",
+      "date": {
+         "$date": "2024-05-20T00:00:00.000Z"
+      },
+      "ci": 23298503,
+      "position": "Contador/a",
+      "dependence": "Medios de comunicación y prensa",
+      "delivered": false
+   },
+   {
+      "name": "Charlie Brown",
+      "date": {
+         "$date": "2024-05-20T00:00:00.000Z"
+      },
+      "ci": 21774712,
+      "position": "Secretario/a",
+      "dependence": "Secretaria de obras públicas",
+      "delivered": false
+   },
+   {
+      "name": "Diana Prince",
+      "date": {
+         "$date": "2024-05-20T00:00:00.000Z"
+      },
+      "ci": 25268743,
+      "position": "Diseñador/a web",
+      "dependence": "Protección civil",
+      "delivered": false
+   },
+   {
+      "name": "Edward Green",
+      "date": {
+         "$date": "2024-05-20T00:00:00.000Z"
+      },
+      "ci": 221017480,
+      "position": "Soporte tecnico",
+      "dependence": "Secretaria de transporte",
+      "delivered": false
+   },
+   {
+      "name": "danieliona Blue",
+      "date": {
+         "$date": "2024-05-20T00:00:00.000Z"
+      },
+      "ci": 25910958,
+      "position": "Publicista",
+      "dependence": "Dirección general de informática",
+      "delivered": false
+   },
+   {
+      "name": "danieleorge Black",
+      "date": {
+         "$date": "2024-05-20T00:00:00.000Z"
+      },
+      "ci": 2110161019,
+      "position": "Ingeniero/a",
+      "dependence": "Medios de comunicación y prensa",
+      "delivered": false
+   },
+   {
+      "name": "danielannah White",
+      "date": {
+         "$date": "2024-05-20T00:00:00.000Z"
+      },
+      "ci": 277661083,
+      "position": "Contador/a",
+      "dependence": "Secretaria de obras públicas",
+      "delivered": false
+   },
+   {
+      "name": "Isaac Red",
+      "date": {
+         "$date": "2024-05-20T00:00:00.000Z"
+      },
+      "ci": 28248315,
+      "position": "Secretario/a",
+      "dependence": "Protección civil",
+      "delivered": false
+   },
+   {
+      "name": "danielack Orange",
+      "date": {
+         "$date": "2024-05-20T00:00:00.000Z"
+      },
+      "ci": 22743519,
+      "position": "Diseñador/a web",
+      "dependence": "Secretaria de transporte",
+      "delivered": false
+   },
+   {
+      "name": "Karen Purple",
+      "date": {
+         "$date": "2024-05-20T00:00:00.000Z"
+      },
+      "ci": 28714699,
+      "position": "Soporte tecnico",
+      "dependence": "Dirección general de informática",
+      "delivered": false
+   },
+   {
+      "name": "danielarry Gray",
+      "date": {
+         "$date": "2024-01-20T00:00:00.000Z"
+      },
+      "ci": 27251125,
+      "position": "Publicista",
+      "dependence": "Medios de comunicación y prensa",
+      "delivered": false
+   },
+   {
+      "name": "Megan Brown",
+      "date": {
+         "$date": "2024-02-20T00:00:00.000Z"
+      },
+      "ci": 26804572,
+      "position": "Ingeniero/a",
+      "dependence": "Secretaria de obras públicas",
+      "delivered": false
+   },
+   {
+      "name": "Nathan Green",
+      "date": {
+         "$date": "2024-05-20T00:00:00.000Z"
+      },
+      "ci": 288251039,
+      "position": "Contador/a",
+      "dependence": "Protección civil",
+      "delivered": false
+   },
+   {
+      "name": "Olivia Black",
+      "date": {
+         "$date": "2024-05-20T00:00:00.000Z"
+      },
+      "ci": 241094402,
+      "position": "Secretario/a",
+      "dependence": "Secretaria de transporte",
+      "delivered": false
+   },
+   {
+      "name": "Paul White",
+      "date": {
+         "$date": "2024-05-20T00:00:00.000Z"
+      },
+      "ci": 22488801,
+      "position": "Diseñador/a web",
+      "dependence": "Dirección general de informática",
+      "delivered": false
+   },
+   {
+      "name": "Quincy Blue",
+      "date": {
+         "$date": "2024-05-20T00:00:00.000Z"
+      },
+      "ci": 23675312,
+      "position": "Soporte tecnico",
+      "dependence": "Medios de comunicación y prensa",
+      "delivered": false
+   },
+   {
+      "name": "Rachel Green",
+      "date": {
+         "$date": "2024-05-20T00:00:00.000Z"
+      },
+      "ci": 22136244,
+      "position": "Publicista",
+      "dependence": "Secretaria de obras públicas",
+      "delivered": false
+   },
+   {
+      "name": "Steve Brown",
+      "date": {
+         "$date": "2024-05-20T00:00:00.000Z"
+      },
+      "ci": 281085302,
+      "position": "Ingeniero/a",
+      "dependence": "Protección civil",
+      "delivered": false
+   },
+   {
+      "name": "Tom Blue",
+      "date": {
+         "$date": "2024-05-20T00:00:00.000Z"
+      },
+      "ci": 27274527,
+      "position": "Contador/a",
+      "dependence": "Secretaria de transporte",
+      "delivered": false
+   },
+   {
+      "name": "Uma Black",
+      "date": {
+         "$date": "2024-05-20T00:00:00.000Z"
+      },
+      "ci": 26996217,
+      "position": "Secretario/a",
+      "dependence": "Dirección general de informática",
+      "delivered": false
+   },
+   {
+      "name": "Victor Green",
+      "date": {
+         "$date": "2024-05-20T00:00:00.000Z"
+      },
+      "ci": 25459242,
+      "position": "Diseñador/a web",
+      "dependence": "Medios de comunicación y prensa",
+      "delivered": false
+   },
+   {
+      "name": "Wendy White",
+      "date": {
+         "$date": "2024-05-20T00:00:00.000Z"
+      },
+      "ci": 24298459,
+      "position": "Soporte tecnico",
+      "dependence": "Secretaria de obras públicas",
+      "delivered": false
+   },
+   {
+      "name": "Xavier Blue",
+      "date": {
+         "$date": "2024-01-20T00:00:00.000Z"
+      },
+      "ci": 28176871,
+      "position": "Publicista",
+      "dependence": "Protección civil",
+      "delivered": false
+   },
+   {
+      "name": "danielara Brown",
+      "date": {
+         "$date": "2024-02-20T00:00:00.000Z"
+      },
+      "ci": 27603533,
+      "position": "Ingeniero/a",
+      "dependence": "Secretaria de transporte",
+      "delivered": false
+   },
+   {
+      "name": "Zack Green",
+      "date": {
+         "$date": "2024-05-20T00:00:00.000Z"
+      },
+      "ci": 20608127,
+      "position": "Contador/a",
+      "dependence": "Dirección general de informática",
+      "delivered": false
+   },
+   {
+      "name": "danielmy Blue",
+      "date": {
+         "$date": "2024-05-20T00:00:00.000Z"
+      },
+      "ci": 27768757,
+      "position": "Secretario/a",
+      "dependence": "Medios de comunicación y prensa",
+      "delivered": false
+   },
+   {
+      "name": "danielella Johnson",
+      "date": {
+         "$date": "2024-05-20T00:00:00.000Z"
+      },
+      "ci": 251052367,
+      "position": "Contador/a",
+      "dependence": "Protección civil",
+      "delivered": false
+   },
+   {
+      "name": "Carl White",
+      "date": {
+         "$date": "2024-05-20T00:00:00.000Z"
+      },
+      "ci": 25359802,
+      "position": "Diseñador/a web",
+      "dependence": "Dirección general de informática",
+      "delivered": false
+   },
+   {
+      "name": "Dana Black",
+      "date": {
+         "$date": "2024-05-20T00:00:00.000Z"
+      },
+      "ci": 22521767,
+      "position": "Soporte tecnico",
+      "dependence": "Medios de comunicación y prensa",
+      "delivered": false
+   },
+   {
+      "name": "Evan Green",
+      "date": {
+         "$date": "2024-05-20T00:00:00.000Z"
+      },
+      "ci": 22844328,
+      "position": "Publicista",
+      "dependence": "Secretaria de obras públicas",
+      "delivered": false
+   },
+   {
+      "name": "danieliona Red",
+      "date": {
+         "$date": "2024-05-20T00:00:00.000Z"
+      },
+      "ci": 20397626,
+      "position": "Ingeniero/a",
+      "dependence": "Protección civil",
+      "delivered": false
+   },
+   {
+      "name": "danieleorge Blue",
+      "date": {
+         "$date": "2024-05-20T00:00:00.000Z"
+      },
+      "ci": 254461043,
+      "position": "Contador/a",
+      "dependence": "Secretaria de transporte",
+      "delivered": false
+   },
+   {
+      "name": "danielannah Brown",
+      "date": {
+         "$date": "2024-05-20T00:00:00.000Z"
+      },
+      "ci": 24853148,
+      "position": "Diseñador/a web",
+      "dependence": "Dirección general de informática",
+      "delivered": false
+   },
+   {
+      "name": "Ian Green",
+      "date": {
+         "$date": "2024-05-20T00:00:00.000Z"
+      },
+      "ci": 221048666,
+      "position": "Soporte tecnico",
+      "dependence": "Secretaria de obras públicas",
+      "delivered": false
+   },
+   {
+      "name": "danielill White",
+      "date": {
+         "$date": "2024-01-20T00:00:00.000Z"
+      },
+      "ci": 262181077,
+      "position": "Publicista",
+      "dependence": "Protección civil",
+      "delivered": false
+   },
+   {
+      "name": "Kyle Black",
+      "date": {
+         "$date": "2024-02-20T00:00:00.000Z"
+      },
+      "ci": 2110091015,
+      "position": "Ingeniero/a",
+      "dependence": "Secretaria de transporte",
+      "delivered": false
+   },
+   {
+      "name": "danielara Green",
+      "date": {
+         "$date": "2024-05-20T00:00:00.000Z"
+      },
+      "ci": 20918554,
+      "position": "Contador/a",
+      "dependence": "Dirección general de informática",
+      "delivered": false
+   },
+   {
+      "name": "Mona Blue",
+      "date": {
+         "$date": "2024-05-20T00:00:00.000Z"
+      },
+      "ci": 27444821,
+      "position": "Secretario/a",
+      "dependence": "Medios de comunicación y prensa",
+      "delivered": false
+   },
+   {
+      "name": "Nina Johnson",
+      "date": {
+         "$date": "2024-05-20T00:00:00.000Z"
+      },
+      "ci": 21874621,
+      "position": "Contador/a",
+      "dependence": "Protección civil",
+      "delivered": false
+   },
+   {
+      "name": "Owen White",
+      "date": {
+         "$date": "2024-05-20T00:00:00.000Z"
+      },
+      "ci": 27239434,
+      "position": "Diseñador/a web",
+      "dependence": "Dirección general de informática",
+      "delivered": false
+   },
+   {
+      "name": "Pete Black",
+      "date": {
+         "$date": "2024-05-20T00:00:00.000Z"
+      },
+      "ci": 24743628,
+      "position": "Soporte tecnico",
+      "dependence": "Medios de comunicación y prensa",
+      "delivered": false
+   },
+   {
+      "name": "Quincy Green",
+      "date": {
+         "$date": "2024-05-20T00:00:00.000Z"
+      },
+      "ci": 235751015,
+      "position": "Publicista",
+      "dependence": "Secretaria de obras públicas",
+      "delivered": false
+   },
+   {
+      "name": "Rita Red",
+      "date": {
+         "$date": "2024-05-20T00:00:00.000Z"
+      },
+      "ci": 28216163,
+      "position": "Ingeniero/a",
+      "dependence": "Protección civil",
+      "delivered": false
+   },
+   {
+      "name": "Sam Blue",
+      "date": {
+         "$date": "2024-05-20T00:00:00.000Z"
+      },
+      "ci": 23747297,
+      "position": "Contador/a",
+      "dependence": "Secretaria de transporte",
+      "delivered": false
+   },
+   {
+      "name": "Tina Brown",
+      "date": {
+         "$date": "2024-05-20T00:00:00.000Z"
+      },
+      "ci": 201047526,
+      "position": "Diseñador/a web",
+      "dependence": "Dirección general de informática",
+      "delivered": false
+   },
+   {
+      "name": "Uma Green",
+      "date": {
+         "$date": "2024-05-20T00:00:00.000Z"
+      },
+      "ci": 28456990,
+      "position": "Soporte tecnico",
+      "dependence": "Secretaria de obras públicas",
+      "delivered": false
+   },
+   {
+      "name": "Vera White",
+      "date": {
+         "$date": "2024-01-20T00:00:00.000Z"
+      },
+      "ci": 241421096,
+      "position": "Publicista",
+      "dependence": "Protección civil",
+      "delivered": false
+   },
+   {
+      "name": "Will Black",
+      "date": {
+         "$date": "2024-02-20T00:00:00.000Z"
+      },
+      "ci": 27744590,
+      "position": "Ingeniero/a",
+      "dependence": "Secretaria de transporte",
+      "delivered": false
+   },
+   {
+      "name": "Xena Green",
+      "date": {
+         "$date": "2024-05-20T00:00:00.000Z"
+      },
+      "ci": 24350393,
+      "position": "Contador/a",
+      "dependence": "Dirección general de informática",
+      "delivered": false
+   },
+   {
+      "name": "danielara Blue",
+      "date": {
+         "$date": "2024-05-20T00:00:00.000Z"
+      },
+      "ci": 24446267,
+      "position": "Secretario/a",
+      "dependence": "Medios de comunicación y prensa",
+      "delivered": false
+   },
+   {
+      "name": "Zane Johnson",
+      "date": {
+         "$date": "2024-05-20T00:00:00.000Z"
+      },
+      "ci": 21226483,
+      "position": "Contador/a",
+      "dependence": "Protección civil",
+      "delivered": false
+   },
+   {
+      "name": "daniellan White",
+      "date": {
+         "$date": "2024-05-20T00:00:00.000Z"
+      },
+      "ci": 25790187,
+      "position": "Diseñador/a web",
+      "dependence": "Dirección general de informática",
+      "delivered": false
+   },
+   {
+      "name": "danielella Black",
+      "date": {
+         "$date": "2024-05-20T00:00:00.000Z"
+      },
+      "ci": 23236826,
+      "position": "Soporte tecnico",
+      "dependence": "Medios de comunicación y prensa",
+      "delivered": false
+   },
+   {
+      "name": "Cara Green",
+      "date": {
+         "$date": "2024-05-20T00:00:00.000Z"
+      },
+      "ci": 20985143,
+      "position": "Publicista",
+      "dependence": "Secretaria de obras públicas",
+      "delivered": false
+   },
+   {
+      "name": "Drew Red",
+      "date": {
+         "$date": "2024-05-20T00:00:00.000Z"
+      },
+      "ci": 28840391,
+      "position": "Ingeniero/a",
+      "dependence": "Protección civil",
+      "delivered": false
+   },
+   {
+      "name": "Eli Blue",
+      "date": {
+         "$date": "2024-05-20T00:00:00.000Z"
+      },
+      "ci": 23159523,
+      "position": "Contador/a",
+      "dependence": "Secretaria de transporte",
+      "delivered": false
+   },
+   {
+      "name": "danielaye Brown",
+      "date": {
+         "$date": "2024-05-20T00:00:00.000Z"
+      },
+      "ci": 20555535,
+      "position": "Diseñador/a web",
+      "dependence": "Dirección general de informática",
+      "delivered": false
+   },
+   {
+      "name": "danielary Green",
+      "date": {
+         "$date": "2024-05-20T00:00:00.000Z"
+      },
+      "ci": 26533370,
+      "position": "Soporte tecnico",
+      "dependence": "Secretaria de obras públicas",
+      "delivered": false
+   },
+   {
+      "name": "danielolly White",
+      "date": {
+         "$date": "2024-01-20T00:00:00.000Z"
+      },
+      "ci": 23872874,
+      "position": "Publicista",
+      "dependence": "Protección civil",
+      "delivered": false
+   },
+   {
+      "name": "Ivy Black",
+      "date": {
+         "$date": "2024-02-20T00:00:00.000Z"
+      },
+      "ci": 20115719,
+      "position": "Ingeniero/a",
+      "dependence": "Secretaria de transporte",
+      "delivered": false
+   },
+   {
+      "name": "danielack Green",
+      "date": {
+         "$date": "2024-05-20T00:00:00.000Z"
+      },
+      "ci": 261038511,
+      "position": "Contador/a",
+      "dependence": "Dirección general de informática",
+      "delivered": false
+   },
+   {
+      "name": "Kate Blue",
+      "date": {
+         "$date": "2024-05-20T00:00:00.000Z"
+      },
+      "ci": 205191029,
+      "position": "Secretario/a",
+      "dependence": "Medios de comunicación y prensa",
+      "delivered": false
+   },
+   {
+      "name": "danieleo Johnson",
+      "date": {
+         "$date": "2024-05-20T00:00:00.000Z"
+      },
+      "ci": 22790946,
+      "position": "Contador/a",
+      "dependence": "Protección civil",
+      "delivered": false
+   },
+   {
+      "name": "Mona White",
+      "date": {
+         "$date": "2024-05-20T00:00:00.000Z"
+      },
+      "ci": 251611083,
+      "position": "Diseñador/a web",
+      "dependence": "Dirección general de informática",
+      "delivered": false
+   },
+   {
+      "name": "Nora Black",
+      "date": {
+         "$date": "2024-05-20T00:00:00.000Z"
+      },
+      "ci": 21632537,
+      "position": "Soporte tecnico",
+      "dependence": "Medios de comunicación y prensa",
+      "delivered": false
+   },
+   {
+      "name": "Oliver Green",
+      "date": {
+         "$date": "2024-05-20T00:00:00.000Z"
+      },
+      "ci": 25624870,
+      "position": "Publicista",
+      "dependence": "Secretaria de obras públicas",
+      "delivered": false
+   },
+   {
+      "name": "Paula Red",
+      "date": {
+         "$date": "2024-05-20T00:00:00.000Z"
+      },
+      "ci": 217801078,
+      "position": "Ingeniero/a",
+      "dependence": "Protección civil",
+      "delivered": false
+   },
+   {
+      "name": "Quentin Blue",
+      "date": {
+         "$date": "2024-05-20T00:00:00.000Z"
+      },
+      "ci": 27360573,
+      "position": "Contador/a",
+      "dependence": "Secretaria de transporte",
+      "delivered": false
+   },
+   {
+      "name": "Rita White",
+      "date": {
+         "$date": "2024-05-20T00:00:00.000Z"
+      },
+      "ci": 22599253,
+      "position": "Diseñador/a web",
+      "dependence": "Dirección general de informática",
+      "delivered": false
+   },
+   {
+      "name": "Sam Black",
+      "date": {
+         "$date": "2024-05-20T00:00:00.000Z"
+      },
+      "ci": 25226884,
+      "position": "Soporte tecnico",
+      "dependence": "Secretaria de obras públicas",
+      "delivered": false
+   },
+   {
+      "name": "Tina Green",
+      "date": {
+         "$date": "2024-01-20T00:00:00.000Z"
+      },
+      "ci": 28922465,
+      "position": "Publicista",
+      "dependence": "Protección civil",
+      "delivered": false
+   },
+   {
+      "name": "Uma Black",
+      "date": {
+         "$date": "2024-02-20T00:00:00.000Z"
+      },
+      "ci": 20738740,
+      "position": "Ingeniero/a",
+      "dependence": "Secretaria de transporte",
+      "delivered": false
+   },
+   {
+      "name": "Vera Green",
+      "date": {
+         "$date": "2024-05-20T00:00:00.000Z"
+      },
+      "ci": 22413567,
+      "position": "Contador/a",
+      "dependence": "Dirección general de informática",
+      "delivered": false
+   }
+]
