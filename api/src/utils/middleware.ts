@@ -15,7 +15,7 @@ export const errorServer: ControllersError = (err, _req, res) => {
   } else return res.status(500).send({ error: 'Server error' });
 };
 
-const acceptsOrigins = ['http://localhost:5173', 'http://localhost:4173', 'https://illiantech.github.io'];
+const acceptsOrigins = [process.env.ROOT_DEV ?? '', process.env.ROOT_PREV ?? '', 'https://illiantech.github.io'];
 export const corsOptions: CorsOptions = {
   origin: (origin, callback) => {
     if (acceptsOrigins.includes(origin as unknown as string) || origin === undefined) {
