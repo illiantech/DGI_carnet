@@ -1,25 +1,25 @@
-import React, { useState, useRef } from 'react';
-import { Form } from './components/form';
-import { User } from './components/user';
-import { Spinner } from './components/spinner';
-import { DeleteUser } from './components/user-childrens/deleteUser';
-import { BtnBlackMode } from './components/blackMode';
-import { ArrowUpIcon } from './components/icons';
-import { useUsers } from './hooks/controlUsers';
-import { useObserverUser } from './hooks/observerUser';
-import { useLazyUser } from './hooks/lazyUser';
-import { useSEO } from './hooks/useSEO';
+import React, { useState, useRef } from 'react'
+import { Form } from './components/form'
+import { User } from './components/user'
+import { Spinner } from './components/spinner'
+import { DeleteUser } from './components/user-childrens/deleteUser'
+import { BtnBlackMode } from './components/blackMode'
+import { ArrowUpIcon } from './components/icons'
+import { useUsers } from './hooks/controlUsers'
+import { useObserverUser } from './hooks/observerUser'
+import { useLazyUser } from './hooks/lazyUser'
+import { useSEO } from './hooks/useSEO'
 
 function App() {
-  const [deleteAlert, setDeleteAlert] = useState(false);
-  const [submit, setSubmit] = useState(false);
-  const refTimeoutDeleteAlert = useRef();
-  const refSearch = useRef();
-  const refContainerUsers = useRef();
+  const [deleteAlert, setDeleteAlert] = useState(false)
+  const [submit, setSubmit] = useState(false)
+  const refTimeoutDeleteAlert = useRef()
+  const refSearch = useRef()
+  const refContainerUsers = useRef()
 
-  const { controlQueryUsers, users, setUsers, countUsers, setCountUsers } = useUsers({ refSearch, setSubmit });
+  const { controlQueryUsers, users, setUsers, countUsers, setCountUsers } = useUsers({ refSearch, setSubmit })
 
-  const { visibleUser, noMoreUser, setVisibleUser } = useObserverUser({ users, countUsers, refContainerUsers }, { threshold: 0 });
+  const { visibleUser, noMoreUser, setVisibleUser } = useObserverUser({ users, countUsers, refContainerUsers }, { threshold: 0 })
 
   const { userViews } = useLazyUser({
     setVisibleUser,
@@ -27,12 +27,12 @@ function App() {
     setUsers,
     refSearch,
     refContainerUsers
-  });
+  })
 
   // evitar falsheo al scrollear mientras eliminas y llegas al tope
-  useSEO({ title: `${countUsers > 0 ? `[${countUsers}] ` : ''}DGI Carnets` });
+  useSEO({ title: `${countUsers > 0 ? `[${countUsers}] ` : ''}DGI Carnets` })
 
-  const classDeleteAlert = deleteAlert ? 'delete-alert delete-alert__active' : 'delete-alert';
+  const classDeleteAlert = deleteAlert ? 'delete-alert delete-alert__active' : 'delete-alert'
 
   return (
     <>
@@ -67,7 +67,7 @@ function App() {
                     id={user.id}
                   />
                 </User>
-              );
+              )
             })
           ) : (
             <article>
@@ -82,7 +82,7 @@ function App() {
         </a>
       </main>
     </>
-  );
+  )
 }
 
-export default App;
+export default App
